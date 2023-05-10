@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.dao.MemberDAO">
+
+<!-- namespace : 짝꿍(DAO)가 누구??? -->
+
+	<!-- 회원가입 -->
+	<!-- #{변수명}으로 값을 대입해야함. -->
+	<!-- 
+		#{변수명} : 변수에 데이터 타입에 자동맞춤
+			ex) values(#{email})
+				==> values('email@email.com')
+		
+		${변수명} : 단순히 집어넣음.
+			ex) values(#{email})
+				==> values(email@email.com)
+				==> ERROR!
+	 
+	 parameterType : 데이터들을 어디에 담아서 줄거냐?
+	 				SQL문에 바인드변수가 2개 이상인 경우 필수
+	 -->
+	<insert id="join" parameterType="kr.smhrd.entity.Member">
+	insert into MEMBER
+	values(#{email},#{pw},#{tel},#{address})
+	
+	
+	</insert>
+	
+	<!-- select에서는 resultType이 필수다아아아ㅏㅏㅏㅏㅏ -->
+	<select id="login" parameterType="kr.smhrd.entity.Member" resultType="kr.smhrd.entity.Member">
+	select * from MEMBER WHERE email = #{email} AND pw = #{pw}
+	
+	</select>
+	<select id="select" resultType="kr.smhrd.entity.Member">
+	select * from MEMBER WHERE not email = 'admin'
+	</select>
+	
+	<select id="search" resultType="kr.smhrd.entity.Member">
+	select * from MEMBER WHERE  email = #{email}
+	</select>
+	
+	
+	<update id="update" parameterType="kr.smhrd.entity.Member">
+	update MEMBER SET pw = #{pw}, tel = #{tel}, address = #{address} WHERE email=#{email}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+	delete from MEMBER WHERE email=#{email}
+	</delete>
+
+</mapper>
