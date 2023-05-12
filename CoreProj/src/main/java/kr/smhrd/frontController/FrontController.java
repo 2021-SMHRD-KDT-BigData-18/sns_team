@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.GoMainCon;
+import kr.smhrd.controller.GoStartCon;
 
 // 모든 요청을 받을 수 있도록 url-mapping을 *로 지정
 // @WebServlet("*.do") ---> .do로 끝나는 모든 요청
@@ -41,6 +42,7 @@ public class FrontController extends HttpServlet {
 //		mappings.put("/login.do", new LoginCon());
 //		mappings.put("/logout.do", new LogoutCon());
 		mappings.put("/goMain.do", new GoMainCon());
+		mappings.put("/goStart.do", new GoStartCon());
 	}
 	
 	
@@ -96,7 +98,7 @@ public class FrontController extends HttpServlet {
 			if (nextView.contains("redirect:/")) {
 				response.sendRedirect(nextView.split(":/")[1]);
 			} else {
-				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/" + nextView + ".jsp");
+				RequestDispatcher rd = request.getRequestDispatcher(nextView + ".jsp");
 				rd.forward(request, response);
 			}
 
