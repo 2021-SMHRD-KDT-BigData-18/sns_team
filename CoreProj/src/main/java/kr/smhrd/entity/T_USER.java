@@ -18,6 +18,9 @@ public class T_USER {
 		U_JOINDATE = u_JOINDATE;
 		U_TYPE = u_TYPE;
 	}
+	public T_USER() {
+		
+	}
 
 	public String getU_ID() {
 		return U_ID;
