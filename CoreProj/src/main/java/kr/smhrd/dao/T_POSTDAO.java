@@ -23,6 +23,16 @@ public class T_POSTDAO {
 		
 	}
 	
+	public int write(T_POST dto) {
+		
+		SqlSession session = factory.openSession(true);
+		
+		int row = session.insert("write", dto);
+		
+		session.close();
+		
+		return row;
+	}
 	
 	
 }

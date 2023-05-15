@@ -7,6 +7,19 @@
 		order by P_DT desc
 	</select>
 
-
+	<insert id="write" parameterType="kr.smhrd.entity.T_POST">
+		insert into T_POST
+		values(
+			T_POST_SEQ.nextval,
+			#{P_TITLE},
+			#{P_CONTENT},
+			#{P_FILE},
+			sysdate,
+			#{P_VIEWS},
+			#{P_LIKES},
+			#{U_ID}		
+		)
+	</insert>
+	
 
 </mapper>

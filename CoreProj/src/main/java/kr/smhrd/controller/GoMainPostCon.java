@@ -11,7 +11,7 @@ import kr.smhrd.dao.T_POSTDAO;
 import kr.smhrd.entity.T_POST;
 
 
-public class GoMainPost implements Controller {
+public class GoMainPostCon implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
