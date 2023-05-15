@@ -21,5 +21,13 @@ public class T_USERDAO {
 			return false;
 		}
 	}
-
+	
+	public T_USER login(T_USER dto) {
+		SqlSession session = factory.openSession(true);
+		T_USER user = session.selectOne("login", dto);
+		session.close();
+		return user;
+		
+	}
+	
 }

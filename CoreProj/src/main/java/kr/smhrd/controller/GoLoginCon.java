@@ -11,15 +11,9 @@ public class GoLoginCon implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		
-		request.setCharacterEncoding("UTF-8");
-		
-		
-		
-		
-		
-		
-		return nextView;
+		return "login";
 	}
 
 }

@@ -22,6 +22,7 @@ public class T_USER {
 		
 	}
 
+	
 	public String getU_ID() {
 		return U_ID;
 	}

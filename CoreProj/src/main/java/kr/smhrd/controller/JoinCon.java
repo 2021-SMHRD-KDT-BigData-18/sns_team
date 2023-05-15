@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.smhrd.dao.T_USERDAO;
 import kr.smhrd.entity.T_USER;
 
 public class JoinCon implements Controller {
@@ -21,9 +22,14 @@ public class JoinCon implements Controller {
 		String pw = request.getParameter("pw");
 		String nick = request.getParameter("nick");
 		String path = request.getParameter("path");
-		
+
 		T_USER dto = new T_USER();
-		
+
+		T_USERDAO dao = new T_USERDAO();
+
+		boolean isSuccess = dao.join(dto);
+
+		response.getWriter().print(isSuccess);
 
 		return null;
 	}
