@@ -6,13 +6,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class GoMainCon implements Controller {
+public class GoLoginCon implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		return "main";
+		request.setCharacterEncoding("UTF-8");
+		
+		
+		
+		
+		
+		return nextView;
 	}
 
 }
