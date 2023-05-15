@@ -12,7 +12,7 @@ public class GoMainCon implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		return "mainPage";
+		return "mainPageSample";
 	}
 
 }
