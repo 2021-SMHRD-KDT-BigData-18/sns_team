@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.dao.T_USERDAO">
+
+	<insert id="join" parameterType="kr.smhrd.entity.T_USER">
+		insert into T_USER(U_ID,U_PW,U_NICK,U_PROFILE_IMG) VALUES(#{U_ID},#{U_PW},#{U_NICK},#{U_PROFILE_IMG})
+	</insert>
+
 	
 	<select id="login" parameterType="kr.smhrd.entity.T_USER" resultType="kr.smhrd.entity.T_USER">
 		select * from T_USER WHERE U_ID = #{U_ID} AND U_PW = #{U_PW}

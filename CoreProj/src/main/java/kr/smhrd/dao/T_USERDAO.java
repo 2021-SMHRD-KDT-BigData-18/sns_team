@@ -9,9 +9,19 @@ public class T_USERDAO {
 
 	private SqlSessionFactory factory = SqlSessionManager.getSqlSessionFactory();
 
-	public void join(T_USER dto) {
+	public boolean join(T_USER dto) {
 		SqlSession session = factory.openSession(true);
 		
+		int row = session.insert("join",dto);
+		
+		session.close();
+		
+		if(row!=0) {
+			return true;
+		}
+		else {
+			return false;
+		}
 		
 	}
 	
