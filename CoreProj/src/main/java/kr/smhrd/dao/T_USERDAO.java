@@ -33,4 +33,11 @@ public class T_USERDAO {
 		
 	}
 	
+	public T_USER dup_check(String U_ID) {
+		SqlSession session = factory.openSession(true);
+		T_USER user = session.selectOne("search", U_ID);
+		session.close();
+		return user;
+	}
+	
 }

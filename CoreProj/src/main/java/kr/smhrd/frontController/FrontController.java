@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.smhrd.controller.Controller;
+import kr.smhrd.controller.DupIDCheckCon;
 import kr.smhrd.controller.GoLoginCon;
 import kr.smhrd.controller.GoMainCon;
+import kr.smhrd.controller.JoinCon;
 import kr.smhrd.controller.LoginCon;
 
 // 모든 요청을 받을 수 있도록 url-mapping을 *로 지정
@@ -44,7 +46,9 @@ public class FrontController extends HttpServlet {
 //		mappings.put("/logout.do", new LogoutCon());
 		mappings.put("/goLogin.do", new GoLoginCon());
 		mappings.put("/login.do", new LoginCon());
+		mappings.put("/join.do", new JoinCon());
 		mappings.put("/goMain.do", new GoMainCon());
+		mappings.put("/check.do", new DupIDCheckCon());
 	}
 	
 	

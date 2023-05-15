@@ -21,14 +21,23 @@ public class JoinCon implements Controller {
 		String U_ID = request.getParameter("U_ID");
 		String U_PW = request.getParameter("U_PW");
 		String U_NICK = request.getParameter("U_NICK");
-		String U_PROFILE_IMG = request.getParameter("U_PROFILE_IMG");
+		String U_PROFILE_IMG = "ss";//request.getParameter("U_PROFILE_IMG");
 
 		T_USER dto = new T_USER();
+		System.out.println(U_ID);
+		System.out.println(U_PW);
+		System.out.println(U_NICK);
 
 		T_USERDAO dao = new T_USERDAO();
 
+		dto.setU_ID(U_ID);
+		dto.setU_PW(U_PW);
+		dto.setU_NICK(U_NICK);
+		dto.setU_PROFILE_IMG(U_PROFILE_IMG);
+		
 		boolean isSuccess = dao.join(dto);
 
+		System.out.println(isSuccess);
 		response.getWriter().print(isSuccess);
 
 		return null;
