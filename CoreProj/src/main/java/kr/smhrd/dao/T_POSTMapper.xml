@@ -3,8 +3,7 @@
 <mapper namespace="kr.smhrd.dao.T_POSTDAO">
 
 	<select id="list" resultType="kr.smhrd.entity.T_POST" >
-		select * from T_POST, T_TAG
-		order by P_DT desc
+		select * from T_POST order by P_DT desc
 	</select>
 
 	<insert id="write" parameterType="kr.smhrd.entity.T_POST">

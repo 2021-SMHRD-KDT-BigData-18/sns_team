@@ -1,5 +1,7 @@
 select * from T_USER;
 select * from T_FRIEND;
+select * from T_POST;
+select * from T_POST order by P_DT desc;
 
 
 insert into T_FRIEND values(T_FRIEND_SEQ.nextval, 'aa','bb',sysdate);

@@ -26,19 +26,19 @@ public class GoMainPostCon implements Controller {
 
 		// 회원 전체 목록을 json 형식
 		List<T_POST> list = dao.list();
-		request.setAttribute("posts", list);
+//		request.setAttribute("posts", list);
 
 		// Java 객체를 Json으로 변환시키기위한 Gson 라이브러리
 		// 1) Gson 객체 생성
-//		Gson gson = new Gson();
+		Gson gson = new Gson();
 //
 //		// 2) Java Object를 JSON
-//		String json = gson.toJson(list);
+		String json = gson.toJson(list);
 //
-//		System.out.println(json);
+		System.out.println(json);
 //		// json 데이터를 응답하기.
 //		// String json = "{\"key\":\"value\"}";
-//		out.print(json);	
+		out.print(json);	
 		
 		return null;
 	}
