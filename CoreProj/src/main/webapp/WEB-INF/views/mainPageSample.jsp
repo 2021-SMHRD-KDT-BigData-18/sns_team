@@ -126,7 +126,7 @@
                             <a class="nav-link" href="#">마이페이지</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./chatList.html">채팅</a>
+                            <a class="nav-link" href="goChatList.do">채팅</a>
                         </li>
                     </ul>
                     <button id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>

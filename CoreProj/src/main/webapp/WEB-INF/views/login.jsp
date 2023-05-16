@@ -240,7 +240,7 @@
                             "U_NICK": nick
                         },
                         success: function (res) {
-                            if (res == true) {
+                            if (res == "true") {
                                 alert("회원가입에 성공했어요");
                                 window.location.replace('goLogin.do')
                             }
