@@ -1,8 +1,12 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page session="true"%>
+<%@page import="kr.smhrd.entity.T_USER"%>
+<%@page import="kr.smhrd.entity.T_CHATTING" %>
+<%@page import="kr.smhrd.entity.T_FRIEND" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +16,21 @@
  
 <body>
     <!-- 로그인한 상태일 경우와 비로그인 상태일 경우의 chat_id설정 -->
+
+<% 
+T_USER dto = new T_USER();
+dto.setU_ID("ssdf");
+session.setAttribute("user",dto );%>
+
+
+
+<h1>${user.getU_ID()}</h1> 
+
     <c:if test="${(login.id ne '') and !(empty login.id)}">
         <input type="hidden" value='${login.id }' id='chat_id' />
     </c:if>
     <c:if test="${(login.id eq '') or (empty login.id)}">
-        <input type="hidden" value='<%=session.getId().substring(0, 6)%>'
+        <input type="hidden" value='<%=session.getId().substring(0, 6) %>'
             id='chat_id' />
     </c:if>
     <!--     채팅창 -->
@@ -27,17 +41,17 @@
             <input type="submit" value="send" onclick="send()" />
         </fieldset>
     </div>
-    <img class="chat" src="./img/chat.png" />
+    <img class="chat" src="./말풍선 이미지.png" />
 <!-- 말풍선아이콘 클릭시 채팅창 열고 닫기 -->
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script>
     $(".chat").on({
         "click" : function() {
-            if ($(this).attr("src") == "./img/chat.png") {
-                $(".chat").attr("src", "./img/chat.png");
+            if ($(this).attr("src") == "./말풍선 이미지.png") {
+                $(".chat").attr("src", "./말풍선 이미지.png");
                 $("#_chatbox").css("display", "block");
-            } else if ($(this).attr("src") == "./img/chat.png") {
-                $(".chat").attr("src", "./img/chat.png");
+            } else if ($(this).attr("src") == "./말풍선 이미지.png") {
+                $(".chat").attr("src", "./말풍선 이미지.png");
                 $("#_chatbox").css("display", "none");
             }
         }
@@ -94,7 +108,7 @@
         if (inputMessage.value == "") {
         } else {
             $("#messageWindow").html($("#messageWindow").html()
-                + "<p class='chat_content'>나 : " + inputMessage.value + "</p>");
+                + "<p class='chat_content'>나 : "+"${user.getU_ID()}" + inputMessage.value + "</p>");
         }
         webSocket.send($("#chat_id").val() + "|" + inputMessage.value);
         inputMessage.value = "";

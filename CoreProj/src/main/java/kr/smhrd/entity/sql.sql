@@ -5,7 +5,6 @@ select * from T_FRIEND;
 insert into T_FRIEND values(T_FRIEND_SEQ.nextval, 'aa','bb',sysdate);
 commit;
 
-<<<<<<< HEAD
 CREATE TABLE T_POST_TAG
 (
 	P_SEQ	NUMBER(15, 0)	NOT NULL,	-- 게시글 번호
@@ -43,6 +42,11 @@ DROP SEQUENCE T_POST_TAG_SEQ;	-- T_POST_TAG_SEQ 시퀀스 삭제
 DROP TABLE T_TAG;	-- T_TAG 테이블 삭제
 
 DROP SEQUENCE T_TAG_SEQ;	-- T_TAG_SEQ 시퀀스 삭제
-=======
+
 select * from T_POST;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
+
+
+-- ===========================================================
+
+
+
