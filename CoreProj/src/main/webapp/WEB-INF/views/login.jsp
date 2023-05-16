@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<<<<<<< HEAD
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,136 @@ body {
 	background-color: rgba(26, 255, 0, 0.166);
 }
 
+=======
+<
+head
+>
+<
+meta
+ 
+charset
+="
+UTF-8
+"
+>
+<
+meta
+ 
+http-equiv
+="
+X-UA-Compatible
+"
+ 
+content
+="
+IE
+=
+edge
+"
+>
+<
+meta
+ 
+name
+="
+viewport
+"
+ 
+content
+="
+width
+=
+device-width
+,
+initial-scale
+=
+1
+.0
+"
+>
+<
+title
+>
+Document
+</
+title
+>
+<
+link
+ 
+rel
+="
+stylesheet
+"
+ 
+href
+="
+assets
+/
+css
+/
+bootstrap
+.css
+"
+>
+<
+script
+ 
+src
+="
+assets
+/
+js
+/
+bootstrap
+.bundle
+.js
+"
+>
+</
+script
+>
+<
+script
+ 
+src
+="
+assets
+/
+js
+/
+jquery-3
+.7
+.0
+.min
+.js
+"
+>
+</
+script
+>
+<
+style
+>
+@font-face {
+	font-family: 'omyu_pretty';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	align-items: center;
+	box-sizing: border-box;
+	font-family: 'omyu_pretty';
+}
+
+>>>>>>>
+branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
+
+ <<<<<<< HEAD
 img {
 	width: 300px;
 	height: 400px;
@@ -30,36 +161,163 @@ img {
 		transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, .4);
 }
 
+=======
+div {
+	position: relative;
+	width: 300px;
+	color: green;
+}
+
+>>>>>>>
+branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
+
+ <<<<<<< HEAD
 h1 img:nth-child(2) {
 	animation-delay: .1s;
+}
+
+=======
+input {
+	font-size: 15px;
+	color: #222222;
+	width: 300px;
+	border: none;
+	border-bottom: solid #aaaaaa 1px;
+	padding-bottom: 10px;
+	text-align: center;
+	position: relative;
+	background: none;
+	z-index: 5;
 }
 
 h1 img:nth-child(3) {
 	animation-delay: .2s;
 }
 
+input::placeholder {
+	color: #aaaaaa;
+}
+
 h1 img:nth-child(4) {
 	animation-delay: .3s;
+}
+
+input:focus {
+	outline: none;
+}
+
+label {
+	position: absolute;
+	color: #aaa;
+	left: 10px;
+	font-size: 20px;
+	bottom: 8px;
+	transition: all .2s;
+	margin: 0 auto;
 }
 
 h1 img:nth-child(5) {
 	animation-delay: .4s;
 }
 
+input:focus ~label, input:valid ~label {
+	font-size: 16px;
+	bottom: 40px;
+	color: #666;
+	font-weight: bold;
+}
+
+
 h1 img:nth-child(6) {
 	animation-delay: .5s;
 }
 
-h1 img:nth-child(7) {
-	animation-delay: .6s;
+input:focus ~span, input:valid ~span {
+	width: 100%;
 }
 
+.btn {
+	text-align: center;
+	margin: 30px;
+	width: 200px;
+	color: green;
+	background-color: beige;
+	>>>>>>>
+	branch
+	'master'
+	of
+	https
+	:
+	/
+	/
+	github.com
+	/
+	2021-SMHRD-KDT-BigData-18
+	/
+	sns_team.git
+	<<<<<<<
+	 
+	HEAD
+	h1
+	img
+	:
+	nth-child(
+	7
+	)
+	{
+	
+	
+	animation-delay
+	:
+	 
+	.6s;
+}
+
+=======
+}
+.inputZone {
+	margin-left: 50px;
+	margin-top: 30px;
+}
+
+>>>>>>>
+branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
+
+ <<<<<<< HEAD
 h1 img:nth-child(8) {
 	animation-delay: .7s;
 }
 
-@
-keyframes bounce { 100% {
+=======
+.btn1 {
+	text-align: center;
+	margin: 30px;
+	width: 200px;
+	text-align: center;
+	color: green;
+	background-color: beige;
+}
+
+.lo_area {
+	display: flex;
+	flex-direction: column;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+>>>>>>>
+branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
+
+ <<<<<<< HEAD
+ @ keyframes bounce { 100% {
 	top: -20px;
 	text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0
 		5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0
@@ -84,6 +342,11 @@ keyframes bounce { 100% {
 	<div class="container">
 		<div class="lo_area">
 			<form action="login.do" method="post">
+				=======
+				</style>
+				</head>
+				>>>>>>> branch 'master' of
+				https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
 				<div>로그인</div>
 				<div>
@@ -96,6 +359,56 @@ keyframes bounce { 100% {
 
 			</form>
 			<div>-----아직 계정이 없으신가요?-----</div>
+			<br>
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+				data-bs-target="#joinModal">회원가입</button>
+		</div>
+
+	</div>
+
+
+	<<<<<<< HEAD
+	<div class="modal fade" id="joinModal" tabindex="-1"
+		aria-labelledby="joinModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="text-align: center;">
+					<h1 class="modal-title fs-5" id="joinModalLabel">회원가입</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div
+					style="display: flex; flex-direction: column; align-items: center;">
+					<span>아이디</span> <input type="text" id="inputID" name="U_ID"
+						placeholder="아이디를 입력해주세요."> <span id="checkResult"></span>
+					<br> <span>비밀번호</span> <input type="password" id="inputPW"
+						name="U_PW" placeholder="비밀번호를 입력해주세요."> <br> <span>닉네임</span>
+					<input type="text" id="inputNICK" name="U_NICK"
+						placeholder="닉네임을 입력해주세요.">
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="btn_join" class="btn btn-primary">가입</button>
+				</div>
+				<div class="modal-footer"></div>
+			</div>
+		</div>
+	</div>
+	=======
+	<div class="container">
+		<div class="lo_area">
+			<div style="text-align: center;">로그인</div>
+			<form action="login.do" method="post">
+
+				<div class="inputZone">
+					<input name="U_ID" type="text" required> <label>ID</label>
+				</div>
+				<div class="inputZone">
+					<input name="U_PW" type="password" required> <label>PASSWORD</label>
+				</div>
+				<button type="submit" class="btn">로그인</button>
+
+			</form>
+			<div style="text-align: center;">-----아직 계정이 없으신가요?-----</div>
 			<br>
 			<button type="button" class="btn btn-primary" data-bs-toggle="modal"
 				data-bs-target="#joinModal">회원가입</button>
@@ -128,7 +441,8 @@ keyframes bounce { 100% {
 				<div class="modal-footer"></div>
 			</div>
 		</div>
-	</div>
+		>>>>>>> branch 'master' of
+		https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
 
 
