@@ -223,7 +223,7 @@
 						<a class="nav-link" href="./chatList.html">Chat</a>
 					</ul>
 					<button class="btnSearch">검색</button>
-					<button id="btnPost">글쓰기</button>
+					<button id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>
 				</ul>
 			</div>
 
@@ -334,8 +334,7 @@
 					console.log('dkssud');
 					for(let i=0; i<res.length; i++){
 						html='';
-						//rootpath='C:\Users\\smhrd\\Desktop\\Web(Server)\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\CoreProj\\P_FILE';
-						rootpath=
+						rootpath='P_FILE/';
 						html+='<div class="postCard"><div class="card-body"><p id="post_id" style="display: none;">';
 						html+=res[i].P_SEQ;
 						html+='</p>';
@@ -343,31 +342,13 @@
 						html+=res[i].P_TITLE+'</h5>';
 						html+='<p class="card-text">'+res[i].U_ID+'</p>';
 						html+='<p class="card-text">'+res[i].P_CONTENT+'</p></div>';
-						html+='<img src="'+rootpath+'\\'+res[i].P_FILE+'" class="postCardImg" alt="프로필 이미지">';
+						html+='<img src="'+rootpath+res[i].P_FILE+'" class="postCardImg" alt="프로필 이미지">';
 						html+='<div class="card-footer"><p></p><hr>';
 						html+='<div class="footer-menu"><button class="btn_like">🌱</button>';
 						html+='<button class="btn_bookmark">북마크</button></div></div></div>';
 						$(".postList").append(html);
-					/*console.log(res[i].U_ID);
-	                    $(".postList").append("<div class=\"postCard\"><div class=\"card-body\"><p id=\"post_id\" style=\"display: none;\">"+res[i].P_SEQ+"</p>")
-	                    .append("<h5 class=\"card-title\"></h5><p class=\"card-text\">"+res[i].U_ID+"</p><p class=\"card-text\">"+res[i].P_CONTENT+"</p></div>")
-	                    .append("<img src=\"")
-	                    .append(res[i].P_FILE)
-	                    .append("\" class=\"postCardImg\" alt=\"프로필 이미지\">")
-	                    .append("<div class=\"card-footer\">")
-	                    .append("<p></p>")
-	                    .append("<hr>")
-	                    .append("<div class=\"footer-menu\">")
-	                    .append("<button class=\"btn_like\">🌱</button>")
-	                    .append("<button class=\"btn_bookmark\">북마크</button>")
-	                    .append("</div></div></div>");*/
 						
 	                }
-					
-					/*
-						
-
-					*/
 					
 				},
 				error : function(e) {
