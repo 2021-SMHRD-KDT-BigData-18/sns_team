@@ -26,5 +26,6 @@
 	<!-- 우리 sql문 어디에 있는가? -->
 	<mappers>
 		<mapper resource="kr/smhrd/dao/T_USERMapper.xml" />
+		<mapper resource="kr/smhrd/dao/T_POSTMapper.xml" />
 	</mappers>
 </configuration>

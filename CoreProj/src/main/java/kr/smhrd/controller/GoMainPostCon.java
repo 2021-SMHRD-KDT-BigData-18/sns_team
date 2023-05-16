@@ -21,7 +21,8 @@ public class GoMainPostCon implements Controller {
 		
 		List<T_POST> list = dao.list();
 		
-		request.setAttribute("list", list);		
+//		request.setAttribute("list", list);		
+		response.getWriter().print((list));		
 		
 		return null;
 	}
