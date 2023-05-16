@@ -349,7 +349,7 @@
 						$(".postList").append(html);
 						
 	                }
-					
+					listenerOK();
 				},
 				error : function(e) {
 					// 요청이 실패하면 실행될 콜백함수
@@ -357,12 +357,17 @@
 				}
 			});
 		}
-		let post = $('.postCard>.card-body');
-		console.log(post);
-		post.on('click', printID);
-		function printID() {
-			console.log($(this).children()[0].innerText);
-		}
+		function listenerOK() {
+			let post = $('.postCard>.card-body');
+			console.log(post);
+			post.on('click', goToPost);	
+			};
+			
+			
+			
+			function goToPost() {
+				$(this).children()[0].innerText;
+			};
 	</script>
 
 </body>
