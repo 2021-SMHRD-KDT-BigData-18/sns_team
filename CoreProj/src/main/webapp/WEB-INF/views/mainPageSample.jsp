@@ -10,6 +10,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <script src="assets/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/jquery-3.7.0.min.js"></script>
 
     <style>
         #backgroundArea {
@@ -26,6 +27,7 @@
             flex-direction: column;
             width: 40%;
             align-items: center;
+            background-color: gray;
         }
 
         #rightPage {
@@ -65,6 +67,19 @@
 
         .postList {
             margin-top: 60px;
+            width: 90%;
+        }
+
+        .postCard {
+            border-radius: 10px;
+            background-color: white;
+            margin-bottom: 10px;
+        }
+
+        .postCardImg {
+            object-fit: cover;
+            border-radius: 10px;
+            width: 100%;
         }
 
         #searchArea {
@@ -84,6 +99,13 @@
         .modal-body>span {
             white-space: pre-wrap;
         }
+
+        .footer-menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: 10px;
+        }
     </style>
 
 
@@ -102,7 +124,7 @@
                         <a class="nav-link" href="#">마이페이지</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./goChatList.do">채팅</a>
+                        <a class="nav-link" href="./chatList.html">채팅</a>
                     </li>
                 </ul>
                 <button id="btnPost">글쓰기</button>
@@ -119,44 +141,48 @@
             </div>
             <div class="postList">
                 <div class="postCard">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Launch demoㄴㄴㄴ modal
-                    </button>
+                    <div class="card-body">
+                        <p id="post_id" style="display:none;">123123</p>
+                        <h5 class="card-title">지식창고지기</h5>
+                        <p class="card-text">smhrd0512</p>
+                        <p class="card-text">내용내용</p>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Cercidiphyllum_japonicum_9zz.jpg"
+                        class="postCardImg" alt="프로필 이미지">
 
+                    <div class="card-footer">
+                        <p> </p>
+                        <hr>
+                        <div class="footer-menu">
+                            <button class="btn_like">좋아유</button>
+                            <button class="btn_bookmark">찜</button>
+
+
+                        </div>
+                    </div>
                 </div>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
+
+                <div class="postCard">
+                    <div class="card-body">
+                        <p id="post_id" style="display:none;">345345</p>
+                        <h5 class="card-title">지식창고지기</h5>
+                        <p class="card-text">smhrd0512</p>
+                        <p class="card-text">내용내용</p>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Cercidiphyllum_japonicum_9zz.jpg"
+                        class="postCardImg" alt="프로필 이미지">
+
+                    <div class="card-footer">
+                        <p> </p>
+                        <hr>
+                        <div class="footer-menu">
+                            <button class="btn_like">좋아유</button>
+                            <button class="btn_bookmark">찜</button>
+
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="rightPage">
@@ -212,6 +238,16 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+        let post = $('.postCard>.card-body');
+        console.log(post);
+        post.on('click', printID);
+        function printID() {
+            console.log($(this).children()[0].innerText);
+        }
+    </script>
 
 </body>
 
