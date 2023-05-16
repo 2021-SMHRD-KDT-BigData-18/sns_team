@@ -17,6 +17,7 @@ import kr.smhrd.controller.GoChatListCon;
 import kr.smhrd.controller.GoLoginCon;
 import kr.smhrd.controller.GoMainCon;
 import kr.smhrd.controller.GoMainPostCon;
+import kr.smhrd.controller.GoPostDetailCon;
 import kr.smhrd.controller.GoWritePostCon;
 import kr.smhrd.controller.WritePostCon;
 import kr.smhrd.controller.JoinCon;
@@ -58,6 +59,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/goMainPost.do", new GoMainPostCon());
 		mappings.put("/goWritePost.do", new GoWritePostCon());
 		mappings.put("/writePost.do", new WritePostCon());
+		mappings.put("/goPostDetail.do", new GoPostDetailCon());
 		
 	}
 	

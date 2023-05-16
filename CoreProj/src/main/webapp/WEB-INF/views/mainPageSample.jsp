@@ -220,7 +220,7 @@
 						<a class="nav-link" href="#">My Page</a>
 					</ul>
 					<ul class="nav-item">
-						<a class="nav-link" href="./chatList.html">Chat</a>
+						<a class="nav-link" href="goChatList.do">Chat</a>
 					</ul>
 					<button class="btnSearch">검색</button>
 					<button id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>
@@ -366,7 +366,8 @@
 			
 			
 			function goToPost() {
-				$(this).children()[0].innerText;
+				let p_id=$(this).children()[0].innerText;
+				location.href='goPostDetail.do?p_id='+p_id;
 			};
 	</script>
 

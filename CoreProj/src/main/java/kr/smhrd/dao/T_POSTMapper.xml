@@ -5,6 +5,10 @@
 	<select id="list" resultType="kr.smhrd.entity.T_POST" >
 		select * from T_POST order by P_DT desc
 	</select>
+	
+	<select id="searchWithId" resultType="kr.smhrd.entity.T_POST" >
+		select * from T_POST where P_SEQ = #{p_id}
+	</select>
 
 	<insert id="write" parameterType="kr.smhrd.entity.T_POST">
 		insert into T_POST
