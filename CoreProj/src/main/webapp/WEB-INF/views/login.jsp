@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<<<<<<< HEAD
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,117 +16,6 @@ body {
 	background-color: rgba(26, 255, 0, 0.166);
 }
 
-=======
-<
-head
->
-<
-meta
- 
-charset
-="
-UTF-8
-"
->
-<
-meta
- 
-http-equiv
-="
-X-UA-Compatible
-"
- 
-content
-="
-IE
-=
-edge
-"
->
-<
-meta
- 
-name
-="
-viewport
-"
- 
-content
-="
-width
-=
-device-width
-,
-initial-scale
-=
-1
-.0
-"
->
-<
-title
->
-Document
-</
-title
->
-<
-link
- 
-rel
-="
-stylesheet
-"
- 
-href
-="
-assets
-/
-css
-/
-bootstrap
-.css
-"
->
-<
-script
- 
-src
-="
-assets
-/
-js
-/
-bootstrap
-.bundle
-.js
-"
->
-</
-script
->
-<
-script
- 
-src
-="
-assets
-/
-js
-/
-jquery-3
-.7
-.0
-.min
-.js
-"
->
-</
-script
->
-<
-style
->
 @font-face {
 	font-family: 'omyu_pretty';
 	src:
@@ -143,10 +31,6 @@ style
 	font-family: 'omyu_pretty';
 }
 
->>>>>>>
-branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
-
- <<<<<<< HEAD
 img {
 	width: 300px;
 	height: 400px;
@@ -161,22 +45,16 @@ img {
 		transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, .4);
 }
 
-=======
 div {
 	position: relative;
 	width: 300px;
 	color: green;
 }
 
->>>>>>>
-branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
-
- <<<<<<< HEAD
 h1 img:nth-child(2) {
 	animation-delay: .1s;
 }
 
-=======
 input {
 	font-size: 15px;
 	color: #222222;
@@ -227,7 +105,6 @@ input:focus ~label, input:valid ~label {
 	font-weight: bold;
 }
 
-
 h1 img:nth-child(6) {
 	animation-delay: .5s;
 }
@@ -242,53 +119,20 @@ input:focus ~span, input:valid ~span {
 	width: 200px;
 	color: green;
 	background-color: beige;
-	>>>>>>>
-	branch
-	'master'
-	of
-	https
-	:
-	/
-	/
-	github.com
-	/
-	2021-SMHRD-KDT-BigData-18
-	/
-	sns_team.git
-	<<<<<<<
-	 
-	HEAD
-	h1
-	img
-	:
-	nth-child(
-	7
-	)
-	{
-	
-	
-	animation-delay
-	:
-	 
-	.6s;
+	h1 img: nth-child(7){     
+	animation-delay:.6s;
 }
 
-=======
 }
 .inputZone {
 	margin-left: 50px;
 	margin-top: 30px;
 }
 
->>>>>>>
-branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
-
- <<<<<<< HEAD
 h1 img:nth-child(8) {
 	animation-delay: .7s;
 }
 
-=======
 .btn1 {
 	text-align: center;
 	margin: 30px;
@@ -313,11 +157,8 @@ form {
 	flex-direction: column;
 }
 
->>>>>>>
-branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
-
- <<<<<<< HEAD
- @ keyframes bounce { 100% {
+@
+keyframes bounce { 100% {
 	top: -20px;
 	text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0
 		5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0
@@ -338,15 +179,12 @@ branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
 
 <body>
 
-
+<!-- 
 	<div class="container">
 		<div class="lo_area">
 			<form action="login.do" method="post">
-				=======
 				</style>
 				</head>
-				>>>>>>> branch 'master' of
-				https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
 				<div>로그인</div>
 				<div>
@@ -365,9 +203,9 @@ branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
 		</div>
 
 	</div>
+	 -->
 
 
-	<<<<<<< HEAD
 	<div class="modal fade" id="joinModal" tabindex="-1"
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -393,7 +231,6 @@ branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
 			</div>
 		</div>
 	</div>
-	=======
 	<div class="container">
 		<div class="lo_area">
 			<div style="text-align: center;">로그인</div>
@@ -441,10 +278,6 @@ branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
 				<div class="modal-footer"></div>
 			</div>
 		</div>
-		>>>>>>> branch 'master' of
-		https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
-
-
 
 		<script type="text/javascript">
 			// 해당 문서가 다 준비되면 실행한다.
@@ -523,7 +356,6 @@ branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
 							alert("회원가입에 실패했어요...");
 						}
 
-<<<<<<< HEAD
                 function joinTry() {
                     let id = $('#inputID').val();
                     let pw = $('#inputPW').val();
@@ -547,7 +379,6 @@ branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
                             else {
                                 alert("회원가입에 실패했어요...");
                             }
-=======
 					},
 					error : function(e) {
 						// 요청이 실패하면 실행될 콜백함수
@@ -557,6 +388,5 @@ branch 'master ' of https: //github.com /2021-SMHRD-KDT-BigData-18 /sns_team.git
 			}
 		</script>
 </body>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
 </html>

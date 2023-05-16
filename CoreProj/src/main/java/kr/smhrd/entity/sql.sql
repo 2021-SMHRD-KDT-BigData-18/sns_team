@@ -1,4 +1,9 @@
 select * from T_USER;
+select * from T_FRIEND;
+
+
+insert into T_FRIEND values(T_FRIEND_SEQ.nextval, 'aa','bb',sysdate);
+commit;
 
 <<<<<<< HEAD
 CREATE TABLE T_POST_TAG
