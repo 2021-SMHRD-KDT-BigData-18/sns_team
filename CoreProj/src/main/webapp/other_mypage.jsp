@@ -136,6 +136,9 @@
             width: 200px;
             height: 200px;
         }
+        button{
+            margin-left: 700px;
+        }
      
         </style>
 
@@ -152,27 +155,22 @@
                         <a class="nav-link active" aria-current="page" href="#">홈</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="" href="#">저장게시글 &#x1F4C2;</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./chatList.html">채팅 &#x1F4AC;</a>
+                        <a class="nav-link" href="./chatList.html">채팅방 &#x1F4AC;</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div id="mypage_area"><br>
-            <p id="title">My Page</p><hr>
+            <hr>
             <div class="my_info">
-                <p class="my_id">smhrd0512</p>
+                <p class="my_id">친구id</p>
                 <img class="pro_img" src="./image/새싹 누끼.png">
                 <img class="addfr_img" src="./image/새싹 누끼.png">
-                <p class="my_name">창고지기</p>
-                <button>개인정보수정</button>
-                <button>프로필 편집</button><br><br>
+                <button>풀링</button><br><br>
+                <p class="my_name">친구 닉네임이지롱</p>
                 <div class="p_p_info">
                     <div class="my_pa">
                         <span>창고지기 식물</span>
-                        <button class="pa_add">추가하기</button>
                         <div class="mypa_img">
                             <div class="pa_area">
                                 <img class="pa_area_img" src="./image/새싹.png">
@@ -191,11 +189,8 @@
                     </div>
                 </div>
             </div>
-        
-        
         </div>
     </div>
-
 </body>
 
 </html>
