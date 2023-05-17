@@ -9,7 +9,8 @@ insert into T_COMMENT values(T_COMMENT_SEQ.nextval, 2,'안녕하세요오오',sy
 
 select a.*,b.U_PROFILE_IMG from T_COMMENT A, T_USER B
 	where a.P_SEQ=2
-	and a.U_ID = b.U_ID;
+	and a.U_ID = b.U_ID
+	order by CMT_DT desc;
 
 
 insert into T_FRIEND values(T_FRIEND_SEQ.nextval, 'aa','bb',sysdate);
