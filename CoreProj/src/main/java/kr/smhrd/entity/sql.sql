@@ -3,7 +3,6 @@ select * from T_FRIEND;
 select * from T_POST;
 select * from T_POST order by P_DT desc;
 
-
 insert into T_FRIEND values(T_FRIEND_SEQ.nextval, 'aa','bb',sysdate);
 commit;
 
@@ -50,5 +49,6 @@ select * from T_POST;
 
 -- ===========================================================
 
+INSERT INTO T_FRIEND values(T_FRIEND_SEQ.nextval, 'bb', 'cc', sysdate);
 
-
+SELECT * FROM T_FRIEND;

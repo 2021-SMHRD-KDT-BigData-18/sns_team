@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.DupIDCheckCon;
+import kr.smhrd.controller.FriendSelectCon;
 import kr.smhrd.controller.GoChatListCon;
 import kr.smhrd.controller.GoLoginCon;
 import kr.smhrd.controller.GoMainCon;
@@ -62,6 +63,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/writePost.do", new WritePostCon());
 		mappings.put("/goPostDetail.do", new GoPostDetailCon());
 		mappings.put("/logout.do", new LogoutCon());
+		mappings.put("/friendSelect.do", new FriendSelectCon());
 		
 	}
 	
