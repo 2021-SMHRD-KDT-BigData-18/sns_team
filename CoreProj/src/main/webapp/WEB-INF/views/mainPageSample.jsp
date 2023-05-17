@@ -309,7 +309,7 @@
 							aria-labelledby="flush-headingOne"
 							data-bs-parent="#accordionFlushExample">
 							<div class="accordion-body">
-								지식창고
+								
 							</div>
 						</div>
 					</div>

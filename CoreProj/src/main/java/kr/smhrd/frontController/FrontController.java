@@ -22,6 +22,7 @@ import kr.smhrd.controller.GoPostDetailCon;
 import kr.smhrd.controller.GoWritePostCon;
 import kr.smhrd.controller.WritePostCon;
 import kr.smhrd.controller.JoinCon;
+import kr.smhrd.controller.LoadChatListCon;
 import kr.smhrd.controller.LoginCon;
 import kr.smhrd.controller.LogoutCon;
 
@@ -64,6 +65,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/goPostDetail.do", new GoPostDetailCon());
 		mappings.put("/logout.do", new LogoutCon());
 		mappings.put("/friendSelect.do", new FriendSelectCon());
+		mappings.put("/loadChatList.do", new LoadChatListCon());
 		
 	}
 	

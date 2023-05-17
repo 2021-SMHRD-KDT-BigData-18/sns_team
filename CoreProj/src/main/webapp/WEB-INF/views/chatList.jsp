@@ -57,7 +57,6 @@
             width: 200px;
             position: fixed;
             margin-top: 15%;
-            margin-right: 80%;
             background-color: beige(7, 160, 7);
             align-items: flex-end;
             line-height: 1.5;
@@ -222,7 +221,7 @@
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="goMain.do">Home</a>
                     </ul>
                     <ul class="nav-item">
                         <a class="nav-link" href="#">My Page</a>
@@ -245,61 +244,8 @@
                 </div>
                 <div class="list">
                     <div class="list_ul">
-                        <div class="list_li">
-                            <table cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td class="profile_td">
-                                        <!--Img-->
-                                        <img src="./image/새싹 누끼.png" />
-                                    </td>
-                                    <td class="chat_td">
-                                        <div class="nick">
-                                            닉네임1
-                                        </div>
-                                        <div class="chat_preview">
-                                            안녕하세요~
-                                        </div>
-                                    </td>
-                                    <td class="time_td">
-                                        <!--Time & Check-->
-                                        <div class="time">
-                                            2023.05.17 12:30
-                                        </div>
-                                        <div class="check">
-                                            <p> </p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <div class="list_li">
-                            <table cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td class="profile_td">
-                                        <!--Img-->
-                                        <img src="./image/새싹 누끼.png" />
-                                    </td>
-                                    <td class="chat_td">
-                                        <div class="nick">
-                                            닉네임2
-                                        </div>
-                                        <div class="chat_preview">
-                                            안녕하세요~
-                                        </div>
-                                    </td>
-                                    <td class="time_td">
-                                        <!--Time & Check-->
-                                        <div class="time">
-                                            2023.05.17 12:28
-                                        </div>
-                                        <div class="check">
-                                            
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -315,7 +261,7 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
                         style="height:200px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-left: 15%;">smhrd 님 환영합니다</h5>
+                        <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()}</h5>
                         <a href="#" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
                         <a href="#" class="btn btn-primary" style="margin-left: 5%;">회원정보 수정</a>
                     </div>
@@ -332,9 +278,9 @@
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body"> 친구목록 띄워주쇼 <code>.accordion-flush</code> class. This is the
-                                first item's accordion
-                                body.</div>
+                            <div class="accordion-body">
+                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -350,8 +296,95 @@
             console.log($(this).children()[0].innerText);
         }
     </script>
-
-    </script>
+	<script>
+		$(document).ready(chatFriendList());
+		function chatFriendList(){
+			$.ajax({
+				url : "loadChatList.do",
+				type : "post",
+				data : {},
+				dataType : "json",
+				success : function(res) {
+					console.log("ok");
+					for(i=0; i < res.length; i++){
+						let html='';
+						html = `
+							<div class="list_li">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td class="profile_td">
+                                        <img src="./image/새싹 누끼.png" />
+                                    </td>
+                                    <td class="chat_td">
+                                        <div class="nick">
+                                            \${res[i].F_ID}
+                                        </div>
+                                        <div class="chat_preview">
+                                            안녕하세요~
+                                        </div>
+                                    </td>
+                                    <td class="time_td">
+                                        <div class="time">
+                                            2023.05.17 12:30
+                                        </div>
+                                        <div class="check">
+                                            <p> </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+						`;
+                        $('.list_ul').append(html);
+					}
+					friendSelect();
+				},
+				error : function(e){
+                    alert("요청 실패!");
+                    let html = '';
+                    html = `
+                    	<div class="list_li">
+                        <table cellpadding="0" cellspacing="0">
+                        	<h2>채팅 내역이 없습니다.</h2>
+                        </table>
+                        </div>
+                    `;
+                    $('.list_ul')[i].append(html);
+                 }
+              } );
+		}
+		
+		function friendSelect(){
+            
+            $.ajax( {
+                  url : 'friendSelect.do', 
+                  type : 'post', 
+                  data : {}, 
+                  dataType : "json", 
+                  success : function(res){
+                     console.log('시작');
+                     console.log(res);
+                     for(let i=0; i<res.length; i++){
+                        let html='';
+                        rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                        html+='<div class="accordion-body">';
+                     html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                     html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                        html+='</div>';
+                        $(".accordion-body").append(html);
+                     }
+                  },
+                  error : function(e){
+                     alert("요청 실패!");
+                     let html = '';
+                     html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+                     $(".accordion-body").append(html);
+                  }
+               } );
+         }
+		
+		
+	</script>
 
 </body>
 
