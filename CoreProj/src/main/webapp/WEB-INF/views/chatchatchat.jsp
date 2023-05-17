@@ -338,13 +338,13 @@
     function send() {
         if (inputMessage.value == "") {
         } else {
-            $("#messageWindow").html(
+            /*$("#messageWindow").html(
                     $("#messageWindow").html()
                             + "<p class='chat_content'>${user.getU_ID()} : "
                             + inputMessage.value
-                            + "</p>");
-        }
+                            + "</p>");*/
         webSocket.send($("#chat_id").val() + "|" + inputMessage.value);
+        }
         inputMessage.value = "";
     }
     //     엔터키를 통해 send함

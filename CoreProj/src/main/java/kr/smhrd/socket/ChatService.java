@@ -1,26 +1,20 @@
 package kr.smhrd.socket;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
- 
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
- 
+import java.util.*;
+
 @ServerEndpoint(value="/broadcasting/{roomId}")
 public class ChatService {
     private static Set<Session> sessionSet = Collections.synchronizedSet(new HashSet<Session>());
-    private static Map<Integer, ArrayList<Session>> sessionMap = Collections.synchronizedMap(new HashMap()<Integer, ArrayList<Session>>());
+    private static Map<Integer, ArrayList<Session>> sessionMap = Collections.synchronizedMap(new HashMap<Integer, ArrayList<Session>>());
+    //private final ChatRoomService chatRoomService;
 
     @OnOpen
-    public void onOpen(Session s, @PathParam("roomId") int roomId) {
+    public void onOpen(Session s, @PathParam("roomId") int roomId ) {
 
         // 방 처음 들어왔으면 해당 방 세션리스트생성
         if(!sessionMap.containsKey(roomId)){
@@ -92,10 +86,10 @@ public class ChatService {
         sessionMap.get(findkey).remove(s);
 
         //방인원 -1
+        //ChatRoom chatRoom = chatRoomService.decreaseExist(findkey);
 
     }
 }
-
 
 
 
