@@ -16,7 +16,7 @@ public class T_COMMENT {
 		CMT_DT = cMT_DT;
 		U_ID = u_ID;
 	}
-	
+	public T_COMMENT() {}
 	public int getCMT_SEQ() {
 		return CMT_SEQ;
 	}
