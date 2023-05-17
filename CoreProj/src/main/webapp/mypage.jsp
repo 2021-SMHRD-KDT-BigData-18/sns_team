@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,12 +23,13 @@
         }
         body{
             background-color: rgb(243, 243, 229);
-            /* margin : 0px; */
         }
         
         .logo{
             width: 100px;
             height: 110px;
+            margin-top: 15px;
+            margin-bottom: 20px;
         }
         
         #backgroundArea {
@@ -38,15 +40,14 @@
         
         #leftPage {
             width: 30%;
-            text-align: right;
+            /* text-align: right; */
             /* border: 1px solid rgba(35, 129, 21, 0.1); */
         }
         
         
         .nav {
             position: fixed;
-            /* margin-right: 50px; */
-            align-items: flex-end;
+            text-align: left;
             font-size: 30px;
         }
         
@@ -56,7 +57,8 @@
             justify-content: space-between;
         }
         .nav-item{
-            margin-top: 20px;
+            margin-top: 10px;
+            margin-right: 200px;
             
         }
         
@@ -64,14 +66,14 @@
             display: flex;
             flex-direction: column;
             width: 90%;
-            height: 100%;
+            /* height: 100%; */
             font-size: 30px;
             margin-bottom: 10px;
         }
         
         .my_info{
             /* background-color: rgba(35, 129, 21, 0.1); */
-            border: 1px solid rgba(35, 129, 21, 0.1);
+            /* border: 1px solid rgba(35, 129, 21, 0.1); */
             /* background-color: rgba(0, 62, 15, 0.165); */
             font-size: 25px;
             padding: 20px;
@@ -80,13 +82,14 @@
         .pro_img{
             width: 125px;
             height: 125px;
+            /* margin-top: 10px; */
             border-radius: 50%;
             border: 1px solid rgb(0, 31, 21);
         }
         
         .addfr_img{
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             margin-left: 100px;
             border-radius: 50%;
             border: 1px solid rgb(0, 31, 21);
@@ -96,25 +99,42 @@
             margin-top: 10px;
             margin-left: 10px;
         }
-        .my_pa{
-            margin-top: 30px;
+        .p_p_info span{
+            color: beige;
+            background-color: rgb(0, 78, 52);
+            text-align: center;
         }
         
         .my_post{
             /* color: beige;
             width: 160px;
             text-align: center; */
-            margin-top: 30px;
+            margin-top: 120px;
         }
         .mypa_img{
             width: 200px;
             height: 100px;
+            display: flex;
+            flex-flow: row nowrap;
         }
-        span{
+        /* span{
             color: beige;
             background-color: rgb(0, 78, 52);
             text-align: center;
             
+        } */
+        .pa_add{
+            margin-left: 600px;
+        }
+        .pa_area{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+
+        }
+        .pa_area_img{
+            width: 200px;
+            height: 200px;
         }
      
         </style>
@@ -140,24 +160,35 @@
                 </ul>
             </div>
         </div>
-        <div id="mypage_area"><br><br>
-            <p id="title">My Page</p>
+        <div id="mypage_area"><br>
+            <p id="title">My Page</p><hr>
             <div class="my_info">
                 <p class="my_id">smhrd0512</p>
                 <img class="pro_img" src="./image/새싹 누끼.png">
                 <img class="addfr_img" src="./image/새싹 누끼.png">
                 <p class="my_name">창고지기</p>
                 <button>개인정보수정</button>
-                <button>프로필 편집</button><br>
-                <div class="my_pa">
-                    <span>창고지기 식물</span>
-                    <div class="mypa_img">
-                        <img  src="./image/새새삭.png">
+                <button>프로필 편집</button><br><br>
+                <div class="p_p_info">
+                    <div class="my_pa">
+                        <span>창고지기 식물</span>
+                        <button class="pa_add">추가하기</button>
+                        <div class="mypa_img">
+                            <div class="pa_area">
+                                <img class="pa_area_img" src="./image/새싹.png">
+                            </div>
+                            <div class="pa_area">
+                                <img class="pa_area_img" src="./image/새싹.png">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="my_post">
-                    <span >게시글</span>
-                    <p> </p>
+                    <div class="my_post">
+                        <span >게시글</span>
+                        <div class="pa_area">
+                            <img class="pa_area_img" src="./image/새싹.png">
+                        </div>
+                        <p> </p>
+                    </div>
                 </div>
             </div>
         
