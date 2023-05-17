@@ -102,32 +102,6 @@
 		<div id="centerPage" class=" border-start border-end border-1">
 			<ul class="chatList">
 				<li>zz</li>
-				<li>dd</li>
-				<li>ff</li>
-				<li>zz</li>
-				<li>dd</li>
-				<li>ff</li>
-				<li>zz</li>
-				<li>dd</li>
-				<li>ff</li>
-				<li>zz</li>
-				<li>dd</li>
-				<li>ff</li>
-				<li>zz</li>
-				<li>dd</li>
-				<li>ff</li>
-				<li>zz</li>
-				<li>dd</li>
-				<li>ff</li>
-				<li>zz</li>
-				<li>dd</li>
-				<li>ff</li>
-				<li>zz</li>
-				<li>dd</li>
-				<li>ff</li>
-				<li>zz</li>
-				<li>dd</li>
-				<li>ff</li>
 
 
 			</ul>

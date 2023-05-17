@@ -10,29 +10,39 @@ import kr.smhrd.entity.T_POST;
 public class T_POSTDAO {
 
 	private SqlSessionFactory factory = SqlSessionManager.getSqlSessionFactory();
-	
+
 	public List<T_POST> list() {
-		
+
 		SqlSession session = factory.openSession(true);
-		
+
 		List<T_POST> list = session.selectList("list");
-		
+
 		session.close();
-		
+
 		return list;
-		
+
 	}
-	
+
 	public int write(T_POST dto) {
-		
+
 		SqlSession session = factory.openSession(true);
-		
+
 		int row = session.insert("write", dto);
-		
+
 		session.close();
-		
+
 		return row;
 	}
-	
-	
+
+	public T_POST searchWithId(int p_id) {
+
+		SqlSession session = factory.openSession(true);
+
+		T_POST post = session.selectOne("searchWithId", p_id);
+
+		session.close();
+
+		return post;
+	}
+
 }
