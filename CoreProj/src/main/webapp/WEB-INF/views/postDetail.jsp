@@ -144,8 +144,9 @@
 
         .postCard {
             border-radius: 10px;
-            background-color: white;
+            /*background-color: white;*/
             margin-bottom: 10px;
+            background-color: rgb(243, 243, 229);
         }
 
         .postCardImg {
@@ -202,6 +203,9 @@
             margin-top: 30%;
 
         }
+        hr{
+        background-color: rgb(243, 243, 229);
+        }
 </style>
 
 </head>
@@ -240,7 +244,7 @@
 						<p class="card-text">${requestScope.post.getP_CONTENT()}</p>
 					</div>
 					<img
-						src="P_FILE/${requestScope.post.getP_FILE()}"
+						src="http://218.157.19.25:8081/jisik/P_FILE/${requestScope.post.getP_FILE()}"
 						class="postCardImg" alt="프로필 이미지">
 
 					<div class="card-footer">
@@ -250,6 +254,10 @@
 							<button class="btn_like">🌱</button>
 							<button class="btn_bookmark">북마크</button>
 
+						</div>
+						<hr>
+						<div id="cmt_list">
+						<p>sdfsdfds</p>
 						</div>
 					</div>
 				</div>

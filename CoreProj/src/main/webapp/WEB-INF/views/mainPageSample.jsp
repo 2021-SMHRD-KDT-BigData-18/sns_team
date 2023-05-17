@@ -334,7 +334,7 @@
 					console.log('dkssud');
 					for(let i=0; i<res.length; i++){
 						html='';
-						rootpath='P_FILE/';
+						rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
 						html+='<div class="postCard"><div class="card-body"><p id="post_id" style="display: none;">';
 						html+=res[i].P_SEQ;
 						html+='</p>';
