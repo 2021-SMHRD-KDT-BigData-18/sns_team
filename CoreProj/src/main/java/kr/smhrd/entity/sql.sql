@@ -2,6 +2,14 @@ select * from T_USER;
 select * from T_FRIEND;
 select * from T_POST;
 select * from T_POST order by P_DT desc;
+select * from T_COMMENT;
+
+insert into T_COMMENT values(T_COMMENT_SEQ.nextval, 2,'안녕하세요오오',sysdate,'aa');
+
+
+select a.*,b.U_PROFILE_IMG from T_COMMENT A, T_USER B
+	where a.P_SEQ=2
+	and a.U_ID = b.U_ID;
 
 insert into T_FRIEND values(T_FRIEND_SEQ.nextval, 'aa','bb',sysdate);
 commit;
