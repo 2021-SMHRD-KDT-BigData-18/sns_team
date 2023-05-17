@@ -178,59 +178,6 @@ keyframes bounce { 100% {
 </head>
 
 <body>
-
-<!-- 
-	<div class="container">
-		<div class="lo_area">
-			<form action="login.do" method="post">
-				</style>
-				</head>
-
-				<div>로그인</div>
-				<div>
-					<input name="U_ID" type="text" required> <label>ID</label>
-				</div>
-				<div>
-					<input name="U_PW" type="password" required> <label>PASSWORD</label>
-				</div>
-				<button type="submit" class="btn">로그인</button>
-
-			</form>
-			<div>-----아직 계정이 없으신가요?-----</div>
-			<br>
-			<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-				data-bs-target="#joinModal">회원가입</button>
-		</div>
-
-	</div>
-	 -->
-
-
-	<div class="modal fade" id="joinModal" tabindex="-1"
-		aria-labelledby="joinModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header" style="text-align: center;">
-					<h1 class="modal-title fs-5" id="joinModalLabel">회원가입</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div
-					style="display: flex; flex-direction: column; align-items: center;">
-					<span>아이디</span> <input type="text" id="inputID" name="U_ID"
-						placeholder="아이디를 입력해주세요."> <span id="checkResult"></span>
-					<br> <span>비밀번호</span> <input type="password" id="inputPW"
-						name="U_PW" placeholder="비밀번호를 입력해주세요."> <br> <span>닉네임</span>
-					<input type="text" id="inputNICK" name="U_NICK"
-						placeholder="닉네임을 입력해주세요.">
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="btn_join" class="btn btn-primary">가입</button>
-				</div>
-				<div class="modal-footer"></div>
-			</div>
-		</div>
-	</div>
 	<div class="container">
 		<div class="lo_area">
 			<div style="text-align: center;">로그인</div>
@@ -349,36 +296,13 @@ keyframes bounce { 100% {
 						"U_NICK" : nick
 					},
 					success : function(res) {
-						if (res == true) {
+						if (res == 'true') {
 							alert("회원가입에 성공했어요");
 							window.location.replace('goLogin.do')
 						} else {
 							alert("회원가입에 실패했어요...");
 						}
 
-                function joinTry() {
-                    let id = $('#inputID').val();
-                    let pw = $('#inputPW').val();
-                    let nick = $('#inputNICK').val();
-                    console.log(id);
-                    console.log(pw);
-                    console.log(nick);
-                    $.ajax({
-                        url: "join.do",
-                        type: "post",
-                        data: {
-                            "U_ID": id,
-                            "U_PW": pw,
-                            "U_NICK": nick
-                        },
-                        success: function (res) {
-                            if (res == "true") {
-                                alert("회원가입에 성공했어요");
-                                window.location.replace('goLogin.do')
-                            }
-                            else {
-                                alert("회원가입에 실패했어요...");
-                            }
 					},
 					error : function(e) {
 						// 요청이 실패하면 실행될 콜백함수
