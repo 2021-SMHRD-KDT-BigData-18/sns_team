@@ -23,8 +23,10 @@ import kr.smhrd.controller.GoWritePostCon;
 import kr.smhrd.controller.WritePostCon;
 import kr.smhrd.controller.JoinCon;
 import kr.smhrd.controller.LoadChatListCon;
+import kr.smhrd.controller.LoadCmtCon;
 import kr.smhrd.controller.LoginCon;
 import kr.smhrd.controller.LogoutCon;
+import kr.smhrd.controller.WriteCmtCon;
 
 // 모든 요청을 받을 수 있도록 url-mapping을 *로 지정
 // @WebServlet("*.do") ---> .do로 끝나는 모든 요청
@@ -66,6 +68,8 @@ public class FrontController extends HttpServlet {
 		mappings.put("/logout.do", new LogoutCon());
 		mappings.put("/friendSelect.do", new FriendSelectCon());
 		mappings.put("/loadChatList.do", new LoadChatListCon());
+		mappings.put("/loadCmt.do", new LoadCmtCon());
+		mappings.put("/writeCmt.do", new WriteCmtCon());
 		
 	}
 	
