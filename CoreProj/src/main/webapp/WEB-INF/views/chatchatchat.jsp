@@ -272,7 +272,7 @@
 </script>
 <script type="text/javascript">
     var textarea = document.getElementById("messageWindow");
-    var path='ws://localhost:8081/jisik/broadcasting/';
+    var path='ws://218.157.19.25:8081/jisik/broadcasting/';
     if('${user.getU_ID()}'=='aa'){path+='123';}
     else if('${user.getU_ID()}'=='bb'){path+='123';}
     else if('${user.getU_ID()}'=='cc'){path+='456';}
