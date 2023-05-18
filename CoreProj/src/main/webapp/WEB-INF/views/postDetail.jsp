@@ -257,6 +257,7 @@
                         <p class="card-text">${requestScope.post.getU_ID()}</p>
                         <p class="card-text">${requestScope.post.getP_CONTENT()}</p>
                         <a href="#" id="urlCopy" class="btn_urlCopy" title="새창" onclick="clip(); return false;">링크 공유하기</a>
+						<p>${requestScope.post.getP_VIEWS()+1}회</p>	                    
                     </div>
                     <img src="http://218.157.19.25:8081/jisik/P_FILE/${requestScope.post.getP_FILE()}"
                         class="postCardImg" alt="프로필 이미지">
@@ -325,7 +326,7 @@
                 $.ajax({
                     url : "loadCmt.do",
                     type : "post",
-                    data : {"p_id":$('#post_id').text()},
+                    data : {},
                     dataType : "json",
                     success : function(res) {
                         let html='';
@@ -359,11 +360,11 @@
             function listenerOK() {
                 let post = $('.postCard>.card-body');
                 console.log(post);
-                post.on('click', goToPost);   
+                post.on('click', goToPost);	
                 };
-               
-               
-               
+            	
+            	
+            	
             function goToPost() {
                 $(this).children()[0].innerText;
             };
@@ -372,13 +373,13 @@
             let btn_cmt = $('#btn_cmt');
             btn_cmt.on('click',cmtWrite);
             function cmtWrite() {
-               console.log($('#cmtInput').val());
-               console.log($('#post_id').text());
-               $.ajax({
+            	console.log($('#cmtInput').val());
+            	console.log($('#post_id').text());
+            	$.ajax({
                     url : "writeCmt.do",
                     type : "post",
                     data : {"p_id":$('#post_id').text(),
-                       "cmt":$('#cmtInput').val()},
+                    	"cmt":$('#cmtInput').val()},
                     success : function(res) {
                         console.log("ok");
                         console.log(res);
@@ -389,7 +390,7 @@
                         alert("요청 실패!");
                     }
                 });
-         }
+			}
            
             function clip(){
 

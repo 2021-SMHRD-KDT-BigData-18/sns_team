@@ -6,22 +6,32 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import kr.smhrd.dao.T_POSTDAO;
 import kr.smhrd.entity.T_POST;
 
-public class GoPostDetailCon implements Controller {
+public class CheckPlusCon implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int p_id = Integer.parseInt(request.getParameter("p_id"));
-		System.out.println("p_id = "+p_id);
+request.setCharacterEncoding("UTF-8");
 		
-		T_POSTDAO dao = new T_POSTDAO();
-		T_POST dto = dao.searchWithId(p_id);
-		dao.checkPlus(p_id);
+		int P_SEQ = Integer.parseInt(request.getParameter("P_SEQ"));
 		
-		request.setAttribute("post", dto);
+		T_POST dto = new T_POST();
+		dto.setP_SEQ(P_SEQ);
+		
+		T_POSTDAO dao = new T_POSTDAO(); 
+		
+		int P_VIEWS = dao.likeUpdatePlus(dto);
+		
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(P_VIEWS);
+		
+		
 		return "postDetail";
 	}
 
