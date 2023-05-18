@@ -27,6 +27,9 @@
 	<mappers>
 		<mapper resource="kr/smhrd/dao/T_USERMapper.xml" />
 		<mapper resource="kr/smhrd/dao/T_POSTMapper.xml" />
+		<mapper resource="kr/smhrd/dao/T_FRIENDMapper.xml" />
+		<mapper resource="kr/smhrd/dao/T_CHATROOMMapper.xml" />
+		<mapper resource="kr/smhrd/dao/T_CHATTINGMapper.xml" />
 		<mapper resource="kr/smhrd/dao/T_COMMENTMapper.xml" />
 	</mappers>
 </configuration>

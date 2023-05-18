@@ -15,13 +15,14 @@ import kr.smhrd.dao.T_FRIENDDAO;
 import kr.smhrd.entity.T_FRIEND;
 import kr.smhrd.entity.T_USER;
 
-
-public class FriendSelectCon implements Controller {
+public class LoadChatListCon implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		response.setCharacterEncoding("UTF-8");
+		
 		T_FRIENDDAO dao = new T_FRIENDDAO();
 		PrintWriter out = response.getWriter();
 		
@@ -37,7 +38,9 @@ public class FriendSelectCon implements Controller {
 		String json = gson.toJson(list);
 
 		System.out.println(json);
-		out.print(json);	
+		out.print(json);
+		
+		
 		
 		return null;
 	}
