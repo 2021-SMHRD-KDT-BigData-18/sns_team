@@ -24,5 +24,16 @@
 		)
 	</insert>
 	
-
+	<update id="likeUpdatePlus" parameterType="kr.smhrd.entity.T_POST">
+		update T_POST
+		set P_LIKES = P_LIKES + 1 
+		where P_SEQ = #{P_SEQ}
+	</update>
+	
+	<update id="likeUpdateMinus" parameterType="kr.smhrd.entity.T_POST">
+		update T_POST
+		set P_LIKES = P_LIKES - 1 
+		where P_SEQ = #{P_SEQ}
+	</update>
+	
 </mapper>

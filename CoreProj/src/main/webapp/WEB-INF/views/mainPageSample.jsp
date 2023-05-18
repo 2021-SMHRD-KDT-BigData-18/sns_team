@@ -238,29 +238,6 @@
 			<div class="postList">
 				<div class="postCard">
 					<div class="card-body">
-						<p id="post_id" style="display: none;">123123</p>
-						<h5 class="card-title">글 제목</h5>
-						<p class="card-text">작성자 id? nick?</p>
-						<p class="card-text">내용내용</p>
-					</div>
-					<img
-						src="https://contents.sixshop.com/thumbnails/uploadedFiles/20883/product/image_1580096408592_750.jpeg"
-						class="postCardImg" alt="프로필 이미지">
-
-					<div class="card-footer">
-						<p></p>
-						<hr>
-						<div class="footer-menu">
-							<button class="btn_like">🌱</button>
-							<button class="btn_bookmark">북마크</button>
-
-
-						</div>
-					</div>
-				</div>
-
-				<div class="postCard">
-					<div class="card-body">
 						<p id="post_id" style="display: none;">345345</p>
 						<h5 class="card-title">글 제목</h5>
 						<p class="card-text">작성자</p>
@@ -276,8 +253,6 @@
 						<div class="footer-menu">
 							<button class="btn_like">🌱</button>
 							<button class="btn_bookmark">북마크</button>
-
-
 						</div>
 					</div>
 				</div>
@@ -323,6 +298,7 @@
 
 	<script>
 		$(document).ready(postLoad());
+		
 		function postLoad() {
 			$.ajax({
 				url : "goMainPost.do",
@@ -345,10 +321,9 @@
 						html+='<p class="card-text">'+res[i].P_CONTENT+'</p></div>';
 						html+='<img src="'+rootpath+res[i].P_FILE+'" class="postCardImg" alt="프로필 이미지">';
 						html+='<div class="card-footer"><p></p><hr>';
-						html+='<div class="footer-menu"><button class="btn_like">🌱</button>';
+						html+='<div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">'+res[i].P_SEQ+'</p>🌱</button>';
 						html+='<button class="btn_bookmark">북마크</button></div></div></div>';
 						$(".postList").append(html);
-						
 	                }
 					listenerOK();
 					friendSelect();
@@ -400,7 +375,47 @@
 	                  }
 	               } );
 	         }
+
 			
+			$('.btn_like').on('click',  
+					function LikeUpdatePlus(){
+				let p_seq = $('p.post_id').innerText;
+						  $.ajax({
+							    url: "likeUpdatePlus.do",
+							    type: "POST",
+							    dataType: "json",
+							    data: p_seq,  
+							    success: 
+							    function(data){      					
+							    	alert("'좋아요'가 반영되었습니다!") ;  
+					                $(".btn_like").html("🌱" + data.P_LIKES);  
+							    },   
+							    
+							    error: 
+							    function (request, status, error){  
+							      alert("실패")                  
+							    }
+							  });
+					}/*,
+					function LikeUpdateMinus(){
+						  $.ajax({
+							    url: "likeUpdateMinus.do",
+							    type: "POST",
+							    dataType: "json",
+							    data: {},   
+							    success: 
+							    function(data){      					
+							    	alert("'좋아요'가 반영되었습니다!") ;  
+					                $(".btn_like").html("🌱" + data.like);  
+							    },   
+							    
+							    error: 
+							    function (request, status, error){  
+							      alert("실패")                  
+							    }
+							  });
+					}*/
+					);
 	</script>
 
 </body>

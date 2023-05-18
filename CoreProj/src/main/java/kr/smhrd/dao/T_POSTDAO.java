@@ -44,5 +44,26 @@ public class T_POSTDAO {
 
 		return post;
 	}
-
+	
+	public int likeUpdatePlus(T_POST dto) {
+		
+		SqlSession session = factory.openSession(true);
+		
+		int row = session.update("likeUpdatePlus", dto);
+		
+		session.close();
+		
+		return row;
+	}
+	
+	public int likeUpdateMinus(T_POST dto) {
+		
+		SqlSession session = factory.openSession(true);
+		
+		int row = session.update("likeUpdateMinus", dto);
+		
+		session.close();
+		
+		return row;
+	}
 }

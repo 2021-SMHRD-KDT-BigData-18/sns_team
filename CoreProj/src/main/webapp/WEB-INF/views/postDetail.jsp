@@ -256,6 +256,7 @@
                         <h5 class="card-title">${requestScope.post.getP_TITLE()}</h5>
                         <p class="card-text">${requestScope.post.getU_ID()}</p>
                         <p class="card-text">${requestScope.post.getP_CONTENT()}</p>
+                        <a href="#" id="urlCopy" class="btn_urlCopy" title="새창" onclick="clip(); return false;">링크 공유하기</a>
                     </div>
                     <img src="http://218.157.19.25:8081/jisik/P_FILE/${requestScope.post.getP_FILE()}"
                         class="postCardImg" alt="프로필 이미지">
@@ -389,7 +390,22 @@
                     }
                 });
 			}
+           
+            function clip(){
+
+                var url = '';    
+                var textarea = document.createElement("textarea");  
                 
+                
+                document.body.appendChild(textarea); 
+                url = window.document.location.href;  
+                textarea.value = url;  
+                textarea.select();  
+                document.execCommand("copy");   
+                document.body.removeChild(textarea); 
+                
+                alert("URL이 복사되었습니다.")  
+            }
     </script>
 
 </body>
