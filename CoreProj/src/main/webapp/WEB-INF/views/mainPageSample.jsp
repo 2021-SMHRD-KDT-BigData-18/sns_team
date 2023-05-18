@@ -226,7 +226,7 @@
 					<ul class="nav-item">
 						<a class="nav-link" href="goChat.do">ChatChatChatChat</a>
 					</ul>
-					<button class="btnSearch">검색</button>
+					
 					<button id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>
 				</ul>
 			</div>
