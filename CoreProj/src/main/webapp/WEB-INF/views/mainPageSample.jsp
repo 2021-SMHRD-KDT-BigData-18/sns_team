@@ -322,6 +322,7 @@
 						html+='<img src="'+rootpath+res[i].P_FILE+'" class="postCardImg" alt="프로필 이미지">';
 						html+='<div class="card-footer"><p></p><hr>';
 						html+='<div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">'+res[i].P_SEQ+'</p>🌱</button>';
+						html+='<p>' + res[i].P_VIEWS +'회</p>';
 						html+='<button class="btn_bookmark">북마크</button></div></div></div>';
 						$(".postList").append(html);
 	                }

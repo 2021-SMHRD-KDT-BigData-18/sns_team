@@ -66,4 +66,18 @@ public class T_POSTDAO {
 		
 		return row;
 	}
+	
+	public int checkPlus(int p_id) {
+		
+		SqlSession session = factory.openSession(true);
+		
+		int row = session.update("checkPlus", p_id);
+		
+		session.close();
+		
+		return row;
+	}
+
+	
+	
 }

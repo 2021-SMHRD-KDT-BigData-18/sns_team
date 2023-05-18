@@ -257,6 +257,7 @@
                         <p class="card-text">${requestScope.post.getU_ID()}</p>
                         <p class="card-text">${requestScope.post.getP_CONTENT()}</p>
                         <a href="#" id="urlCopy" class="btn_urlCopy" title="새창" onclick="clip(); return false;">링크 공유하기</a>
+						<p>${requestScope.post.getP_VIEWS()+1}회</p>	                    
                     </div>
                     <img src="http://218.157.19.25:8081/jisik/P_FILE/${requestScope.post.getP_FILE()}"
                         class="postCardImg" alt="프로필 이미지">

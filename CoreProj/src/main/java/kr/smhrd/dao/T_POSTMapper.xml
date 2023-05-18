@@ -36,4 +36,11 @@
 		where P_SEQ = #{P_SEQ}
 	</update>
 	
+	<!-- parameterType="kr.smhrd.entity.T_POST" -->
+	<update id="checkPlus">
+		update T_POST
+		set P_VIEWS = P_VIEWS + 1
+		where P_SEQ = #{P_SEQ}
+	</update>
+	
 </mapper>
