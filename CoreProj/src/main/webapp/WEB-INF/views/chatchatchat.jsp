@@ -193,19 +193,14 @@
                     <span>풀채팅</span>
                 </div>
 
-                <% T_USER dto=new T_USER(); dto.setU_ID("smhrd"); session.setAttribute("user", dto); %>
+                <%--<% T_USER dto=new T_USER(); dto.setU_ID("smhrd"); session.setAttribute("user", dto); --%>
 
 
 
                     <h1>${user.getU_ID()}</h1>
 
-                    <c:if test="${(login.id ne '') and !(empty login.id)}">
-                        <input type="hidden" value='${login.id }' id='chat_id' />
-                    </c:if>
-                    <c:if test="${(login.id eq '') or (empty login.id)}">
-                        <input type="hidden" value='<%=session.getId().substring(0, 6)%>' id='chat_id' />
-                    </c:if>
-                    <!--     채팅창 -->
+                        <input type="hidden" value='${user.getU_ID()}' id='chat_id' />
+                    <!-- 채팅창 -->
                     <div id="_chatbox" style="display: none">
                         <fieldset>
                             <div id="messageWindow"></div>
@@ -224,7 +219,7 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
                     style="height:200px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
                 <div class="card-body">
-                    <h5 class="card-title" style="margin-left: 15%;">smhrd 님 환영합니다</h5>
+                    <h5 class="card-title" style="margin-left: 15%;">${user.getU_ID()}님 환영합니다</h5>
                     <a href="#" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
                     <a href="#" class="btn btn-primary" style="margin-left: 5%;">회원정보 수정</a>
                 </div>
@@ -259,6 +254,8 @@
         }
     </script>
 <script>
+
+// 아이콘 클릭해서 채팅방 까기
     $(".chat").on({
         "click" : function() {
             if ($(this).attr("src") == "./말풍선 이미지.png") {
@@ -270,10 +267,17 @@
             }
         }
     });
+    
+
 </script>
 <script type="text/javascript">
     var textarea = document.getElementById("messageWindow");
-    var webSocket = new WebSocket('ws://localhost:8081/jisik/broadcasting');
+    var path='ws://218.157.19.25:8081/jisik/broadcasting/';
+    if('${user.getU_ID()}'=='aa'){path+='123';}
+    else if('${user.getU_ID()}'=='bb'){path+='123';}
+    else if('${user.getU_ID()}'=='cc'){path+='456';}
+    else if('${user.getU_ID()}'=='dd'){path+='456';}
+    var webSocket = new WebSocket(path);
     var inputMessage = document.getElementById('inputMessage');
     webSocket.onerror = function(event) {
         onError(event)
@@ -334,13 +338,13 @@
     function send() {
         if (inputMessage.value == "") {
         } else {
-            $("#messageWindow").html(
+            /*$("#messageWindow").html(
                     $("#messageWindow").html()
                             + "<p class='chat_content'>${user.getU_ID()} : "
                             + inputMessage.value
-                            + "</p>");
-        }
+                            + "</p>");*/
         webSocket.send($("#chat_id").val() + "|" + inputMessage.value);
+        }
         inputMessage.value = "";
     }
     //     엔터키를 통해 send함
