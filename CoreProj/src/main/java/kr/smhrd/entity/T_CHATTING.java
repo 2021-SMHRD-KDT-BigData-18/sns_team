@@ -18,6 +18,9 @@ public class T_CHATTING {
 		CHAT_DT = cHAT_DT;
 		CHAT_EMOTICON = cHAT_EMOTICON;
 	}
+	
+	public T_CHATTING() {}
+	
 	public int getCHAT_SEQ() {
 		return CHAT_SEQ;
 	}

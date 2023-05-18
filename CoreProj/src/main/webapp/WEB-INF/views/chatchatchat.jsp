@@ -201,7 +201,7 @@
 
                         <input type="hidden" value='${user.getU_ID()}' id='chat_id' />
                     <!-- 채팅창 -->
-                    <div id="_chatbox" style="display: none">
+                    <div id="_chatbox">
                         <fieldset>
                             <div id="messageWindow"></div>
                             <br/> <input id="inputMessage" type="text" onkeyup="enterkey()" />
@@ -256,7 +256,7 @@
 <script>
 
 // 아이콘 클릭해서 채팅방 까기
-    $(".chat").on({
+    /*$(".chat").on({
         "click" : function() {
             if ($(this).attr("src") == "./말풍선 이미지.png") {
                 $(".chat").attr("src", "./말풍선 이미지.png");
@@ -266,7 +266,7 @@
                 $("#_chatbox").css("display", "none");
             }
         }
-    });
+    });*/
     
 
 </script>
@@ -289,7 +289,7 @@
         onMessage(event)
     };
     function onMessage(event) {
-        var message = event.data.split("|");
+        var message = event.data.split(",!,");
         var sender = message[0];
         var content = message[1];
         if (content == "") {
@@ -343,7 +343,7 @@
                             + "<p class='chat_content'>${user.getU_ID()} : "
                             + inputMessage.value
                             + "</p>");*/
-        webSocket.send($("#chat_id").val() + "|" + inputMessage.value);
+        webSocket.send($("#chat_id").val() + ",!," + inputMessage.value);
         }
         inputMessage.value = "";
     }

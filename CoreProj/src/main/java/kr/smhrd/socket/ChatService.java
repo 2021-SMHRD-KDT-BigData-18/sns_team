@@ -5,6 +5,10 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
+
+import kr.smhrd.dao.T_CHATTINGDAO;
+import kr.smhrd.entity.T_CHATTING;
+
 import java.util.*;
 
 @ServerEndpoint(value="/broadcasting/{roomId}")
@@ -44,9 +48,9 @@ public class ChatService {
             }
         }
     }
-
+    
     @OnMessage
-    public void onMessage(String msg, Session s) throws Exception{
+    public void onMessage(String msg, Session s, @PathParam("roomId") int roomId) throws Exception{
         //사용자가 어느 방에 있는지 찾기
         Integer findkey = -1;
         for(int key: sessionMap.keySet()){
@@ -61,6 +65,34 @@ public class ChatService {
         for(int j=0;j<sessionMap.get(findkey).size();j++){
             tmpSessionSet.add(sessionMap.get(findkey).get(j));
         }
+        // roomId => 방 시퀀스
+        String str = "ABCDEFG,!,HIJKLMN,!,OPQRSTU,!,VWXYZ";
+		String[] ArraysStr = str.split(",!,");
+		for(String ds : ArraysStr) {
+			System.out.println(ds);}
+		System.out.println("-----------");
+        
+        
+        String[] message = msg.split(",!,");
+        System.out.println(msg);
+        System.out.println("-----------");
+        for(int i =0;i<message.length;i++) {
+        	System.out.println(i);
+        	System.out.println(message[i]);
+        }
+        String sender = message[0];
+        String content = message[1];
+        
+        T_CHATTING dto = new T_CHATTING();
+        T_CHATTINGDAO dao = new T_CHATTINGDAO();
+        dto.setCHAT_CONTENT(content);
+        //dto.setCR_SEQ(roomId);
+        dto.setCR_SEQ(1);
+        dto.setTALKER(sender);
+        
+        int res = dao.chat(dto);
+        if(res!=0)
+        	System.out.println("OK!");
 
         //같은 방에 있는 사람에게만 보낸다.
         for(Session session : tmpSessionSet) {

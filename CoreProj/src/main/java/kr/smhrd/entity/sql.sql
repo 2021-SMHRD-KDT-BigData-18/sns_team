@@ -3,6 +3,40 @@ select * from T_FRIEND;
 select * from T_POST;
 select * from T_POST order by P_DT desc;
 select * from T_COMMENT;
+select * from T_CHATTING;
+select * from T_CHATROOM;
+
+
+delete from T_CHATTING;
+
+insert into T_CHATTING values(T_CHATTING_SEQ.nextval,1,'243','523',sysdate,null);
+
+insert into T_CHATROOM values(T_CHATROOM_SEQ.nextval,'aa','300','523',3,sysdate);
+
+commit
+
+drop SEQUENCE T_CHATROOM_SEQ;
+drop TRIGGER T_CHATROOM_AI_TRG;
+
+
+-- Auto Increment를 위한 Sequence 추가 SQL - T_CHATROOM.CR_SEQ
+CREATE SEQUENCE T_CHATROOM_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+-- Auto Increment를 위한 Trigger 추가 SQL - T_CHATROOM.CR_SEQ
+CREATE OR REPLACE TRIGGER T_CHATROOM_AI_TRG
+BEFORE INSERT ON T_CHATROOM 
+REFERENCING NEW AS NEW FOR EACH ROW 
+BEGIN 
+    SELECT T_CHATROOM_SEQ.NEXTVAL
+    INTO :NEW.CR_SEQ
+    FROM DUAL
+END;
+
+
+
+
 
 insert into T_COMMENT values(T_COMMENT_SEQ.nextval, 2,'안녕하세요오오',sysdate,'aa');
 
