@@ -323,10 +323,12 @@
         
             $(document).ready(cmtLoad());
             function cmtLoad() {
+            	let p_seq = <%=request.getParameter("p_id")%>;
+            	console.log(p_seq);
                 $.ajax({
                     url : "loadCmt.do",
                     type : "post",
-                    data : {},
+                    data : {'p_id':p_seq},
                     dataType : "json",
                     success : function(res) {
                         let html='';
