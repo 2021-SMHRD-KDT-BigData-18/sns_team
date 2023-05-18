@@ -46,7 +46,6 @@ select a.*,b.U_PROFILE_IMG from T_COMMENT A, T_USER B
 	and a.U_ID = b.U_ID
 	order by CMT_DT desc;
 
-
 insert into T_FRIEND values(T_FRIEND_SEQ.nextval, 'aa','bb',sysdate);
 commit;
 
@@ -93,5 +92,6 @@ select * from T_POST;
 
 -- ===========================================================
 
+INSERT INTO T_FRIEND values(T_FRIEND_SEQ.nextval, 'bb', 'cc', sysdate);
 
-
+SELECT * FROM T_FRIEND;

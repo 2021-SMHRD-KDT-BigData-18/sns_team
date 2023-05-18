@@ -1,3 +1,5 @@
+<%@page import="kr.smhrd.entity.T_FRIEND"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -206,7 +208,6 @@
 
 </head>
 <body>
-
 	<div id="backgroundArea">
 		<div id="leftPage" class="border-end">
 			<div class="navbar">
@@ -225,7 +226,7 @@
 					<ul class="nav-item">
 						<a class="nav-link" href="goChat.do">ChatChatChatChat</a>
 					</ul>
-					<button class="btnSearch">검색</button>
+					
 					<button id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>
 				</ul>
 			</div>
@@ -311,10 +312,7 @@
 							aria-labelledby="flush-headingOne"
 							data-bs-parent="#accordionFlushExample">
 							<div class="accordion-body">
-								Placeholder content for this accordion, which is intended to
-								demonstrate the
-								<code>.accordion-flush</code>
-								class. This is the first item's accordion body.
+								
 							</div>
 						</div>
 					</div>
@@ -353,6 +351,7 @@
 						
 	                }
 					listenerOK();
+					friendSelect();
 				},
 				error : function(e) {
 					// 요청이 실패하면 실행될 콜백함수
@@ -372,6 +371,36 @@
 				let p_id=$(this).children()[0].innerText;
 				location.href='goPostDetail.do?p_id='+p_id;
 			};
+		
+			function friendSelect(){
+	            
+	            $.ajax( {
+	                  url : 'friendSelect.do', 
+	                  type : 'post', 
+	                  data : {}, 
+	                  dataType : "json", 
+	                  success : function(res){
+	                     console.log('시작');
+	                     console.log(res);
+	                     for(let i=0; i<res.length; i++){
+	                        let html='';
+	                        rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+	                        html+='<div class="accordion-body">';
+	                     html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+	                     html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+	                        html+='</div>';
+	                        $(".accordion-body").append(html);
+	                     }
+	                  },
+	                  error : function(e){
+	                     alert("요청 실패!");
+	                     let html = '';
+	                     html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+	                     $(".accordion-body").append(html);
+	                  }
+	               } );
+	         }
+			
 	</script>
 
 </body>

@@ -10,7 +10,8 @@ public class GoChatListCon implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException {	
+				
 		return "chatList";
 	}
 
