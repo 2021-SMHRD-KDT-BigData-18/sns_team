@@ -12,6 +12,9 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+<script src="assets/js/jquery-3.7.0.min.js"></script>
+
     
     <style>
            @font-face {
@@ -175,7 +178,7 @@
                 <p class="my_id"><%=friend.getU_ID()%></p>
                 <img class="pro_img" src="./image/새싹 누끼.png">
                 <img class="addfr_img" src="./image/새싹 누끼.png">
-                <button>풀링</button><br><br>
+                <button id="btn_follow">풀링</button><br><br>
                 <p class="my_name"> <%=friend.getU_NICK() %> </p>
                 <div class="p_p_info">
                     <div class="my_pa">
@@ -200,6 +203,36 @@
             </div>
         </div>
     </div>
+    
+    
+    
+    
+    <script type="text/javascript">
+    
+    let btn_follow = $('#btn_follow');
+    btn_follow.on('click',follow);
+    
+    function follow() {
+		$.ajax({
+			url: "follow.do",
+		    type: "POST",
+		    dataType: "json",
+		    data: p_seq,
+		    success:
+		    	function(data){      					
+		    	alert("친추 완료") ;
+		    },   
+		    error: 
+		    function (request, status, error){ 
+		      alert("친추 취소") ;
+		    }
+		});
+	}
+    
+    </script>
+    
+    
+    
 </body>
 
 </html>
