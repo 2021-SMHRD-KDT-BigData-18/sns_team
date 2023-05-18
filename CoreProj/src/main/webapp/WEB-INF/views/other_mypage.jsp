@@ -1,3 +1,5 @@
+<%@page import="kr.smhrd.dao.T_USERDAO"%>
+<%@page import="kr.smhrd.entity.T_USER"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -146,28 +148,35 @@
 </head>
 
 <body>
+
+<%
+	T_USERDAO dao = new T_USERDAO();
+	T_USER friend = dao.searchUser((request.getParameter("u_id")));
+%>
+
+
     <div id="backgroundArea">
         <div id="leftPage" class="border-end">
             <div class="navbar">
                 <ul class="nav flex-column">
                     <img class=logo src="./image/새싹 누끼.png">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">홈</a>
+                        <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="./chatList.html">채팅방 &#x1F4AC;</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
         <div id="mypage_area"><br>
             <hr>
             <div class="my_info">
-                <p class="my_id">친구id</p>
+                <p class="my_id"><%=friend.getU_ID()%></p>
                 <img class="pro_img" src="./image/새싹 누끼.png">
                 <img class="addfr_img" src="./image/새싹 누끼.png">
                 <button>풀링</button><br><br>
-                <p class="my_name">친구 닉네임이지롱</p>
+                <p class="my_name"> <%=friend.getU_NICK() %> </p>
                 <div class="p_p_info">
                     <div class="my_pa">
                         <span>창고지기 식물</span>

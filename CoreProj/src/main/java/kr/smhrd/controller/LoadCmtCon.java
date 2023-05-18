@@ -19,13 +19,18 @@ public class LoadCmtCon implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-response.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		
 		T_COMMENTDAO dao = new T_COMMENTDAO();
+		
+		System.out.println(request.getParameter("p_id"));
+		
+		int p_id = Integer.parseInt(request.getParameter("p_id"));
+		
 		PrintWriter out = response.getWriter();
 
 		// 회원 전체 목록을 json 형식
-		List<T_COMMENT> list = dao.cmtLoad();
+		List<T_COMMENT> list = dao.cmtLoad(p_id);
 //		request.setAttribute("posts", list);
 
 		// Java 객체를 Json으로 변환시키기위한 Gson 라이브러리

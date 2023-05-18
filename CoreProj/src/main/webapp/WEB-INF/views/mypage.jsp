@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -149,13 +151,13 @@
                 <ul class="nav flex-column">
                     <img class=logo src="./image/새싹 누끼.png">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">홈</a>
+                        <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="" href="#">저장게시글 &#x1F4C2;</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./chatList.html">채팅 &#x1F4AC;</a>
+                        <a class="nav-link" href="goChatList.do">채팅 &#x1F4AC;</a>
                     </li>
                 </ul>
             </div>
@@ -163,10 +165,10 @@
         <div id="mypage_area"><br>
             <p id="title">My Page</p><hr>
             <div class="my_info">
-                <p class="my_id">smhrd0512</p>
+                <p class="my_id">${user.getU_ID()}</p>
                 <img class="pro_img" src="./image/새싹 누끼.png">
                 <img class="addfr_img" src="./image/새싹 누끼.png">
-                <p class="my_name">창고지기</p>
+                <p class="my_name">${user.getU_NICK()}</p>
                 <button>개인정보수정</button>
                 <button>프로필 편집</button><br><br>
                 <div class="p_p_info">
