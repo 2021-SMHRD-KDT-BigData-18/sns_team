@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import kr.smhrd.controller.CheckPlusCon;
 import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.DupIDCheckCon;
+import kr.smhrd.controller.FollowCon;
 import kr.smhrd.controller.FriendSelectCon;
 import kr.smhrd.controller.GoChatCon;
 import kr.smhrd.controller.GoChatListCon;
@@ -80,6 +81,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/likeUpdatePlus.do", new LikeUpdatePlusCon());
 		mappings.put("/likeUpdateMinus.do", new LikeUpdateMinusCon());
 		mappings.put("/checkPlus.do", new CheckPlusCon());
+		mappings.put("/follow.do", new FollowCon());
 		
 	}
 	
