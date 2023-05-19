@@ -15,7 +15,7 @@ public class T_CHATTINGDAO {
 
 		SqlSession session = factory.openSession(true);
 
-		List<T_CHATTING> list = session.selectList("list",roomId);
+		List<T_CHATTING> list = session.selectList("loadChat",roomId);
 
 		session.close();
 
