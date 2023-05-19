@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <%@page import="java.util.List"%>
+=======
+<%@page import="java.util.List"%>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -196,8 +200,7 @@
             list-style: none;
         }
         #cmtinput{
-            width: 90%;
-            height: 20%;
+            width: 82%;
             border-radius: 10px;
             margin-left: 5px;
         }
@@ -318,8 +321,8 @@
                         <hr>
                         <div id="cmtInputArea">
                             <div class="text_input">
-                                <input type="text" placeholder="댓글 입력" />
-                                <button id="btn_cmt" style="border-radius: 5px; width: 50px; height: 70px; margin-right: 5px;">댓 달기</button>
+                                <input type="text" placeholder="댓글 입력" id="cmtInput" name="cmtInput">
+                                <button id="btn_cmt" style="border-radius: 5px; width: 90px; height: 40px; margin-right: 5px;">댓글 달기</button>
                             </div>
                             <!-- <input type="text" id="cmtInput" name="cmtInput"> -->
                         </div>
@@ -431,12 +434,16 @@
                         console.log("ok");
                         console.log(res);
                         cmtLoad();
+                        $('#cmtInput').val("");
+                        
                     },
                     error : function(e) {
                         // 요청이 실패하면 실행될 콜백함수
                         alert("요청 실패!");
                     }
                 });
+            	
+            	
 			}
            
             function clip(){
