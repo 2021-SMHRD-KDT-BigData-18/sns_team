@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-	<script src="assets/js/jquery-3.7.0.min.js"></script>
+
     <style>
         @font-face {
             font-family: 'omyu_pretty';
@@ -236,7 +236,7 @@
                 </div>
                 <div class="pro1">
                     <p></p>
-                    <button class="btn" onclick = "location.href = 'goProfileUpdate.do'">개인정보수정</button>
+                    <button class="btn">개인정보수정</button>
                    
                 </div>
                 <hr>
@@ -302,47 +302,15 @@
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse"
                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body"> 
-                    </div>
+                    <div class="accordion-body"> 친구목록 띄워주쇼 <code>.accordion-flush</code> class. This is the
+                        first item's accordion
+                        body.</div>
                     </div>
                 </div>
             </div>
             </div>
         </div>
     </div>
-    <script>
-    $(document).ready(friendSelect());
-    function friendSelect(){
-		$.ajax( {
-              url : 'friendSelect.do', 
-              type : 'post', 
-              data : {}, 
-              dataType : "json", 
-              success : function(res){
-                 console.log('시작');
-                 console.log(res);
-                 for(let i=0; i<res.length; i++){
-                    let html='';
-                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                    html+='<div class="accordion-body">';
-                 	html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
-                 	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
-                    html+='</div>';
-                    $(".accordion-body").append(html);
-                 }
-              },
-              error : function(e){
-                 //alert("요청 실패!");
-                 let html = '';
-                 html+='<a href="goLogin.do">로그인을 해주세요.</a>'
-                 $(".accordion-body").append(html);
-              }
-           } );
-     }
-
-    
-    </script>
-    
 </body>
 
 </html>
