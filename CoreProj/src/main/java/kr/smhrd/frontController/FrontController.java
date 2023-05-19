@@ -79,7 +79,6 @@ public class FrontController extends HttpServlet {
 		mappings.put("/goChat.do", new GoChatCon());
 		mappings.put("/likeUpdatePlus.do", new LikeUpdatePlusCon());
 		mappings.put("/likeUpdateMinus.do", new LikeUpdateMinusCon());
-		mappings.put("/checkPlus.do", new CheckPlusCon());
 		mappings.put("/follow.do", new FollowCon());
 		
 	}
