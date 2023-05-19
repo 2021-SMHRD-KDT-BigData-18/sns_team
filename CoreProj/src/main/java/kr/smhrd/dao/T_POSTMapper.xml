@@ -16,7 +16,7 @@
 			T_POST_SEQ.nextval,
 			#{P_TITLE},
 			#{P_CONTENT},
-			#{P_FILE},
+			#{P_FILE, jdbcType=VARCHAR},
 			sysdate,
 			0,
 			0,
@@ -41,10 +41,6 @@
 		update T_POST
 		set P_VIEWS = P_VIEWS + 1
 		where P_SEQ = #{P_SEQ}
-	</update>
-	
-	<update id="">
-		update 
 	</update>
 	
 </mapper>
