@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 <%@page import="java.util.List"%>
+=======
+<%@page import="java.util.List"%>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -269,7 +275,7 @@
     <div id="backgroundArea">
         <div id="leftPage" class="border-end">
             <div class="navbar">
-                <img class="img" src="./image/지식창고_로고.png" width="300">
+                <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/지식창고_로고.png" width="300"></a>
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">
