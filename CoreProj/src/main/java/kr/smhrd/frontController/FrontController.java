@@ -22,6 +22,7 @@ import kr.smhrd.controller.GoMainCon;
 import kr.smhrd.controller.GoMainPostCon;
 import kr.smhrd.controller.GoMypageCon;
 import kr.smhrd.controller.GoPostDetailCon;
+import kr.smhrd.controller.GoProfileUpdateCon;
 import kr.smhrd.controller.GoWritePostCon;
 import kr.smhrd.controller.WritePostCon;
 import kr.smhrd.controller.JoinCon;
@@ -80,6 +81,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/likeUpdatePlus.do", new LikeUpdatePlusCon());
 		mappings.put("/likeUpdateMinus.do", new LikeUpdateMinusCon());
 		mappings.put("/follow.do", new FollowCon());
+		mappings.put("/goProfileUpdate.do", new GoProfileUpdateCon());
 		
 	}
 	

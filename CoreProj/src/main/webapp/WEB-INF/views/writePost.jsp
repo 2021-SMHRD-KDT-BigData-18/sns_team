@@ -313,9 +313,8 @@
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body"> 친구목록 띄워주쇼 <code>.accordion-flush</code> class. This is the
-                                first item's accordion
-                                body.</div>
+                            <div class="accordion-body"> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -331,7 +330,38 @@
             console.log($(this).children()[0].innerText);
         }
     </script>
+	<script>
+    $(document).ready(friendSelect());
+    function friendSelect(){
+		$.ajax( {
+              url : 'friendSelect.do', 
+              type : 'post', 
+              data : {}, 
+              dataType : "json", 
+              success : function(res){
+                 console.log('시작');
+                 console.log(res);
+                 for(let i=0; i<res.length; i++){
+                    let html='';
+                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                    html+='<div class="accordion-body">';
+                 	html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                 	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                    html+='</div>';
+                    $(".accordion-body").append(html);
+                 }
+              },
+              error : function(e){
+                 //alert("요청 실패!");
+                 let html = '';
+                 html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+                 $(".accordion-body").append(html);
+              }
+           } );
+     }
 
+    
+    </script>
     
 
 </body>
