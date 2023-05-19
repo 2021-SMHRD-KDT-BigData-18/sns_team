@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+=======
+<%@page import="java.util.List"%>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -13,6 +18,12 @@
     <script src="assets/js/jquery-3.7.0.min.js"></script>
     <style>
         #backgroundArea {
+            @font-face {
+                font-family: 'omyu_pretty';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+            }
             min-height: 100vh;
             display: flex;
             justify-content: space-between;
@@ -26,17 +37,10 @@
             background-color: beige(7, 160, 7);
         }
 
-        @font-face {
-            font-family: 'omyu_pretty';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
 
         #centerPage {
             display: flex;
             flex-direction: column;
-            width: 40%;
             width: 40%;
             align-items: center;
             background-color: rgb(235, 207, 138);
@@ -101,14 +105,7 @@
             width: 100%;
         }
 
-        #searchArea {
-            display: flex;
-            flex-direction: row;
-            width: 38%;
-            background-color: gray;
-            margin: 10px;
-            position: fixed;
-        }
+    
 
         #btnPost {
             position: fixed;
@@ -161,19 +158,7 @@
             width: 100%;
         }
 
-        /* 
-        #searchArea {
 
-
-            display: flex;
-            flex-direction: row;
-            width: 30%;
-            height: 5%;
-            background-color: rgba(255, 255, 255, 0.849);
-            position: fixed;
- 
-
-        } */
 
         #btnPost {
             position: fixed;
@@ -181,14 +166,6 @@
             /* margin-left: 5%; */
             background-color: rgba(255, 255, 255, 0.849);
         }
-
-        .btnSearch {
-            position: fixed;
-            background-color: rgba(255, 255, 255, 0.849);
-            top: 20%;
-            margin-left: 70px;
-        }
-
         .modal-body>span {
             white-space: pre-wrap;
         }
@@ -219,6 +196,74 @@
         #cmt_list {
             list-style: none;
         }
+        #cmtinput{
+            width: 90%;
+            height: 20%;
+            border-radius: 10px;
+            margin-left: 5px;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            /* border: 3px solid burlywood; */
+            background-color: rgb(238, 238, 186);
+            color: #703c3c;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: bold;
+            position: relative;
+            transition: all 0.4s;
+            overflow: hidden;
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            height: 50%;
+            width: 50%;
+            /* background-color: green; */
+            top: 50%;
+            left: 0;
+            transition: all 0.4s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            transform: translateY(-100%);
+        }
+
+        .btn:hover {
+            /* color:green;  */
+            color:rgb(0, 78, 52); 
+            background-color: #83ab85;
+         }
+
+
+
+
+        .text_input {
+        background: #eee;
+        padding: 15px;
+        }
+        .text_input input[type="text"] {
+            background: white;
+            width: 90%;
+            border-radius: 4px;
+            padding: 10px 0;
+            border: 0;
+            text-align: center;
+        }
+        #cmt_list{
+            background: rgb(243, 243, 229);
+            height: 200px;
+        }
+     
+         
     </style>
 
 </head>
@@ -232,25 +277,27 @@
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="goMain.do">Home</a>
                     </ul>
                     <ul class="nav-item">
-                        <a class="nav-link" href="#">My Page</a>
+                        <a class="nav-link" href="goMypage.do?u_id=${user.getU_ID()}">My Page</a>
                     </ul>
                     <ul class="nav-item">
                         <a class="nav-link" href="goChatList.do">Chat</a>
                     </ul>
-                    <button class="btnSearch">검색</button>
-                    <button id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>
+                    <button id="btn btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>
                 </ul>
             </div>
 
         </div>
-        <hr>
         <div id="centerPage" class=" border-start border-end border-1">
-
+            <!-- <div class="btnchange">
+            </div> -->
             <div class="postList">
+                <a href="#" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
+                <a href="#" class="btn btn_change" >✘</a> 
                 <div class="postCard">
+                    
                     <div class="card-body">
                         <p id="post_id" style="display: none;">${requestScope.post.getP_SEQ()}</p>
                         <h5 class="card-title">${requestScope.post.getP_TITLE()}</h5>
@@ -264,25 +311,25 @@
 
                     <div class="card-footer">
                         <p></p>
-                        <hr>
                         <div class="footer-menu">
-                            <button class="btn_like">🌱</button>
-                            <button class="btn_bookmark">북마크</button>
+                            <button class="btn btn_like">🌱</button>
+                            <button class="btn btn_bookmark">북마크</button>
 
                         </div>
                         <hr>
                         <div id="cmtInputArea">
-                            <input type="text" id="cmtInput" name="cmtInput">
-                            <button id="btn_cmt">댓 달기</button>
+                            <div class="text_input">
+                                <input type="text" placeholder="댓글 입력" />
+                                <button id="btn_cmt" style="border-radius: 5px; width: 50px; height: 70px; margin-right: 5px;">댓 달기</button>
+                            </div>
+                            <!-- <input type="text" id="cmtInput" name="cmtInput"> -->
                         </div>
-                        <hr>
                         <div id="cmt_list"></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <hr>
         <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
@@ -290,9 +337,12 @@
                         style="height: 200px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
                     <div class="card-body">
                         <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()}</h5>
-                        <a href="#" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
-                        <a href="#" class="btn btn-primary" style="margin-left: 5%;">회원정보
-                            수정</a>
+						<c:if test="${sessionScope.user.getU_ID() != null}">
+							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
+						</c:if>
+						<c:if test="${sessionScope.user.getU_ID() == null}">
+							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 8%">로그인</a>
+						</c:if>
                     </div>
                 </div>
                 <div class="accordion" id="friendList">
@@ -306,10 +356,6 @@
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                Placeholder content for this accordion, which is intended to
-                                demonstrate the
-                                <code>.accordion-flush</code>
-                                class. This is the first item's accordion body.
                             </div>
                         </div>
                     </div>
@@ -409,6 +455,38 @@
                 
                 alert("URL이 복사되었습니다.")  
             }
+    </script>
+    <script>
+    $(document).ready(friendSelect());
+    function friendSelect(){
+		$.ajax( {
+              url : 'friendSelect.do', 
+              type : 'post', 
+              data : {}, 
+              dataType : "json", 
+              success : function(res){
+                 console.log('시작');
+                 console.log(res);
+                 for(let i=0; i<res.length; i++){
+                    let html='';
+                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                    html+='<div class="accordion-body">';
+                 	html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                 	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                    html+='</div>';
+                    $(".accordion-body").append(html);
+                 }
+              },
+              error : function(e){
+                 //alert("요청 실패!");
+                 let html = '';
+                 html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+                 $(".accordion-body").append(html);
+              }
+           } );
+     }
+
+    
     </script>
 
 </body>

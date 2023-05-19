@@ -12,7 +12,10 @@ public class GoChatListCon implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {	
 				
-		return "chatList";
+		if (request.getSession().getAttribute("user") != null)
+			return "chatList";
+		else
+			return "login";
 	}
 
 }
