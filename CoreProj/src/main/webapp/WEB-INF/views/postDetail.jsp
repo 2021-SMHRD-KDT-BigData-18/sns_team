@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -286,9 +288,13 @@
 
         </div>
         <div id="centerPage" class=" border-start border-end border-1">
-
+            <!-- <div class="btnchange">
+            </div> -->
             <div class="postList">
+                <a href="#" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
+                <a href="#" class="btn btn_change" >✘</a> 
                 <div class="postCard">
+                    
                     <div class="card-body">
                         <p id="post_id" style="display: none;">${requestScope.post.getP_SEQ()}</p>
                         <h5 class="card-title">${requestScope.post.getP_TITLE()}</h5>
@@ -305,7 +311,6 @@
                         <div class="footer-menu">
                             <button class="btn btn_like">🌱</button>
                             <button class="btn btn_bookmark">북마크</button>
-                            <button class="btn btn_change">수정하기</button>
 
                         </div>
                         <hr>
