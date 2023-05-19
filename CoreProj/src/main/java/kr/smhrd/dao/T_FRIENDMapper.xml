@@ -6,8 +6,8 @@
 		select * from T_FRIEND
 		where U_ID = #{U_ID}
 	</select>
-	<select id="checkFollow" parameterType="Map">
-		select * from T_FRIEND
+	<select id="checkFollow" parameterType="Map" resultType="integer">
+		select count(*) from T_FRIEND
 		where U_ID = #{U_ID}
 		and F_ID = #{F_ID}
 	</select>

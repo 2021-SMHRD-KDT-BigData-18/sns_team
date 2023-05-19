@@ -13,6 +13,10 @@ insert into T_CHATTING values(T_CHATTING_SEQ.nextval,1,'243','523',sysdate,null)
 
 insert into T_CHATROOM values(T_CHATROOM_SEQ.nextval,'aa','300','523',3,sysdate);
 
+
+insert into T_FRIEND values(T_FRIEND_SEQ.nextval,'cc','bb',sysdate);
+
+
 commit
 
 drop SEQUENCE T_CHATROOM_SEQ;
