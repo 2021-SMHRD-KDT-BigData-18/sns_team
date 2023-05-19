@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -248,7 +249,7 @@
                     <button class="btn" style="margin-right: 62%;"  >프로필편집</button>
                     <p></p>
                     <p></p>
-                    <button class="btn" style="margin-left: 50%;">수정완료</button>
+                    <button class="btn" style="margin-left: 50%;" onclick="location.href='goMypage.do?u_id=${user.getU_ID()}'">수정완료</button>
                    
                 </div>
                 <hr>
@@ -262,9 +263,13 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
                         style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-left: 22%;">smhrd 님 환영합니다</h5>
-                        <a href="#" class="btn btn-primary" style="margin-left: 10%">로그아웃</a>
-                        <a href="#" class="btn btn-primary" style="margin-left: 10%;">회원정보 수정</a>
+                        <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()}</h5>
+						<c:if test="${sessionScope.user.getU_ID() != null}">
+							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
+						</c:if>
+						<c:if test="${sessionScope.user.getU_ID() == null}">
+							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 8%">로그인</a>
+						</c:if>
                     </div>
                 </div>
                 <br>

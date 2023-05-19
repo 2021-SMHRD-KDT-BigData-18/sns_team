@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -232,10 +233,10 @@
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="goMain.do">Home</a>
                     </ul>
                     <ul class="nav-item">
-                        <a class="nav-link" href="#">My Page</a>
+                        <a class="nav-link" href="goMypage.do?u_id=${user.getU_ID()}">My Page</a>
                     </ul>
                     <ul class="nav-item">
                         <a class="nav-link" href="goChatList.do">Chat</a>
@@ -290,9 +291,12 @@
                         style="height: 200px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
                     <div class="card-body">
                         <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()}</h5>
-                        <a href="#" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
-                        <a href="#" class="btn btn-primary" style="margin-left: 5%;">회원정보
-                            수정</a>
+						<c:if test="${sessionScope.user.getU_ID() != null}">
+							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
+						</c:if>
+						<c:if test="${sessionScope.user.getU_ID() == null}">
+							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 8%">로그인</a>
+						</c:if>
                     </div>
                 </div>
                 <div class="accordion" id="friendList">
@@ -306,10 +310,6 @@
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                Placeholder content for this accordion, which is intended to
-                                demonstrate the
-                                <code>.accordion-flush</code>
-                                class. This is the first item's accordion body.
                             </div>
                         </div>
                     </div>
@@ -409,6 +409,38 @@
                 
                 alert("URL이 복사되었습니다.")  
             }
+    </script>
+    <script>
+    $(document).ready(friendSelect());
+    function friendSelect(){
+		$.ajax( {
+              url : 'friendSelect.do', 
+              type : 'post', 
+              data : {}, 
+              dataType : "json", 
+              success : function(res){
+                 console.log('시작');
+                 console.log(res);
+                 for(let i=0; i<res.length; i++){
+                    let html='';
+                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                    html+='<div class="accordion-body">';
+                 	html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                 	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                    html+='</div>';
+                    $(".accordion-body").append(html);
+                 }
+              },
+              error : function(e){
+                 //alert("요청 실패!");
+                 let html = '';
+                 html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+                 $(".accordion-body").append(html);
+              }
+           } );
+     }
+
+    
     </script>
 
 </body>
