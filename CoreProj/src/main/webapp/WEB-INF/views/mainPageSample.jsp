@@ -221,7 +221,7 @@
 	<div id="backgroundArea">
 		<div id="leftPage" class="border-end">
 			<div class="navbar">
-				<img class="img" src="./image/지식창고_로고.png" width="300">
+				<a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/지식창고_로고.png" width="300"></a>
 
 				<ul class="nav flex-column">
 					<ul class="nav-item">
@@ -258,18 +258,19 @@
 						style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
 						alt="프로필 이미지">
 						
-						<!--
+						<%-- 
 					  	<img
 						  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
 						style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
 						alt="프로필 이미지"> 
-						-->
+						--%>
 						
 					<div class="card-body">
-						<!-- <h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀 </h5> -->
+						<%--<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀 </h5> --%>
 						<c:if test="${sessionScope.user.getU_ID() != null}">
 						
 						<!-- <img src="\${sessionScope.getU_PROFILE_IMG()}"> -->
+						<%--<img src="${sessionScope.getU_PROFILE_IMG()}"> --%>
 						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
 							<a href="logout.do" class="btn btn-primary" style="margin-left: 70%">로그아웃</a>
 						</c:if>

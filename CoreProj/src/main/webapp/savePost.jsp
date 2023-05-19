@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="java.util.List"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -16,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-	<script src="assets/js/jquery-3.7.0.min.js"></script>
+
     <style>
         @font-face {
             font-family: 'omyu_pretty';
@@ -208,75 +205,67 @@
         <div id="leftPage" class="border-end">
             <div class="navbar">
                 <ul class="nav flex-column">
-                    <a class="nav-link active" aria-current="page" href="goMain.do"><img class=logo src="./image/새싹 누끼.png" ></a>
+                    <img class=logo src="./image/새싹 누끼.png" >
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
+                        <a class="nav-link active" aria-current="page" href="#">홈</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="" href="#">저장게시글 &#x1F4C2;</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="goChatList.do">채팅 &#x1F4AC;</a>
+                        <a class="nav-link" href="./chatList.html">채팅 &#x1F4AC;</a>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div id="mypage_area">
-            <p id="title">My Page</p>
+            <p id="title">저장 게시글</p>
             
             <div class="my_info">
-                <div class="pro">
-                <img class="pro_img" src="./image/새새싹.png">
-                <span>&emsp;&emsp;</span>
-                <div class="id_nick">
-                    <span class="my_id">${sessionScope.user.getU_ID()}</span>
-                    <span class="my_name">창고지기</span>
+                <!-- <span>&ensp;</span> -->
+                <div id="mypa_img">
+                    <div class="pa_area">
+                        <img class="pa_area_img" src="./image/새싹.png">
+                    </div>
+                    <p>&emsp;&emsp;&nbsp;</p>
+                    <div class="pa_area">
+                        <img class="pa_area_img" src="./image/새싹.png">
+                    </div>
+                    <p>&emsp;&emsp;&nbsp;</p>
+                    <div class="pa_area">
+                        <img class="pa_area_img" src="./image/새싹.png">
+                    </div>
                 </div>
+                <span>&ensp;</span>
+                
+                <div id="mypa_img">
+                    <div class="pa_area">
+                        <img class="pa_area_img" src="./image/새싹.png">
+                    </div>
+                    <p>&emsp;&emsp;&nbsp;</p>
+                    <div class="pa_area">
+                        <img class="pa_area_img" src="./image/새싹.png">
+                    </div>
+                    <p>&emsp;&emsp;&nbsp;</p>
+                    <div class="pa_area">
+                        <img class="pa_area_img" src="./image/새싹.png">
+                    </div>
                 </div>
-                <div class="pro1">
-                    <p></p>
-                    
-                    <button class="btn" onclick = "location.href = 'goProfileUpdate.do'">개인정보수정</button>
-                   
-                </div>
-                <hr>
-                <div class="p_p_info">
-                    <div class="my_pa">
-                        <span>&nbsp;창고지기 식물&nbsp;</span>
-                        <a href="goWritePost.do" class="btn btn-primary" style="margin-left: 55%">추가하기</a>
-                     
-                        <div id="mypa_img">
-                            <div class="pa_area">
-                                <img class="pa_area_img" src="./image/새싹.png">
-                            </div>
-                            <p>&emsp;&emsp;&nbsp;</p>
-                            <div class="pa_area">
-                                <img class="pa_area_img" src="./image/새싹.png">
-                            </div>
-                            <p>&emsp;&emsp;&nbsp;</p>
-                            <div class="pa_area">
-                                <img class="pa_area_img" src="./image/새싹.png">
-                            </div>
-                        </div>
-                   	</div>
-                   <div class="my_post">
-                        <span>&nbsp;게시글&nbsp;</span>
-                         <a href="goWritePost.do" class="btn btn-primary" style="margin-left: 66%">추가하기</a>
-                         <div id="mypa_img">
-                        	<div class="pa_area">
-                            	<img class="pa_area_img" src="./image/새싹.png">
-                        	</div>
-                        	<p>&emsp;&emsp;&nbsp;</p>
-                        	<div class="pa_area">
-                            	<img class="pa_area_img" src="./image/새싹.png">
-                        	</div>
-                        	<p>&emsp;&emsp;&nbsp;</p>
-                        	<div class="pa_area">
-                            	<img class="pa_area_img" src="./image/새싹.png">
-                        	</div>
-                    	</div>
-                	</div>
+                <span>&ensp;</span>
+                
+                <div id="mypa_img">
+                    <div class="pa_area">
+                        <img class="pa_area_img" src="./image/새싹.png">
+                    </div>
+                    <p>&emsp;&emsp;&nbsp;</p>
+                    <div class="pa_area">
+                        <img class="pa_area_img" src="./image/새싹.png">
+                    </div>
+                    <p>&emsp;&emsp;&nbsp;</p>
+                    <div class="pa_area">
+                        <img class="pa_area_img" src="./image/새싹.png">
+                    </div>
                 </div>
            	</div>
        	</div>
@@ -286,13 +275,9 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
                         style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()}</h5>
-						<c:if test="${sessionScope.user.getU_ID() != null}">
-							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
-						</c:if>
-						<c:if test="${sessionScope.user.getU_ID() == null}">
-							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 8%">로그인</a>
-						</c:if>
+                        <h5 class="card-title" style="margin-left: 22%;">smhrd 님 환영합니다</h5>
+                        <a href="#" class="btn btn-primary" style="margin-left: 10%">로그아웃</a>
+                        <a href="#" class="btn btn-primary" style="margin-left: 10%;">회원정보 수정</a>
                     </div>
                 </div>
                 <br>
@@ -307,48 +292,15 @@
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse"
                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body"> 
-                    </div>
+                    <div class="accordion-body"> 친구목록 띄워주쇼 <code>.accordion-flush</code> class. This is the
+                        first item's accordion
+                        body.</div>
                     </div>
                 </div>
             </div>
             </div>
         </div>
     </div>
-    
-    <script>
-    $(document).ready(friendSelect());
-    function friendSelect(){
-		$.ajax( {
-              url : 'friendSelect.do', 
-              type : 'post', 
-              data : {}, 
-              dataType : "json", 
-              success : function(res){
-                 console.log('시작');
-                 console.log(res);
-                 for(let i=0; i<res.length; i++){
-                    let html='';
-                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                    html+='<div class="accordion-body">';
-                 	html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
-                 	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
-                    html+='</div>';
-                    $(".accordion-body").append(html);
-                 }
-              },
-              error : function(e){
-                 //alert("요청 실패!");
-                 let html = '';
-                 html+='<a href="goLogin.do">로그인을 해주세요.</a>'
-                 $(".accordion-body").append(html);
-              }
-           } );
-     }
-
-    
-    </script>
-    
 </body>
 
 </html>
