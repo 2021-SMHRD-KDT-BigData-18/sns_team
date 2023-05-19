@@ -269,7 +269,7 @@
 						<!-- <h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀 </h5> -->
 						<c:if test="${sessionScope.user.getU_ID() != null}">
 						
-						<!-- <img src="${sessionScope.getU_PROFILE_IMG()}"> -->
+						<!-- <img src="\${sessionScope.getU_PROFILE_IMG()}"> -->
 						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
 							<a href="logout.do" class="btn btn-primary" style="margin-left: 70%">로그아웃</a>
 						</c:if>
@@ -368,9 +368,11 @@
 		function listenerOK() {
 			let post = $('.card-body>div+div');
 			let prof = $('.profile_img');
+			let btn_like = $('.btn_bookmark');
 			console.log(prof);
 			post.on('click',goToPost);
-			prof.on('click', goToProf);	
+			prof.on('click', goToProf);
+			btn_like.on('click',likePost);
 			};
 			
 			function goToProf(){
@@ -384,10 +386,25 @@
 				let p_id=$(this).children()[0].innerText;
 				location.href='goPostDetail.do?p_id='+p_id;
 			};
+			
+			function likePost(){
+				let p_id=$(this).prevAll()[0].children[0].innerText;
+				$.ajax({
+					url:'bookmark.do',
+					type:'post',
+					data:{"p_id":p_id},
+					success : function(res){
+						
+					},
+					error : function(e){
+	                     alert("실패!");
+	                  }
+				});
+			}
 		
 			function friendSelect(){
 				
-	            $.ajax( {
+	            $.ajax({
 	                  url : 'friendSelect.do', 
 	                  type : 'post', 
 	                  data : {}, 
@@ -411,7 +428,7 @@
 	                     html+='<a href="goLogin.do">로그인을 해주세요.</a>'
 	                     $(".accordion-body").append(html);
 	                  }
-	               } );
+	               });
 	         }
 
 			

@@ -22,8 +22,11 @@ public class WritePostCon implements Controller {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String path = request.getServletContext().getRealPath("P_FILE");
-		
+		String path = request.getServletContext().getRealPath("/P_FILE");
+		//System.out.println(path);
+		//System.out.println("------------------");		
+		//path="http://218.157.19.25:8081/jisik/P_FILE";//+path;
+		System.out.println(path);
 		int maxSize = 10 * 1024 * 1024;
 		
 		String encoding = "UTF-8";
