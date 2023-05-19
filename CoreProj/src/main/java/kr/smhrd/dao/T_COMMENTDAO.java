@@ -12,11 +12,11 @@ public class T_COMMENTDAO {
 	
 	private SqlSessionFactory factory = SqlSessionManager.getSqlSessionFactory();
 	
-	public List<T_COMMENT> cmtLoad() {
+	public List<T_COMMENT> cmtLoad(int p_id) {
 
 		SqlSession session = factory.openSession(true);
 
-		List<T_COMMENT> list = session.selectList("cmtLoad");
+		List<T_COMMENT> list = session.selectList("cmtLoad",p_id);
 
 		session.close();
 

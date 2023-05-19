@@ -13,12 +13,14 @@ import javax.servlet.http.HttpSession;
 
 import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.DupIDCheckCon;
+import kr.smhrd.controller.FollowCon;
 import kr.smhrd.controller.FriendSelectCon;
 import kr.smhrd.controller.GoChatCon;
 import kr.smhrd.controller.GoChatListCon;
 import kr.smhrd.controller.GoLoginCon;
 import kr.smhrd.controller.GoMainCon;
 import kr.smhrd.controller.GoMainPostCon;
+import kr.smhrd.controller.GoMypageCon;
 import kr.smhrd.controller.GoPostDetailCon;
 import kr.smhrd.controller.GoWritePostCon;
 import kr.smhrd.controller.WritePostCon;
@@ -61,6 +63,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/login.do", new LoginCon());
 		mappings.put("/join.do", new JoinCon());
 		mappings.put("/goMain.do", new GoMainCon());
+		mappings.put("/goMypage.do", new GoMypageCon());
 		mappings.put("/goChatList.do", new GoChatListCon());
 		mappings.put("/check.do", new DupIDCheckCon());
 		mappings.put("/join.do.do", new JoinCon());
@@ -76,6 +79,8 @@ public class FrontController extends HttpServlet {
 		mappings.put("/goChat.do", new GoChatCon());
 		mappings.put("/likeUpdatePlus.do", new LikeUpdatePlusCon());
 		mappings.put("/likeUpdateMinus.do", new LikeUpdateMinusCon());
+		mappings.put("/checkPlus.do", new CheckPlusCon());
+		mappings.put("/follow.do", new FollowCon());
 		
 	}
 	

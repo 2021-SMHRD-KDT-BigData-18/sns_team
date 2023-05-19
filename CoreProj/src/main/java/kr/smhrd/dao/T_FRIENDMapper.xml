@@ -6,6 +6,18 @@
 		select * from T_FRIEND
 		where U_ID = #{U_ID}
 	</select>
+	<select id="checkFollow" parameterType="Map">
+		select * from T_FRIEND
+		where U_ID = #{U_ID}
+		and F_ID = #{F_ID}
+	</select>
+	
+	<insert id="follow" parameterType="Map">
+		insert into T_FRIEND values(T_FRIEND_SEQ.nextval,#{U_ID},#{F_ID},sysdate)
+	</insert>
+	<insert id="followR" parameterType="Map">
+		insert into T_FRIEND values(T_FRIEND_SEQ.nextval,#{F_ID},#{U_ID},sysdate)
+	</insert>
 
 
 </mapper>

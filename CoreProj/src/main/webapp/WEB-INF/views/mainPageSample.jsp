@@ -199,6 +199,11 @@
             position: fixed;
 
         }
+        .profile_img {
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+        }
 
         .nav-item {
             margin-top: 30%;
@@ -215,10 +220,10 @@
 
 				<ul class="nav flex-column">
 					<ul class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">Home</a>
+						<a class="nav-link active" aria-current="page" href="goMain.do">Home</a>
 					</ul>
 					<ul class="nav-item">
-						<a class="nav-link" href="#">My Page</a>
+						<a class="nav-link" href="goMypage.do?u_id=${user.getU_ID()}">My Page</a>
 					</ul>
 					<ul class="nav-item">
 						<a class="nav-link" href="goChatList.do">Chat</a>
@@ -236,27 +241,6 @@
 		<div id="centerPage" class=" border-start border-end border-1">
 
 			<div class="postList">
-				<div class="postCard">
-					<div class="card-body">
-						<p id="post_id" style="display: none;">345345</p>
-						<h5 class="card-title">글 제목</h5>
-						<p class="card-text">작성자</p>
-						<p class="card-text">내용내용</p>
-					</div>
-					<img
-						src="https://m.nongwonfarm.com/web/product/big/202109/c60f87dd0c17b74e03e9cff79f16c7d5.jpg"
-						class="postCardImg" alt="프로필 이미지">
-
-					<div class="card-footer">
-						<p></p>
-						<hr>
-						<div class="footer-menu">
-							<button class="btn_like">🌱</button>
-							<button class="btn_bookmark">북마크</button>
-						</div>
-					</div>
-				</div>
-
 			</div>
 		</div>
 
@@ -310,9 +294,34 @@
 					console.log(res);
 					console.log('dkssud');
 					for(let i=0; i<res.length; i++){
-						html='';
 						rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-						html+='<div class="postCard"><div class="card-body"><p id="post_id" style="display: none;">';
+						html=`<div class="postCard">
+				        <div class="card-body" style="display: flex;">
+				            <div class="profile_img"> <p style="display: none;">\${res[i].U_ID}</p></div>
+				            <div style="width:307px">
+				            <p id="post_id" style="display: none;">\${res[i].P_SEQ}</p>
+				                <h5 class="card-title">
+				                \${res[i].P_TITLE}</h5>
+				                <span class="card-text">\${res[i].U_ID}</span>
+				                <br>
+				                <span class="card-text">\${res[i].P_CONTENT}</span>
+				            </div>
+				        </div>
+				        <img src="\${rootpath}\${res[i].P_FILE}" class="postCardImg" alt="프로필 이미지">
+				        <div class="card-footer">
+				            <p></p>
+				            <hr>
+				            <div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱</button>
+				                <p>\${res[i].P_VIEWS} 회</p>
+				                <button class="btn_bookmark">북마크</button>
+				            </div>
+				        </div>
+				    </div>`;
+						
+						
+						/*html='';
+						rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+						html+='<div class="postCard"><div class="card-body"><div></div><p id="post_id" style="display: none;">';
 						html+=res[i].P_SEQ;
 						html+='</p>';
 						html+='<h5 class="card-title">';
@@ -323,7 +332,7 @@
 						html+='<div class="card-footer"><p></p><hr>';
 						html+='<div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">'+res[i].P_SEQ+'</p>🌱</button>';
 						html+='<p>' + res[i].P_VIEWS +'회</p>';
-						html+='<button class="btn_bookmark">북마크</button></div></div></div>';
+						html+='<button class="btn_bookmark">북마크</button></div></div></div>';*/
 						$(".postList").append(html);
 	                }
 					listenerOK();
@@ -336,11 +345,18 @@
 			});
 		}
 		function listenerOK() {
-			let post = $('.postCard>.card-body');
-			console.log(post);
-			post.on('click', goToPost);	
+			let post = $('.card-body>div+div');
+			let prof = $('.profile_img');
+			console.log(prof);
+			post.on('click',goToPost);
+			prof.on('click', goToProf);	
 			};
 			
+			function goToProf(){
+				let u_id = $(this).children()[0].innerText;
+				console.log(u_id);
+				location.href='goMypage.do?u_id='+u_id;
+			}
 			
 			
 			function goToPost() {
@@ -349,7 +365,7 @@
 			};
 		
 			function friendSelect(){
-	            
+				
 	            $.ajax( {
 	                  url : 'friendSelect.do', 
 	                  type : 'post', 
@@ -369,7 +385,7 @@
 	                     }
 	                  },
 	                  error : function(e){
-	                     alert("요청 실패!");
+	                     //alert("요청 실패!");
 	                     let html = '';
 	                     html+='<a href="goLogin.do">로그인을 해주세요.</a>'
 	                     $(".accordion-body").append(html);

@@ -15,7 +15,7 @@ public class T_POSTDAO {
 
 		SqlSession session = factory.openSession(true);
 
-		List<T_POST> list = session.selectList("list");
+		List<T_POST> list = session.selectList("loadPosts");
 
 		session.close();
 

@@ -31,5 +31,6 @@
 		<mapper resource="kr/smhrd/dao/T_CHATROOMMapper.xml" />
 		<mapper resource="kr/smhrd/dao/T_CHATTINGMapper.xml" />
 		<mapper resource="kr/smhrd/dao/T_COMMENTMapper.xml" />
+		<mapper resource="kr/smhrd/dao/T_CHATTINGMapper.xml" />
 	</mappers>
 </configuration>

@@ -4,7 +4,7 @@
 
 <select id="cmtLoad" resultType="kr.smhrd.entity.T_COMMENT">
 select a.*,b.U_PROFILE_IMG from T_COMMENT A, T_USER B
-	where a.P_SEQ=2
+	where a.P_SEQ=#{p_id}
 	and a.U_ID = b.U_ID
 	order by CMT_DT desc
 </select>
