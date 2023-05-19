@@ -17,9 +17,9 @@ public class LikeUpdateMinusCon implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		
-		int P_SEQ = Integer.parseInt(request.getParameter("P_SEQ"));
+		int P_SEQ = Integer.parseInt(request.getParameter("dto"));
 		
 		T_POST dto = new T_POST();
 		dto.setP_SEQ(P_SEQ);
