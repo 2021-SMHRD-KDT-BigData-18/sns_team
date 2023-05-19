@@ -19,6 +19,9 @@ public class FollowCon implements Controller {
 		String u_id = ((T_USER)request.getSession().getAttribute("user")).getU_ID();
 		dao.follow(u_id , request.getParameter("f_id"));
 		
+		System.out.println("ok");
+		response.getWriter().print("ok");
+		
 		return null;
 	}
 

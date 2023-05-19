@@ -7,7 +7,10 @@ select * from T_CHATTING;
 select * from T_CHATROOM;
 
 
+
 delete from T_CHATTING;
+
+delete from T_FRIEND;
 
 insert into T_CHATTING values(T_CHATTING_SEQ.nextval,1,'243','523',sysdate,null);
 

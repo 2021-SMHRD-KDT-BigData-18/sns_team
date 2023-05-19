@@ -12,6 +12,13 @@
 		and F_ID = #{F_ID}
 	</select>
 	
+	<select id="checkFollowR" parameterType="Map" resultType="integer">
+		select count(*) from T_FRIEND
+		where U_ID = #{F_ID}
+		and F_ID = #{U_ID}
+	</select>
+	
+	
 	<insert id="follow" parameterType="Map">
 		insert into T_FRIEND values(T_FRIEND_SEQ.nextval,#{U_ID},#{F_ID},sysdate)
 	</insert>

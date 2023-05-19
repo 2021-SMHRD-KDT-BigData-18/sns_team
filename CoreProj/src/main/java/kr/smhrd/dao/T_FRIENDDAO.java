@@ -32,9 +32,10 @@ public class T_FRIENDDAO {
 		map.put("U_ID", u_id);
 		map.put("F_ID", f_id);
 		int res = session.selectOne("checkFollow",map);
+		int res2 = session.selectOne("checkFollowR",map);
 		session.close();
 		
-		if(res==0) {
+		if(res==0&&res==0) {
 			return false;
 		}
 		else {
