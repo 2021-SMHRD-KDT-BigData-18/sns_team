@@ -309,7 +309,7 @@ List<T_CHATTING> chatRecord = dao2.list(roomId);
     <div id="backgroundArea">
         <div id="leftPage">
             <div class="navbar">
-                <img class="img" src="./image/로고 누끼.png" width="300">
+                <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고 누끼.png" width="300"></a>
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">

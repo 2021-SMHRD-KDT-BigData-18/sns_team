@@ -275,7 +275,7 @@
     <div id="backgroundArea">
         <div id="leftPage" class="border-end">
             <div class="navbar">
-                <img class="img" src="./image/지식창고_로고.png" width="300">
+                <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/지식창고_로고.png" width="300"></a>
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">

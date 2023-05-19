@@ -214,7 +214,7 @@
         <div id="leftPage" class="border-end">
             <div class="navbar">
                 <ul class="nav flex-column">
-                    <img class=logo src="./image/새싹 누끼.png" >
+                    <a class="nav-link active" aria-current="page" href="goMain.do"><img class=logo src="./image/새싹 누끼.png" ></a>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
                     </li>
