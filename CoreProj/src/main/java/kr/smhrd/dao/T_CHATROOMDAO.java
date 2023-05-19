@@ -35,4 +35,16 @@ public class T_CHATROOMDAO {
 
 	}
 	
+	public T_CHATTING loadLastChat(int roomId) {
+		SqlSession session = factory.openSession(true);
+
+		T_CHATTING dto = session.selectOne("loadLastChat",roomId);
+
+		session.close();
+		
+		return dto;
+	}
+	
+	
+	
 }

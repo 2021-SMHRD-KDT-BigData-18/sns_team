@@ -316,7 +316,7 @@ List<T_CHATTING> chatRecord = dao2.list(roomId);
                         <a class="nav-link active" aria-current="page" href="goMain.do">Home</a>
                     </ul>
                     <ul class="nav-item">
-                        <a class="nav-link" href="goMypage.do">My Page</a>
+                        <a class="nav-link" href="goMypage.do?u_id=<%=u_id%>">My Page</a>
                     </ul>
                     <!-- <ul class="nav-item">
                         <a class="nav-link" href="./chatList.html">Chat</a>
@@ -351,15 +351,6 @@ List<T_CHATTING> chatRecord = dao2.list(roomId);
             <%} %>
             <%} %>
             
-            
-            
-                <div class="anotherMsg">
-                    <span class="anotherName">Jo</span>
-                    <span class="msg">Hello, Nice to meet you.</span>
-                </div>
-                <div class="myMsg">
-                    <span class="msg">Nice to meet you, too.</span>
-                </div>
             </div>
             <div id="chatForm">
                 <input id="inputMessage" type="text"  autocomplete="off" size="30" onkeyup="enterkey()" placeholder="메시지를 입력하세요">

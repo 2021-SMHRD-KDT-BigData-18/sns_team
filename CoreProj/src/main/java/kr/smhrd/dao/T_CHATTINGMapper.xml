@@ -5,8 +5,9 @@
 <select id="loadChat" resultType="kr.smhrd.entity.T_CHATTING">
 select * from T_CHATTING
 	where CR_SEQ=#{roomId}
-	order by CHAT_DT desc
+	order by CHAT_DT
 </select>
+
 
 <select id="checkChat" resultType="Integer">
 select count(*) from T_CHATTING
@@ -19,7 +20,6 @@ select count(*) from T_CHATTING
 <insert id="chat" parameterType="kr.smhrd.entity.T_CHATTING">
 insert into T_CHATTING values(T_CHATTING_SEQ.nextval,#{CR_SEQ},#{TALKER},#{CHAT_CONTENT},sysdate,null)
 </insert>
-
 
 
 

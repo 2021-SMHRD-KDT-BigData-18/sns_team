@@ -322,15 +322,15 @@
                                     </td>
                                     <td class="chat_td">
                                         <div class="nick">
-                                            \${res[i].F_ID}
+                                            \${res[i].chat_id}
                                         </div>
                                         <div class="chat_preview">
-                                            안녕하세요~
+                                        \${res[i].chat_content}
                                         </div>
                                     </td>
                                     <td class="time_td">
                                         <div class="time">
-                                            2023.05.17 12:30
+                                        \${res[i].chat_dt}
                                         </div>
                                         <div class="check">
                                             <p> </p>
