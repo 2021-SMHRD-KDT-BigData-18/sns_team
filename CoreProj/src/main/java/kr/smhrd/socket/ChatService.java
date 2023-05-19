@@ -66,11 +66,11 @@ public class ChatService {
             tmpSessionSet.add(sessionMap.get(findkey).get(j));
         }
         // roomId => 방 시퀀스
-        String str = "ABCDEFG,!,HIJKLMN,!,OPQRSTU,!,VWXYZ";
-		String[] ArraysStr = str.split(",!,");
-		for(String ds : ArraysStr) {
-			System.out.println(ds);}
-		System.out.println("-----------");
+//        String str = "ABCDEFG,!,HIJKLMN,!,OPQRSTU,!,VWXYZ";
+//		String[] ArraysStr = str.split(",!,");
+//		for(String ds : ArraysStr) {
+//			System.out.println(ds);}
+//		System.out.println("-----------");
         
         
         String[] message = msg.split(",!,");
@@ -86,8 +86,8 @@ public class ChatService {
         T_CHATTING dto = new T_CHATTING();
         T_CHATTINGDAO dao = new T_CHATTINGDAO();
         dto.setCHAT_CONTENT(content);
-        //dto.setCR_SEQ(roomId);
-        dto.setCR_SEQ(1);
+        dto.setCR_SEQ(roomId);
+        //dto.setCR_SEQ(1);
         dto.setTALKER(sender);
         
         int res = dao.chat(dto);

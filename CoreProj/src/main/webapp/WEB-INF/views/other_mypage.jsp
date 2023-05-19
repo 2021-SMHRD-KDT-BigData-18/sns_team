@@ -183,7 +183,7 @@
                 <img class="pro_img" src="./image/새싹 누끼.png">
                 <img class="addfr_img" src="./image/새싹 누끼.png">
                 <%if(checkFollow) {%>
-                <button id="btn_follow" styl="display:none;">풀링</button><br><br>
+                <button id="btn_follow" style="display:none;">풀링</button><br><br>
                 <%}else{%>
                 <button id="btn_follow">풀링</button><br><br>
                 <%} %>
@@ -222,11 +222,12 @@
     
     
     function follow() {
+    	console.log($('p.my_id')[0].innerText);
 		$.ajax({
 			url: "follow.do",
 		    type: "POST",
 		    dataType: "json",
-		    data: {"f_id":$('p.my_id').innerText},
+		    data: {"f_id":$('p.my_id')[0].innerText},
 		    success:
 		    	function(data){      					
 		    	alert("친추 완료") ;
