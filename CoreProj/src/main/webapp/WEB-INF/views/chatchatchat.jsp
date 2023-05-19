@@ -1,3 +1,4 @@
+<%@page import="kr.smhrd.dao.T_CHATROOMDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -287,6 +288,15 @@
 </head>
 <body>
 
+
+<%
+T_CHATROOMDAO dao = new T_CHATROOMDAO();
+String u_id = ((T_USER)session.getAttribute("user")).getU_ID();
+int roomId = dao.searchRoom(u_id, request.getParameter("f_id"));
+
+%>
+
+
     <div id="backgroundArea">
         <div id="leftPage">
             <div class="navbar">
@@ -294,10 +304,10 @@
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="goMain.do">Home</a>
                     </ul>
                     <ul class="nav-item">
-                        <a class="nav-link" href="#">My Page</a>
+                        <a class="nav-link" href="goMypage.do">My Page</a>
                     </ul>
                     <!-- <ul class="nav-item">
                         <a class="nav-link" href="./chatList.html">Chat</a>
@@ -325,10 +335,10 @@
                     <span class="msg">Nice to meet you, too.</span>
                 </div>
             </div>
-            <form id="chatForm">
+            <div id="chatForm">
                 <input id="inputMessage" type="text"  autocomplete="off" size="30" onkeyup="enterkey()" placeholder="메시지를 입력하세요">
                 <input class = "send_btn" type="submit" value="send" onclick="send()"/>
-            </form>
+            </div>
         </div>
 
     </div>
@@ -445,10 +455,11 @@
 <script type="text/javascript">
     var textarea = document.getElementById("chatLog");
     var path='ws://218.157.19.25:8081/jisik/broadcasting/';
-    if('${user.getU_ID()}'=='aa'){path+='123';}
+    path+=<%=roomId%>
+    /*if('${user.getU_ID()}'=='aa'){path+='123';}
     else if('${user.getU_ID()}'=='bb'){path+='123';}
     else if('${user.getU_ID()}'=='cc'){path+='456';}
-    else if('${user.getU_ID()}'=='dd'){path+='456';}
+    else if('${user.getU_ID()}'=='dd'){path+='456';}*/
     var webSocket = new WebSocket(path);
     var inputMessage = document.getElementById('inputMessage');
     webSocket.onerror = function(event) {
@@ -513,7 +524,7 @@
     function send() {
         if (inputMessage.value == "") {
         } else {
-            /*$("#messageWindow").html(
+            /*$("#").html(
                     $("#messageWindow").html()
                             + "<p class='chat_content'>${user.getU_ID()} : "
                             + inputMessage.value

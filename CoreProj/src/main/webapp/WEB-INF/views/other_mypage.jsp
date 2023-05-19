@@ -1,7 +1,9 @@
+<%@page import="kr.smhrd.dao.T_FRIENDDAO"%>
 <%@page import="kr.smhrd.dao.T_USERDAO"%>
 <%@page import="kr.smhrd.entity.T_USER"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -155,6 +157,8 @@
 <%
 	T_USERDAO dao = new T_USERDAO();
 	T_USER friend = dao.searchUser((request.getParameter("u_id")));
+	T_FRIENDDAO f_dao = new T_FRIENDDAO();
+	boolean checkFollow = f_dao.checkFollow(((T_USER)session.getAttribute("user")).getU_ID() ,friend.getU_ID());
 %>
 
 
@@ -178,7 +182,11 @@
                 <p class="my_id"><%=friend.getU_ID()%></p>
                 <img class="pro_img" src="./image/새싹 누끼.png">
                 <img class="addfr_img" src="./image/새싹 누끼.png">
+                <%if(checkFollow) {%>
+                <button id="btn_follow" style="display:none;">풀링</button><br><br>
+                <%}else{%>
                 <button id="btn_follow">풀링</button><br><br>
+                <%} %>
                 <p class="my_name"> <%=friend.getU_NICK() %> </p>
                 <div class="p_p_info">
                     <div class="my_pa">
@@ -212,12 +220,14 @@
     let btn_follow = $('#btn_follow');
     btn_follow.on('click',follow);
     
+    
     function follow() {
+    	console.log($('p.my_id')[0].innerText);
 		$.ajax({
 			url: "follow.do",
 		    type: "POST",
 		    dataType: "json",
-		    data: p_seq,
+		    data: {"f_id":$('p.my_id')[0].innerText},
 		    success:
 		    	function(data){      					
 		    	alert("친추 완료") ;
