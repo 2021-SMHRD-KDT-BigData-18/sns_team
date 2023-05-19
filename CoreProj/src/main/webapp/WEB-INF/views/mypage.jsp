@@ -236,12 +236,8 @@
                 </div>
                 <div class="pro1">
                     <p></p>
-<<<<<<< HEAD
                     
                     <button class="btn" onclick = "location.href = 'goProfileUpdate.do'">개인정보수정</button>
-=======
-                    <button class="btn">개인정보수정</button>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
                    
                 </div>
                 <hr>

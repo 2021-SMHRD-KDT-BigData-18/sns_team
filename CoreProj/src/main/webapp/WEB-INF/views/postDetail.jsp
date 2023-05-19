@@ -3,7 +3,6 @@
 <<<<<<< HEAD
 =======
 <%@page import="java.util.List"%>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
