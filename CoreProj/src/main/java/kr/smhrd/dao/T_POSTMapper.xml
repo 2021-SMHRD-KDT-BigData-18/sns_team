@@ -43,4 +43,8 @@
 		where P_SEQ = #{P_SEQ}
 	</update>
 	
+	<update id="">
+		update 
+	</update>
+	
 </mapper>
