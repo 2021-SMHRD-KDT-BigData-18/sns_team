@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="kr.smhrd.dao.T_CHATTINGDAO"%>
+<%@page import="kr.smhrd.entity.T_CHATTING"%>
 <%@page import="kr.smhrd.dao.T_CHATROOMDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -291,8 +294,11 @@
 
 <%
 T_CHATROOMDAO dao = new T_CHATROOMDAO();
+T_CHATTINGDAO dao2 = new T_CHATTINGDAO(); 
 String u_id = ((T_USER)session.getAttribute("user")).getU_ID();
 int roomId = dao.searchRoom(u_id, request.getParameter("f_id"));
+
+List<T_CHATTING> chatRecord = dao2.list(roomId);
 
 
 
@@ -331,7 +337,19 @@ int roomId = dao.searchRoom(u_id, request.getParameter("f_id"));
 
             <div id="chatLog">
             
-            <% %>
+            <%for(T_CHATTING val : chatRecord){ %>
+            
+            <%if(val.getTALKER().equals(u_id)){ %>
+            <div class="myMsg">
+                    <span class="msg"><%=val.getCHAT_CONTENT() %></span>
+                </div>
+            <%} else{%>
+            <div class="anotherMsg">
+            		<span class="anotherName"><%=val.getTALKER() %></span>
+                    <span class="msg"><%=val.getCHAT_CONTENT() %></span>
+                </div>
+            <%} %>
+            <%} %>
             
             
             
@@ -487,38 +505,24 @@ int roomId = dao.searchRoom(u_id, request.getParameter("f_id"));
         if (content == "") {
 
         } else {
-            if (content.match("/")) {
-                if (content.match(("/" + $("#chat_id").val()))) {
-                    var temp = content.replace("/" + $("#chat_id").val(),
-                            "(귓속말) :").split(":");
-                    if (temp[1].trim() == "") {
-                    } else {
-                        $("#chatLog").html(
-                                $("#chatLog").html()
-                                        + "<p class='whisper'>"
-                                        + sender
-                                        + content.replace("/"
-                                                + $("#chat_id").val(),
-                                                "(귓속말) :") + "</p>");
-                    }
-                } else {
-                }
-            } else {
-                if (content.match("!")) {
-                    $("#chatLog")
-                            .html(
-                                    $("#chatLog").html()
-                                            + "<p class='chat_content'><b class='impress'>"
-                                            + sender + " : " + content
-                                            + "</b></p>");
-                } else {
-                    $("#chatLog").html(
-                            $("#chatLog").html()
-                                    + "<p class='chat_content'>" + sender
-                                    + " : " + content + "</p>");
-                }
+        	if(sender!="<%=u_id%>"){
+        		chatHtml=`<div class="anotherMsg">
+            <span class="anotherName">\${sender}</span>
+            <span class="msg">\${content}</span>
+        </div>`;
+        	}
+        	else{
+        		chatHtml=`<div class="myMsg">
+            <span class="msg">\${content}</span>
+        </div>`;
+        	}
+        	
+        	
+	            $("#chatLog").html(
+	                    $("#chatLog").html()
+	                    +chatHtml);
+                
             }
-        }
     };
     
     function onOpen(event) {
