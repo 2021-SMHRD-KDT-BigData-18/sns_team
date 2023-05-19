@@ -243,7 +243,8 @@
                 <div class="p_p_info">
                     <div class="my_pa">
                         <span>&nbsp;창고지기 식물&nbsp;</span>
-                        <button class="btn" style="margin-left: 410px; text-align: right;">추가하기</button>
+                        <a href="goWritePost.do" class="btn btn-primary" style="margin-left: 55%">추가하기</a>
+                     
                         <div id="mypa_img">
                             <div class="pa_area">
                                 <img class="pa_area_img" src="./image/새싹.png">
@@ -257,18 +258,27 @@
                                 <img class="pa_area_img" src="./image/새싹.png">
                             </div>
                         </div>
-                    </div>
-                    <div class="my_post">
+                   	</div>
+                   <div class="my_post">
                         <span>&nbsp;게시글&nbsp;</span>
-                        <button class="btn" style="margin-left: 490px; text-align: right;">추가하기</button>
-                        <div class="pa_area">
-                            <img class="pa_area_img" src="./image/새싹.png">
-                        </div>
-                        <p> </p>
-                    </div>
+                         <a href="goWritePost.do" class="btn btn-primary" style="margin-left: 66%">추가하기</a>
+                         <div id="mypa_img">
+                        	<div class="pa_area">
+                            	<img class="pa_area_img" src="./image/새싹.png">
+                        	</div>
+                        	<p>&emsp;&emsp;&nbsp;</p>
+                        	<div class="pa_area">
+                            	<img class="pa_area_img" src="./image/새싹.png">
+                        	</div>
+                        	<p>&emsp;&emsp;&nbsp;</p>
+                        	<div class="pa_area">
+                            	<img class="pa_area_img" src="./image/새싹.png">
+                        	</div>
+                    	</div>
+                	</div>
                 </div>
-            </div>
-        </div>
+           	</div>
+       	</div>
         <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
