@@ -294,6 +294,9 @@ T_CHATROOMDAO dao = new T_CHATROOMDAO();
 String u_id = ((T_USER)session.getAttribute("user")).getU_ID();
 int roomId = dao.searchRoom(u_id, request.getParameter("f_id"));
 
+
+
+
 %>
 
 
@@ -327,6 +330,11 @@ int roomId = dao.searchRoom(u_id, request.getParameter("f_id"));
             <input type="hidden" value='${user.getU_ID()}' id='chat_id' />
 
             <div id="chatLog">
+            
+            <% %>
+            
+            
+            
                 <div class="anotherMsg">
                     <span class="anotherName">Jo</span>
                     <span class="msg">Hello, Nice to meet you.</span>

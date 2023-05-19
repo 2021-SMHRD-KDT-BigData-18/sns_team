@@ -226,14 +226,12 @@
 		$.ajax({
 			url: "follow.do",
 		    type: "POST",
-		    dataType: "json",
 		    data: {"f_id":$('p.my_id')[0].innerText},
-		    success:
-		    	function(data){      					
+		    dataType: "json",
+		    success:function(res){      					
 		    	alert("친추 완료") ;
-		    },   
-		    error: 
-		    function (request, status, error){ 
+		    },
+		    error:function (e){
 		      alert("친추 취소") ;
 		    }
 		});

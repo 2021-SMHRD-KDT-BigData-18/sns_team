@@ -9,6 +9,8 @@ select * from T_CHATROOM;
 
 delete from T_CHATTING;
 
+delete from T_FRIEND;
+
 insert into T_CHATTING values(T_CHATTING_SEQ.nextval,1,'243','523',sysdate,null);
 
 insert into T_CHATROOM values(T_CHATROOM_SEQ.nextval,'aa','300','523',3,sysdate);
