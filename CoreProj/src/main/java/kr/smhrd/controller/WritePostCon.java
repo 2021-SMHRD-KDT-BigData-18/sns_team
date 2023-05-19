@@ -22,11 +22,9 @@ public class WritePostCon implements Controller {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String path = request.getServletContext().getRealPath("/P_FILE");
-		//System.out.println(path);
-		//System.out.println("------------------");		
-		//path="http://218.157.19.25:8081/jisik/P_FILE";//+path;
+		String path = request.getServletContext().getRealPath("P_FILE");
 		System.out.println(path);
+
 		int maxSize = 10 * 1024 * 1024;
 		
 		String encoding = "UTF-8";
@@ -40,6 +38,9 @@ public class WritePostCon implements Controller {
 		String U_ID = ((T_USER)request.getSession().getAttribute("user")).getU_ID();
 		
 		String P_FILE = multi.getFilesystemName("filename");
+		if(multi.getParameter("filename")==null) {
+			P_FILE=null;
+		}
 		
 		T_POST dto = new T_POST();
 		dto.setP_TITLE(P_TITLE);
