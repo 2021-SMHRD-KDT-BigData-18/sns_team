@@ -6,6 +6,18 @@ select * from T_COMMENT;
 select * from T_CHATTING;
 select * from T_CHATROOM;
 
+select *
+from(
+select * from T_CHATTING
+	where CR_SEQ=26
+	order by CHAT_DT desc
+	)
+where rownum<=1;
+
+select * from T_CHATTING
+	where CR_SEQ=26
+	order by CHAT_DT
+
 
 
 delete from T_CHATTING;

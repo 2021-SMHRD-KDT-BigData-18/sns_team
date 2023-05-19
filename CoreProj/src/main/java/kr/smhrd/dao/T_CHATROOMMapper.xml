@@ -9,6 +9,18 @@ and CR_TITLE=#{F_ID}) or (U_ID=#{F_ID}
 and CR_TITLE=#{U_ID})
 </select>
 
+<!-- 부등호 있으면 주의하자. 진짜. -->
+<select id="loadLastChat" resultType="kr.smhrd.entity.T_CHATTING">
+ <![CDATA[
+select a.*
+from(select * from T_CHATTING
+where CR_SEQ=#{roomId}
+order by CHAT_DT desc
+)a where ROWNUM<=1]]>
+</select>
+
+
+
 <insert id="createCR" parameterType="Map">
 insert into T_CHATROOM values(T_CHATROOM_SEQ.nextval,#{U_ID},#{F_ID},'sample',2,sysdate)
 </insert>
