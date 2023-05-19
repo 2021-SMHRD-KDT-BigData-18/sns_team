@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html>
 
+<!DOCTYPE html>
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -101,14 +104,7 @@
             width: 100%;
         }
 
-        #searchArea {
-            display: flex;
-            flex-direction: row;
-            width: 38%;
-            background-color: gray;
-            margin: 10px;
-            position: fixed;
-        }
+    
 
         #btnPost {
             position: fixed;
@@ -161,19 +157,7 @@
             width: 100%;
         }
 
-        /* 
-        #searchArea {
 
-
-            display: flex;
-            flex-direction: row;
-            width: 30%;
-            height: 5%;
-            background-color: rgba(255, 255, 255, 0.849);
-            position: fixed;
- 
-
-        } */
 
         #btnPost {
             position: fixed;
@@ -181,14 +165,6 @@
             /* margin-left: 5%; */
             background-color: rgba(255, 255, 255, 0.849);
         }
-
-        .btnSearch {
-            position: fixed;
-            background-color: rgba(255, 255, 255, 0.849);
-            top: 20%;
-            margin-left: 70px;
-        }
-
         .modal-body>span {
             white-space: pre-wrap;
         }
@@ -219,6 +195,51 @@
         #cmt_list {
             list-style: none;
         }
+    
+       	#cmtInput
+        .btn {
+            font-size: 20px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            /* border: 3px solid burlywood; */
+            background-color: rgb(238, 238, 186);
+            color: #703c3c;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: bold;
+            position: relative;
+            transition: all 0.4s;
+            overflow: hidden;
+         
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            height: 50%;
+            width: 50%;
+            /* background-color: green; */
+            top: 50%;
+            left: 0;
+            transition: all 0.4s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            transform: translateY(-100%);
+        }
+
+        .btn:hover {
+            /* color:green;  */
+            color:rgb(0, 78, 52); 
+            background-color: #83ab85;
+         }
+     
+         
     </style>
 
 </head>
@@ -240,8 +261,7 @@
                     <ul class="nav-item">
                         <a class="nav-link" href="goChatList.do">Chat</a>
                     </ul>
-                    <button class="btnSearch">검색</button>
-                    <button id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>
+                    <button id="btn btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>
                 </ul>
             </div>
 
@@ -266,14 +286,15 @@
                         <p></p>
                         <hr>
                         <div class="footer-menu">
-                            <button class="btn_like">🌱</button>
-                            <button class="btn_bookmark">북마크</button>
+                            <button class="btn btn_like">🌱</button>
+                            <button class="btn btn_bookmark">북마크</button>
+                            <button class="btn btn_change">수정하기</button>
 
                         </div>
                         <hr>
                         <div id="cmtInputArea">
                             <input type="text" id="cmtInput" name="cmtInput">
-                            <button id="btn_cmt">댓 달기</button>
+                            <button id="btn_cmt" >댓 달기</button>
                         </div>
                         <hr>
                         <div id="cmt_list"></div>
@@ -413,4 +434,4 @@
 
 </body>
 
-</html>
+</html></html>
