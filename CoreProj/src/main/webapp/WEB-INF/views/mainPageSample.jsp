@@ -209,6 +209,10 @@
             margin-top: 30%;
 
         }
+        
+        
+       
+        
 </style>
 
 </head>
@@ -279,6 +283,7 @@
 			</div>
 		</div>
 	</div>
+    
 
 	<script>
 		$(document).ready(postLoad());
