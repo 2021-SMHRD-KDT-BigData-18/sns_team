@@ -227,9 +227,9 @@
 			url: "follow.do",
 		    type: "POST",
 		    data: {"f_id":$('p.my_id')[0].innerText},
-		    dataType: "json",
 		    success:function(res){      					
 		    	alert("친추 완료") ;
+		    	location.href='goChatList.do';
 		    },
 		    error:function (e){
 		      alert("친추 취소") ;

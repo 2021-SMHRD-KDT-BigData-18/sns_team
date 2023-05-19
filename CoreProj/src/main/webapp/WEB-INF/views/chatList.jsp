@@ -350,7 +350,7 @@
                         </table>
                         </div>
                     `;
-                    $('.list_ul')[i].append(html);
+                    $('.list_ul').append(html);
                  }
               } );
 		}

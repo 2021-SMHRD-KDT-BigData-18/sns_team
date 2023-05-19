@@ -7,6 +7,7 @@ select * from T_CHATTING;
 select * from T_CHATROOM;
 
 
+
 delete from T_CHATTING;
 
 delete from T_FRIEND;
