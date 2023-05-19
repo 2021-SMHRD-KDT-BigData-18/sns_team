@@ -371,10 +371,12 @@
 		function listenerOK() {
 			let post = $('.card-body>div+div');
 			let prof = $('.profile_img');
-			let btn_like = $('.btn_bookmark');
+			let btn_bookmark = $('.btn_bookmark');
+			let btn_like=$('.btn_like');
 			console.log(prof);
 			post.on('click',goToPost);
 			prof.on('click', goToProf);
+			btn_bookmark.on('click',markPost);
 			btn_like.on('click',likePost);
 			};
 			
@@ -391,19 +393,50 @@
 			};
 			
 			function likePost(){
-				let p_id=$(this).prevAll()[0].children[0].innerText;
+				//console.log($(this).prevAll()[1].children[0].innerText);
+				let p_id=$(this).children[0].innerText;
 				$.ajax({
-					url:'bookmark.do',
+					url:'like.do',
 					type:'post',
 					data:{"p_id":p_id},
 					success : function(res){
+						if(res=='added'){
+	                    alert("좋아요 성공!");
+						}
+						else{
+						alert("좋아요 삭제!");
+						}
 						
 					},
 					error : function(e){
 	                     alert("실패!");
 	                  }
 				});
-			}
+			};
+			
+			
+			
+			function markPost(){
+				//console.log($(this).prevAll()[1].children[0].innerText);
+				let p_id=$(this).prevAll()[1].children[0].innerText;
+				$.ajax({
+					url:'bookmark.do',
+					type:'post',
+					data:{"p_id":p_id},
+					success : function(res){
+						if(res=='added'){
+	                    alert("성공!");
+						}
+						else{
+						alert("삭제!");
+						}
+						
+					},
+					error : function(e){
+	                     alert("실패!");
+	                  }
+				});
+			};
 		
 			function friendSelect(){
 				

@@ -5,6 +5,7 @@ select * from T_POST order by P_DT desc;
 select * from T_COMMENT;
 select * from T_CHATTING;
 select * from T_CHATROOM;
+select * from T_BOOKMARK;
 
 select *
 from(
