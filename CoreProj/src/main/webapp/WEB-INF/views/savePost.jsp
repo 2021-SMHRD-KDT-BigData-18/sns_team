@@ -115,7 +115,7 @@
         #mypa_img {
             width: 200px;
             height: 200px;
-            display: flex;
+            /*display: flex;*/
             flex-flow: row nowrap;
         }
         
@@ -133,7 +133,6 @@
         .pa_area_img {
             width: 200px;
             height: 200px;
-            margin-left: 20px;
         }
         
 
@@ -207,13 +206,10 @@
                 <ul class="nav flex-column">
                     <img class=logo src="./image/새싹 누끼.png" >
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">홈</a>
+                        <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="" href="#">저장게시글 &#x1F4C2;</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./chatList.html">채팅 &#x1F4AC;</a>
+                        <a class="nav-link" href="goChatList.do">채팅 &#x1F4AC;</a>
                     </li>
                 </ul>
             </div>
@@ -222,51 +218,17 @@
         <div id="mypage_area">
             <p id="title">저장 게시글</p>
             
-            <div class="my_info">
+            <div class="my_info" style="display:flex; flex-flow: row wrap; justify-content:space-between;">
                 <!-- <span>&ensp;</span> -->
-                <div id="mypa_img">
                     <div class="pa_area">
                         <img class="pa_area_img" src="./image/새싹.png">
                     </div>
-                    <p>&emsp;&emsp;&nbsp;</p>
                     <div class="pa_area">
                         <img class="pa_area_img" src="./image/새싹.png">
                     </div>
-                    <p>&emsp;&emsp;&nbsp;</p>
                     <div class="pa_area">
                         <img class="pa_area_img" src="./image/새싹.png">
                     </div>
-                </div>
-                <span>&ensp;</span>
-                
-                <div id="mypa_img">
-                    <div class="pa_area">
-                        <img class="pa_area_img" src="./image/새싹.png">
-                    </div>
-                    <p>&emsp;&emsp;&nbsp;</p>
-                    <div class="pa_area">
-                        <img class="pa_area_img" src="./image/새싹.png">
-                    </div>
-                    <p>&emsp;&emsp;&nbsp;</p>
-                    <div class="pa_area">
-                        <img class="pa_area_img" src="./image/새싹.png">
-                    </div>
-                </div>
-                <span>&ensp;</span>
-                
-                <div id="mypa_img">
-                    <div class="pa_area">
-                        <img class="pa_area_img" src="./image/새싹.png">
-                    </div>
-                    <p>&emsp;&emsp;&nbsp;</p>
-                    <div class="pa_area">
-                        <img class="pa_area_img" src="./image/새싹.png">
-                    </div>
-                    <p>&emsp;&emsp;&nbsp;</p>
-                    <div class="pa_area">
-                        <img class="pa_area_img" src="./image/새싹.png">
-                    </div>
-                </div>
            	</div>
        	</div>
         <div id="rightPage">
@@ -301,6 +263,49 @@
             </div>
         </div>
     </div>
+    
+    <script type="text/javascript">
+    $(document).ready(savePostLoad());
+    
+    function savePostLoad(){
+    	$.ajax({
+    		url:'loadBookmark.do',
+    		type : "post",
+            data : {},
+            dataType:'json',
+            success : function(res) {
+                let html='';
+                console.log(res);
+                for(let i=0; i<res.length; i++){
+                    rootpath='P_FILE/';
+                    html+='<div class="cmt"><div style="display: flex; justify-content: space-between;"><div style="display: flex;"><span class="cmt_id" style="display: none;">';
+                    html+=res[i].CMT_SEQ;
+                    html+='</span>';
+                    html+='<img src="';
+                    html+=rootpath+res[i].U_PROFILE_IMG+'"alt="" width="50px">';
+                    html+='<div><span class="u_id">'+res[i].U_ID+'</span>';
+                    html+='<br><span class="u_nick">'+res[i].U_ID+'</span><br>';
+                    html+='<span id="cmt_date">'+res[i].CMT_DT+'</span>';
+                    html+='</div></div><button class="btn_cmt_delete">댓 삭제</button>';
+                    html+='</div> <div class="cmt_content">';
+                    html+=res[i].CMT_CONTENT;
+                    html+='</div><hr></div>';
+                    
+                }
+                $("#cmt_list").html(html);
+                listenerDelete();
+            },
+            error : function(e) {
+                // 요청이 실패하면 실행될 콜백함수
+                alert("요청 실패!");
+            }
+    	});
+    }
+    
+    
+    </script>
+    
+    
 </body>
 
 </html>
