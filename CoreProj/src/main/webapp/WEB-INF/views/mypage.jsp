@@ -198,6 +198,18 @@
             /* margin-right: 20px; */
             padding-right: 10px;
         }
+            #mypa_img {
+            width: 730px;
+            height: 300px;
+            padding: 20px;
+            overflow: scroll;
+            color: #112031;
+            /* 가로 스크롤 */
+            overflow: auto;
+            white-space: nowrap;
+            overflow-y: hidden;
+        }
+        
     </style>
 
 
@@ -244,7 +256,7 @@
                 <div class="p_p_info">
                     <div class="my_pa">
                         <span>&nbsp;창고지기 식물&nbsp;</span>
-                        <a href="goWritePost.do" class="btn btn-primary" style="margin-left: 55%">추가하기</a>
+                        <a href="goWritePlant.do" class="btn btn-primary" style="margin-left: 55%">추가하기</a>
                      
                         <div id="mypa_img">
                             <div class="pa_area">
