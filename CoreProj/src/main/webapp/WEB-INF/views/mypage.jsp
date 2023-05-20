@@ -213,7 +213,7 @@
                         <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="" href="#">저장게시글 &#x1F4C2;</a>
+                        <a class="nav-link" aria-current="" href="goSavePost.do">저장게시글 &#x1F4C2;</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="goChatList.do">채팅 &#x1F4AC;</a>
