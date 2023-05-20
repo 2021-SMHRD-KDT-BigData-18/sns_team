@@ -225,7 +225,7 @@
                         <a class="nav-link active" aria-current="page" href="goMain.do">Home</a>
                     </ul>
                     <ul class="nav-item">
-                        <a class="nav-link" href="#">My Page</a>
+                        <a class="nav-link" href="goMypage.do?u_id=${user.getU_ID()}">My Page</a>
                     </ul>
                     <!-- <ul class="nav-item">
                         <a class="nav-link" href="./chatList.html">Chat</a>

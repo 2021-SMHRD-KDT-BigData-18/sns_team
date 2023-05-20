@@ -43,4 +43,18 @@
 		where P_SEQ = #{P_SEQ}
 	</update>
 	
+	<update id="writeUpdate" parameterType="kr.smhrd.entity.T_POST">
+		update T_POST
+		set P_TITLE = #{P_TITLE},
+			P_CONTENT = #{P_CONTENT}
+			P_FILE = #{P_FILE, jdbcType=VARCHAR},
+			P_DT = sysdate
+		where U_ID = #{U_ID}
+	</update>
+	
+	<delete id="writeDelete">
+		delete from T_POST
+		where P_SEQ = #{P_SEQ}
+	</delete>
+	
 </mapper>
