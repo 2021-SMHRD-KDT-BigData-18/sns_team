@@ -34,4 +34,28 @@ public class T_COMMENTDAO {
 		return res;
 	}
 	
+	public T_COMMENT searchCmt(int cmt_id) {
+
+		SqlSession session = factory.openSession(true);
+
+		T_COMMENT dto = session.selectOne("searchCmt",cmt_id);
+
+		session.close();
+
+		return dto;
+
+	}
+	
+	public int deleteCmt(int cmt_id) {
+
+		SqlSession session = factory.openSession(true);
+
+		int res = session.delete("deleteCmt",cmt_id);
+
+		session.close();
+
+		return res;
+
+	}
+	
 }

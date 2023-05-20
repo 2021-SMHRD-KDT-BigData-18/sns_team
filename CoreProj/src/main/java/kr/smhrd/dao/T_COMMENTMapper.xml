@@ -9,6 +9,17 @@ select a.*,b.U_PROFILE_IMG from T_COMMENT A, T_USER B
 	order by CMT_DT desc
 </select>
 
+<select id="searchCmt" resultType="kr.smhrd.entity.T_COMMENT">
+select * from T_COMMENT
+	where CMT_SEQ=#{cmt_id}
+</select>
+
+<delete id="deleteCmt">
+delete from T_COMMENT
+	where CMT_SEQ=#{cmt_id}
+</delete>
+
+
 <insert id="cmtWrite" parameterType="kr.smhrd.entity.T_COMMENT">
 insert into T_COMMENT values(#{CMT_SEQ},#{P_SEQ},#{CMT_CONTENT},sysdate,#{U_ID})
 </insert>

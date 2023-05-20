@@ -392,14 +392,14 @@
                             html+='<div><span class="u_id">'+res[i].U_ID+'</span>';
                             html+='<br><span class="u_nick">'+res[i].U_ID+'</span><br>';
                             html+='<span id="cmt_date">'+res[i].CMT_DT+'</span>';
-                            html+='</div></div><button id="btn_cmt_delete">댓 삭제</button>';
+                            html+='</div></div><button class="btn_cmt_delete">댓 삭제</button>';
                             html+='</div> <div class="cmt_content">';
                             html+=res[i].CMT_CONTENT;
                             html+='</div><hr></div>';
                             
                         }
                         $("#cmt_list").html(html);
-                        //listenerOK();
+                        listenerDelete();
                     },
                     error : function(e) {
                         // 요청이 실패하면 실행될 콜백함수
@@ -407,16 +407,35 @@
                     }
                 });
             }
-            function listenerOK() {
-                let post = $('.postCard>.card-body');
-                console.log(post);
-                post.on('click', goToPost);	
+            function listenerDelete() {
+                let btn_delete = $('.btn_cmt_delete');
+                console.log(btn_delete);
+                btn_delete.on('click', delCmt);	
                 };
             	
             	
             	
-            function goToPost() {
-                $(this).children()[0].innerText;
+            function delCmt() {
+                console.log($(this).prev().children()[0].innerText);
+                let cmt_id = $(this).prev().children()[0].innerText;
+                $.ajax({
+					url:'delCmt.do',
+					type:'post',
+					data:{"cmt_id":cmt_id},
+					success : function(res){
+						if(res==1){
+	                    alert("삭제 성공!");
+	                    cmtLoad();
+						}
+						else{
+							alert("해당 댓글의 작성자가 아닙니다!");
+						}
+	                    
+					},
+					error : function(e){
+	                     alert("실패!");
+	                  }
+				});
             };
             
             

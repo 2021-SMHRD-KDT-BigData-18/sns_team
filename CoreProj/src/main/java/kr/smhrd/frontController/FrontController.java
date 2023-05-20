@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.smhrd.controller.BookmarkCon;
 import kr.smhrd.controller.Controller;
+import kr.smhrd.controller.DelCmtCon;
 import kr.smhrd.controller.DupIDCheckCon;
 import kr.smhrd.controller.FollowCon;
 import kr.smhrd.controller.FriendSelectCon;
@@ -86,6 +87,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/goProfileUpdate.do", new GoProfileUpdateCon());
 		mappings.put("/bookmark.do", new BookmarkCon());
 		mappings.put("/like.do", new LikeCon());
+		mappings.put("/delCmt.do", new DelCmtCon());
 		
 	}
 	
