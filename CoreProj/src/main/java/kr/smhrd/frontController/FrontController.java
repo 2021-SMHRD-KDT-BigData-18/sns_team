@@ -27,6 +27,7 @@ import kr.smhrd.controller.GoProfileUpdateCon;
 import kr.smhrd.controller.GoWritePostCon;
 import kr.smhrd.controller.WritePostCon;
 import kr.smhrd.controller.JoinCon;
+import kr.smhrd.controller.LikeCon;
 import kr.smhrd.controller.LikeUpdateMinusCon;
 import kr.smhrd.controller.LikeUpdatePlusCon;
 import kr.smhrd.controller.LoadChatListCon;
@@ -84,6 +85,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/follow.do", new FollowCon());
 		mappings.put("/goProfileUpdate.do", new GoProfileUpdateCon());
 		mappings.put("/bookmark.do", new BookmarkCon());
+		mappings.put("/like.do", new LikeCon());
 		
 	}
 	
