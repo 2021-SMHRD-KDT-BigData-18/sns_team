@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 <%@page import="java.util.List"%>
-=======
 <%@page import="java.util.List"%>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -296,8 +291,10 @@
             <!-- <div class="btnchange">
             </div> -->
             <div class="postList">
-                <a href="#" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
-                <a href="#" class="btn btn_change" >✘</a> 
+                	<c:if test="${user.getU_ID() == requestScope.post.getU_ID()}">
+						<a href="#" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
+                		<a href="#" class="btn btn_change" >✘</a> 
+					</c:if>
                 <div class="postCard">
                     
                     <div class="card-body">

@@ -242,7 +242,7 @@
     <div id="backgroundArea">
         <div id="leftPage">
             <div class="navbar">
-                <a class="nav-link active" aria-current="page" href="#"><img class="img" src="./image/로고 누끼.png" width="300"></a>
+                <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고 누끼.png" width="300"></a>
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">

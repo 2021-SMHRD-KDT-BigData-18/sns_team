@@ -78,6 +78,25 @@ public class T_POSTDAO {
 		return row;
 	}
 
+	public int writeUpdate(T_POST dto) {
+		
+		SqlSession session = factory.openSession(true);
+		
+		int row = session.update("writeUpdate", dto);
+		
+		session.close();
+		
+		return row;
+	} 
 	
-	
+	public int writeDelete(String P_SEQ) {
+		
+		SqlSession session = factory.openSession(true);
+		
+		int row = session.delete("writeDelete", P_SEQ);
+		
+		session.close();
+		
+		return row;
+	}
 }
