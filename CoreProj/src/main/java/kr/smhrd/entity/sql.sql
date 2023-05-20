@@ -7,6 +7,17 @@ select * from T_CHATTING;
 select * from T_CHATROOM;
 select * from T_BOOKMARK;
 
+
+select B.*
+from(
+select P_SEQ from T_BOOKMARK
+	where U_ID='aa'
+	) A, T_POST B
+	where A.P_SEQ=B.P_SEQ
+	;
+
+
+
 select *
 from(
 select * from T_CHATTING

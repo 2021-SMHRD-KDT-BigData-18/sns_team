@@ -1,10 +1,13 @@
 package kr.smhrd.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+
+import kr.smhrd.entity.T_POST;
 
 public class T_BOOKMARKDAO {
 	
@@ -32,4 +35,18 @@ private SqlSessionFactory factory = SqlSessionManager.getSqlSessionFactory();
 		return res;
 
 	}
+	
+	public List<T_POST> loadBookmark(String u_id){
+		
+		SqlSession session = factory.openSession(true);
+
+		List<T_POST> list = session.selectList("loadBookmark",u_id);
+
+		session.close();
+
+		return list;
+		
+	}
+	
+	
 }

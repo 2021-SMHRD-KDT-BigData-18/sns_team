@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -13,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-
+<script src="assets/js/jquery-3.7.0.min.js"></script>
     <style>
         @font-face {
             font-family: 'omyu_pretty';
@@ -232,36 +233,56 @@
            	</div>
        	</div>
         <div id="rightPage">
-            <div style="margin: 30px; position: fixed; max-width: 450px;">
-                <div id="profileCard" class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
-                        style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
-                    <div class="card-body">
-                        <h5 class="card-title" style="margin-left: 22%;">smhrd 님 환영합니다</h5>
-                        <a href="#" class="btn btn-primary" style="margin-left: 10%">로그아웃</a>
-                        <a href="#" class="btn btn-primary" style="margin-left: 10%;">회원정보 수정</a>
-                    </div>
-                </div>
-                <br>
-                <div class="accordion" id="friendList">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="btn_friendList">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOne" aria-expanded="false"
-                            aria-controls="flush-collapseOne">
-                            친구목록
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body"> 친구목록 띄워주쇼 <code>.accordion-flush</code> class. This is the
-                        first item's accordion
-                        body.</div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
+			<div style="margin: 30px; position: fixed;">
+				<div id="profileCard" class="card"style="width:450px;  ">
+					<img
+						src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshopping.phinf.naver.net%2Fmain_3807892%2F38078924706.20230218214528.jpg&type=sc960_832"
+						style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
+						alt="프로필 이미지">
+						
+						<%-- 
+					  	<img
+						  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
+						style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
+						alt="프로필 이미지"> 
+						--%>
+						
+					<div class="card-body">
+						<%--<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀 </h5> --%>
+						<c:if test="${sessionScope.user.getU_ID() != null}">
+
+						<!-- <img src="\${sessionScope.getU_PROFILE_IMG()}"> -->
+
+						<!-- <img src="${sessionScope.user.getU_PROFILE_IMG()}"> -->
+						<%--<img src="${sessionScope.getU_PROFILE_IMG()}"> --%>
+						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
+							<a href="logout.do" class="btn btn-primary" style="margin-left: 70%">로그아웃</a>
+						</c:if>
+						<c:if test="${sessionScope.user.getU_ID() == null}">
+						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 당장 로그인해주세요!!!</h5>
+							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 75%">로그인</a>
+						</c:if>
+					</div>
+				</div>
+				<div class="accordion" id="friendList">
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="btn_friendList">
+							<button class="accordion-button collapsed" type="button"
+								data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+								aria-expanded="false" aria-controls="flush-collapseOne">
+								친구목록</button>
+						</h2>
+						<div id="flush-collapseOne" class="accordion-collapse collapse"
+							aria-labelledby="flush-headingOne"
+							data-bs-parent="#accordionFlushExample">
+							<div class="accordion-body">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     </div>
     
     <script type="text/javascript">
@@ -278,22 +299,14 @@
                 console.log(res);
                 for(let i=0; i<res.length; i++){
                     rootpath='P_FILE/';
-                    html+='<div class="cmt"><div style="display: flex; justify-content: space-between;"><div style="display: flex;"><span class="cmt_id" style="display: none;">';
-                    html+=res[i].CMT_SEQ;
-                    html+='</span>';
-                    html+='<img src="';
-                    html+=rootpath+res[i].U_PROFILE_IMG+'"alt="" width="50px">';
-                    html+='<div><span class="u_id">'+res[i].U_ID+'</span>';
-                    html+='<br><span class="u_nick">'+res[i].U_ID+'</span><br>';
-                    html+='<span id="cmt_date">'+res[i].CMT_DT+'</span>';
-                    html+='</div></div><button class="btn_cmt_delete">댓 삭제</button>';
-                    html+='</div> <div class="cmt_content">';
-                    html+=res[i].CMT_CONTENT;
-                    html+='</div><hr></div>';
+                    html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
+                        <img class="pa_area_img" src="\${rootpath}/image/\${res[i].P_FILE}">
+                        <p></p>
+                        </div>`;
                     
                 }
-                $("#cmt_list").html(html);
-                listenerDelete();
+                $(".my_info").html(html);
+                friendSelect();
             },
             error : function(e) {
                 // 요청이 실패하면 실행될 콜백함수
@@ -301,6 +314,39 @@
             }
     	});
     }
+    
+    
+    function friendSelect(){
+		
+        $.ajax({
+              url : 'friendSelect.do', 
+              type : 'post', 
+              data : {}, 
+              dataType : "json", 
+              success : function(res){
+                 console.log('시작');
+                 console.log(res);
+                 for(let i=0; i<res.length; i++){
+                    let html='';
+                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                    html+='<div class="accordion-body">';
+                 html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                 html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                    html+='</div>';
+                    $(".accordion-body").append(html);
+                 }
+              },
+              error : function(e){
+                 //alert("요청 실패!");
+                 let html = '';
+                 html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+                 $(".accordion-body").append(html);
+              }
+           });
+     }
+    
+    
+    
     
     
     </script>

@@ -4,8 +4,15 @@
 
 <insert id="addFavorites" parameterType="Map">
 insert into T_FAVORITES values(T_FAVORITES_SEQ.nextval,#{P_ID},#{U_ID},sysdate)
-
 </insert>
+
+<update id="add_P_LIKES">
+update T_POST set P_LIKES=P_LIKES+1 where P_SEQ=#{p_id}
+</update>
+
+<update id="del_P_LIKES">
+update T_POST set P_LIKES=P_LIKES-1 where P_SEQ=#{p_id}
+</update>
 
 <select id="checkFavorites" parameterType="Map" resultType="Integer">
 select count(*) from T_FAVORITES where P_SEQ = #{P_ID} and U_ID = #{U_ID}

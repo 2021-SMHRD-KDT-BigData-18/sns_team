@@ -16,4 +16,16 @@ delete from T_BOOKMARK where P_SEQ = #{P_ID} and U_ID = #{U_ID}
 </delete>
 
 
+<select id="loadBookmark" resultType="kr.smhrd.entity.T_POST">
+select B.*
+from(
+select P_SEQ from T_BOOKMARK
+	where U_ID=#{U_ID}
+	) A, T_POST B
+where A.P_SEQ=B.P_SEQ
+
+</select>
+
+
+
 </mapper>

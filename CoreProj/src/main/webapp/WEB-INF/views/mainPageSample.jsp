@@ -335,7 +335,7 @@
 				        <div class="card-footer">
 				            <p></p>
 				            <hr>
-				            <div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱</button>
+				            <div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱 <span class="likes">\${res[i].P_LIKES}</span>회</button>
 				                <p>\${res[i].P_VIEWS} 회</p>
 				                <button class="btn_bookmark">북마크</button>
 				            </div>
@@ -395,6 +395,8 @@
 			function likePost(){
 				//console.log($(this).children()[0].innerText);
 				let p_id=$(this).children()[0].innerText;
+				let likes=$(this).children()[1];
+				
 				$.ajax({
 					url:'like.do',
 					type:'post',
@@ -402,11 +404,12 @@
 					success : function(res){
 						if(res=='added'){
 	                    alert("좋아요 성공!");
+	                    likes.innerText=Number(likes.innerText)+1;
 						}
 						else{
 						alert("좋아요 삭제!");
+	                    likes.innerText=Number(likes.innerText)-1;
 						}
-						
 					},
 					error : function(e){
 	                     alert("실패!");

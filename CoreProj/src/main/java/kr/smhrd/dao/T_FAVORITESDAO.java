@@ -23,9 +23,11 @@ public class T_FAVORITESDAO {
 		int search_res = session.selectOne("checkFavorites",map);
 		if(search_res==0) {
 			session.insert("addFavorites",map);
+			session.update("add_P_LIKES",p_id);
 			res=1;
 		}else {
 			session.delete("deleteFavorites",map);
+			session.update("del_P_LIKES",p_id);
 			res=2;
 		}
 		session.close();
