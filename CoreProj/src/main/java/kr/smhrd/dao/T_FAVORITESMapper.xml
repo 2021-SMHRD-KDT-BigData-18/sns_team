@@ -1,3 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.smhrd.dao.T_FAVORITES"></mapper>
+<mapper namespace="kr.smhrd.dao.T_FAVORITES">
+
+<insert id="addFavorites" parameterType="Map">
+insert into T_FAVORITES values(T_FAVORITES_SEQ.nextval,#{P_ID},#{U_ID},sysdate)
+
+</insert>
+
+<select id="checkFavorites" parameterType="Map" resultType="Integer">
+select count(*) from T_FAVORITES where P_SEQ = #{P_ID} and U_ID = #{U_ID}
+
+</select>
+
+<delete id="deleteFavorites" parameterType="Map">
+delete from T_FAVORITES where P_SEQ = #{P_ID} and U_ID = #{U_ID}
+</delete>
+
+
+</mapper>

@@ -393,8 +393,8 @@
 			};
 			
 			function likePost(){
-				//console.log($(this).prevAll()[1].children[0].innerText);
-				let p_id=$(this).children[0].innerText;
+				//console.log($(this).children()[0].innerText);
+				let p_id=$(this).children()[0].innerText;
 				$.ajax({
 					url:'like.do',
 					type:'post',
