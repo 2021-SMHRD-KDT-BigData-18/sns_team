@@ -293,7 +293,7 @@
             <div class="postList">
                 	<c:if test="${user.getU_ID() == requestScope.post.getU_ID()}">
 						<a href="#" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
-                		<a href="#" class="btn btn_change" >✘</a> 
+                		<a href="goMain.do" class="btn btn_change" id="post_delete">✘</a> 
 					</c:if>
                 <div class="postCard">
                     
@@ -477,6 +477,9 @@
                 
                 alert("URL이 복사되었습니다.")  
             }
+            
+            function 
+            
     </script>
     <script>
     $(document).ready(friendSelect());
