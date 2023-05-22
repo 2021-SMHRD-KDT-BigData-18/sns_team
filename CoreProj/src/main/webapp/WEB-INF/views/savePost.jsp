@@ -299,7 +299,7 @@
                 console.log(res);
                 for(let i=0; i<res.length; i++){
                     rootpath='P_FILE/';
-                    html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
+                    html+=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
                         <img class="pa_area_img" src="\${rootpath}/image/\${res[i].P_FILE}">
                         <p></p>
                         </div>`;
