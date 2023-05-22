@@ -263,7 +263,7 @@ span {
 						<span class="my_id"><%=friend.getU_ID()%></span> <span
 							class="my_name"><%=friend.getU_NICK() %></span>
 					</div>
-					<button class="btn">풀링</button>
+					<button class="btn" id = "btn_follow">풀링</button>
 					<br>
 				</div>
 				<div class="pro1">
@@ -363,11 +363,12 @@ span {
     
     
     function follow() {
-    	console.log($('p.my_id')[0].innerText);
+    	let f_id = $(this).prev().children()[0].innerText;
+    	console.log($(this).prev().children()[0].innerText);
 		$.ajax({
 			url: "follow.do",
 		    type: "POST",
-		    data: {"f_id":$('p.my_id')[0].innerText},
+		    data: {"f_id":f_id},
 		    success:function(res){      					
 		    	alert("친추 완료") ;
 		    	location.href='goChatList.do';

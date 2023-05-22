@@ -121,10 +121,10 @@
             padding-bottom: 10px;
         }
 
-        .btn-primary {
+        /* .btn-primary {
             --bs-bg-opacity: 1;
             background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
-        }
+        } */
 
         #profileCard {
             margin: 50px;
@@ -202,12 +202,13 @@
         .btn {
             font-size: 20px;
             padding: 10px 15px;
-            border-radius: 10px;
+            /* border-radius: 10px; */
+            border: 0;
             /* border: 3px solid burlywood; */
-            background-color: rgb(238, 238, 186);
+            /* background-color: rgb(238, 238, 186); */
             color: #703c3c;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            /* letter-spacing: 5px; */
             font-weight: bold;
             position: relative;
             transition: all 0.4s;
@@ -234,12 +235,10 @@
             transform: translateY(-100%);
         }
 
+        
         .btn:hover {
-            /* color:green;  */
-            color:rgb(0, 78, 52); 
-            background-color: #83ab85;
-         }
-
+        color: rgb(0, 78, 52);
+        }
 
 
 
@@ -293,7 +292,7 @@
             <div class="postList">
                 	<c:if test="${user.getU_ID() == requestScope.post.getU_ID()}">
 						<a href="#" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
-                		<a href='writeDelete.do?p_id=<%=request.getParameter("p_id")%>' class="btn btn_change" id="post_delete">✘</a> 
+                		<a href="#" class="btn btn_change" >✘</a> 
 					</c:if>
                 <div class="postCard">
                     
@@ -302,8 +301,7 @@
                         <h5 class="card-title">${requestScope.post.getP_TITLE()}</h5>
                         <p class="card-text">${requestScope.post.getU_ID()}</p>
                         <p class="card-text">${requestScope.post.getP_CONTENT()}</p>
-                        <a href="#" id="urlCopy" class="btn_urlCopy" title="새창" onclick="clip(); return false;">링크 공유하기</a>
-						<p>${requestScope.post.getP_VIEWS()+1}회</p>	                    
+						                 
                     </div>
                     <img src="http://218.157.19.25:8081/jisik/P_FILE/${requestScope.post.getP_FILE()}"
                         class="postCardImg" alt="프로필 이미지">
@@ -312,7 +310,11 @@
                         <p></p>
                         <div class="footer-menu">
                             <button class="btn btn_like">🌱</button>
+                            <p>${requestScope.post.getP_VIEWS()+1}회</p>	   
                             <button class="btn btn_bookmark">북마크</button>
+                            
+                        <a href="#" id="urlCopy" class="btn_urlCopy" title="새창" onclick="clip(); return false;">링크 공유하기</a>
+
 
                         </div>
                         <hr>
@@ -475,22 +477,8 @@
                 document.execCommand("copy");   
                 document.body.removeChild(textarea); 
                 
-                alert("URL이 복사되었습니다.");  
+                alert("URL이 복사되었습니다.")  
             }
-            
-            $('#post_delete').on('click', function writeDelete(){
-            	let cc = confirm("정말로 삭제하시겠습니까?");
-            	if(cc==true){
-            		url = "writeDelete.do?P_SEQ=${requestScope.post.getP_SEQ()}";
-            		location.href=url;
-            		alert("삭제되었습니다.");
-            		console(url);
-            	}else{
-            		alert("취소되었습니다.")	;
-            		return false;
-            	}
-            }) 
-            
     </script>
     <script>
     $(document).ready(friendSelect());

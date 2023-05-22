@@ -261,6 +261,10 @@
                      
                         <div id="mypa_img">
                         	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
+                        <div id="mypa_img" class="mypa_img">
+                            <div class="pa_area">
+                                <img class="pa_area_img" src="./image/새싹.png">
+                            </div>
                             <p>&emsp;&emsp;&nbsp;</p>
                             
                         	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
@@ -288,16 +292,19 @@
                         	
                         	
                         	
-                        	
+                         <!-- <div id="mypa_img"> -->
                         	<%--<div class="pa_area">
                             	<img class="pa_area_img" src="./image/새싹.png">
                         	</div>
                         	 --%>
                 		</div>
+                         <div id="mypa_img" class="mypa_img">
+                    	</div>
                 	</div>
            	</div>
        	</div>
-        <div id="rightPage">
+    </div>
+    <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
