@@ -240,9 +240,6 @@
                 <div class="header">
                     <span>풀채팅</span>
                 </div>
-                <div class="search">
-                    <input type="text" placeholder="닉네임 검색" />
-                </div>
                 <div class="list">
                     <div class="list_ul">
                         
