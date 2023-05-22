@@ -238,8 +238,11 @@
 					<!-- <ul class="nav-item">
 						<a class="nav-link" href="goChat.do">ChatChatChatChat</a>
 					</ul> -->
+					<ul class="nav-item">
+						<a class="nav-link" href='goWritePost.do'>글쓰기</a>
+					</ul>
 					
-					<button id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>
+			<!-- 		<a id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</a> -->
 				</ul>
 			</div>
 
