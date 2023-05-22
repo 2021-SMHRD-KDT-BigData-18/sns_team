@@ -256,7 +256,7 @@
                 <div class="p_p_info">
                     <div class="my_pa">
                         <span>&nbsp;창고지기 식물&nbsp;</span>
-                        <a href="goWritePlant.do" class="btn btn-primary" style="margin-left: 55%">추가하기</a>
+                        <a href="plantWirtePost.do" class="btn btn-primary" style="margin-left: 55%">추가하기</a>
                      
                         <div id="mypa_img">
                             <div class="pa_area">

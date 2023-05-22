@@ -94,6 +94,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/delCmt.do", new DelCmtCon());
 		mappings.put("/goSavePost.do", new GoSavePostCon());
 		mappings.put("/goWritePlant.do", new GoWritePlantCon());
+		mappings.put("/goWritePlant.do", new GoWritePlantCon());
 		
 	}
 	
