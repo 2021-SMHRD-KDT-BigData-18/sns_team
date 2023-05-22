@@ -89,7 +89,7 @@ public class T_POSTDAO {
 		return row;
 	} 
 	
-	public int writeDelete(String P_SEQ) {
+	public int writeDelete(int P_SEQ) {
 		
 		SqlSession session = factory.openSession(true);
 		

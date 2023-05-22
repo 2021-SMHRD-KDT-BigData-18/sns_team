@@ -36,4 +36,15 @@ public class T_FAVORITESDAO {
 
 	}
 	
+	public int deleteP_SEQ(int P_SEQ) {
+		
+		SqlSession session = factory.openSession(true);
+		
+		int row = session.delete("deleteP_SEQ", P_SEQ);
+		
+		session.close();
+		
+		return row;
+	}
+	
 }

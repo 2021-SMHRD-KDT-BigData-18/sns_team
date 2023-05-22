@@ -131,6 +131,9 @@ BEGIN
 END;
 
 
+delete from T_POST
+		where P_SEQ = 20;
+
 
 
 
