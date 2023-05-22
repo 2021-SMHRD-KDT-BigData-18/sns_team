@@ -298,8 +298,10 @@
                         	</div>
                         	 --%>
                 		</div>
+                		   <!-- 
                          <div id="mypa_img" class="mypa_img">
                     	</div>
+                    	-->
                 	</div>
            	</div>
        	</div>
