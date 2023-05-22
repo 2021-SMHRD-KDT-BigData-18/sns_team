@@ -47,8 +47,14 @@ public class LoadChatListCon implements Controller {
 			T_CHATTING tempChat = dao2.loadLastChat(roomId);
 			LastChat lastChat = new LastChat();
 			
-			lastChat.setChat_content(tempChat.getCHAT_CONTENT());
-			lastChat.setChat_dt(tempChat.getCHAT_DT());
+			if(tempChat==null) {
+			lastChat.setChat_content("");
+			lastChat.setChat_dt("");
+			}
+			else {
+				lastChat.setChat_content(tempChat.getCHAT_CONTENT());				
+				lastChat.setChat_dt(tempChat.getCHAT_DT());
+			}
 			lastChat.setChat_id(val.getF_ID());
 			
 			chats.add(lastChat);

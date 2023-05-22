@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import kr.smhrd.controller.BookmarkCon;
 import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.DelCmtCon;
+import kr.smhrd.controller.DelFriendCon;
 import kr.smhrd.controller.DupIDCheckCon;
 import kr.smhrd.controller.FollowCon;
 import kr.smhrd.controller.FriendSelectCon;
@@ -36,6 +37,8 @@ import kr.smhrd.controller.LikeUpdatePlusCon;
 import kr.smhrd.controller.LoadBookmarkCon;
 import kr.smhrd.controller.LoadChatListCon;
 import kr.smhrd.controller.LoadCmtCon;
+import kr.smhrd.controller.LoadMyPlantCon;
+import kr.smhrd.controller.LoadMyPostCon;
 import kr.smhrd.controller.LoginCon;
 import kr.smhrd.controller.LogoutCon;
 import kr.smhrd.controller.WriteCmtCon;
@@ -94,6 +97,9 @@ public class FrontController extends HttpServlet {
 		mappings.put("/delCmt.do", new DelCmtCon());
 		mappings.put("/goSavePost.do", new GoSavePostCon());
 		mappings.put("/goWritePlant.do", new GoWritePlantCon());
+		mappings.put("/loadMyPost.do", new LoadMyPostCon());
+		mappings.put("/loadMyPlant.do", new LoadMyPlantCon());
+		mappings.put("/delFriend.do", new DelFriendCon());
 		
 	}
 	
