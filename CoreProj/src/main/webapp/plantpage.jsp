@@ -174,13 +174,13 @@
         
             <p id="title">plant Page</p>
             <div class="pro">
-                <img class="pro_img" src="<%=plant.getPL_IMG()%>" style="margin-right:15%;">
+                <img class="pro_img" src="${sessionScope.plant.getPL_IMG()}" style="margin-right:15%;">
                 <!-- <a class="nav-link" aria-current="" href="#">완료 &#x1F4C2;</a> -->
                 
                 <div class="plant">
-                    <span>식물이름 : <%=plant.getPL_NAME()%></span>
-                    <span>함께한날짜 : <%=plant.getPL_START_DT()%></span>
-                    <span>식물종류 : <%=plant.getPL_START_DT()%> </span>
+                    <span>식물이름 : ${sessionScope.plant.getPL_NAME()}</span>
+                    <span>함께한날짜 : ${sessionScope.plant.getPL_START_DT()}</span>
+                    <span>식물종류 : ${sessionScope.plant.getPL_START_DT()}</span>
                 </div>   
             </div>    
         </div>
