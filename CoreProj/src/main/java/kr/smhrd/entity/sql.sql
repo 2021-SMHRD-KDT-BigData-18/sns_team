@@ -6,6 +6,7 @@ select * from T_COMMENT;
 select * from T_CHATTING;
 select * from T_CHATROOM;
 select * from T_BOOKMARK;
+select * from T_FAVORITES;
 
 
 select B.*
@@ -65,6 +66,9 @@ BEGIN
     FROM DUAL
 END;
 
+
+delete from T_POST
+		where P_SEQ = 20;
 
 
 

@@ -293,7 +293,7 @@
             <div class="postList">
                 	<c:if test="${user.getU_ID() == requestScope.post.getU_ID()}">
 						<a href="#" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
-                		<a href="goMain.do" class="btn btn_change" id="post_delete">✘</a> 
+                		<a href='writeDelete.do?p_id=<%=request.getParameter("p_id")%>' class="btn btn_change" id="post_delete">✘</a> 
 					</c:if>
                 <div class="postCard">
                     
@@ -475,10 +475,21 @@
                 document.execCommand("copy");   
                 document.body.removeChild(textarea); 
                 
-                alert("URL이 복사되었습니다.")  
+                alert("URL이 복사되었습니다.");  
             }
             
-            function 
+            $('#post_delete').on('click', function writeDelete(){
+            	let cc = confirm("정말로 삭제하시겠습니까?");
+            	if(cc==true){
+            		url = "writeDelete.do?P_SEQ=${requestScope.post.getP_SEQ()}";
+            		location.href=url;
+            		alert("삭제되었습니다.");
+            		console(url);
+            	}else{
+            		alert("취소되었습니다.")	;
+            		return false;
+            	}
+            }) 
             
     </script>
     <script>

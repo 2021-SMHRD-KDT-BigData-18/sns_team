@@ -23,5 +23,8 @@ select count(*) from T_FAVORITES where P_SEQ = #{P_ID} and U_ID = #{U_ID}
 delete from T_FAVORITES where P_SEQ = #{P_ID} and U_ID = #{U_ID}
 </delete>
 
+<delete id="deleteP_SEQ">
+delete from T_FAVORITES where P_SEQ = #{P_SEQ}
+</delete>
 
 </mapper>
