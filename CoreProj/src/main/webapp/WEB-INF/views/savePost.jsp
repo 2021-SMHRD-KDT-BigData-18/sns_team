@@ -128,7 +128,8 @@
         .pa_area {
             width: 200px;
             height: 200px;
-            margin-top: 10px;
+            margin-top: 20px;
+            margin-bottom:10px
         }
 
         .pa_area_img {
@@ -219,8 +220,9 @@
         <div id="mypage_area">
             <p id="title">저장 게시글</p>
             
-            <div class="my_info" style="display:flex; flex-flow: row wrap; justify-content:space-between;">
+            <div class="my_info" style="display:flex; flex-flow: row wrap; ">
                 <!-- <span>&ensp;</span> -->
+                <!-- 
                     <div class="pa_area">
                         <img class="pa_area_img" src="./image/새싹.png">
                     </div>
@@ -230,6 +232,7 @@
                     <div class="pa_area">
                         <img class="pa_area_img" src="./image/새싹.png">
                     </div>
+                  -->
            	</div>
        	</div>
         <div id="rightPage">
@@ -299,10 +302,11 @@
                 console.log(res);
                 for(let i=0; i<res.length; i++){
                     rootpath='P_FILE/';
-                    html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
+                    html+=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';" style="margin-left:24px;">
                         <img class="pa_area_img" src="\${rootpath}/image/\${res[i].P_FILE}">
                         <p></p>
-                        </div>`;
+                        </div>
+                        <p>&emsp;</p>`;
                     
                 }
                 $(".my_info").html(html);

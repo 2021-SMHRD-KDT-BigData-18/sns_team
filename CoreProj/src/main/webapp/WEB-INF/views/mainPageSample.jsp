@@ -238,8 +238,11 @@
 					<!-- <ul class="nav-item">
 						<a class="nav-link" href="goChat.do">ChatChatChatChat</a>
 					</ul> -->
+					<ul class="nav-item">
+						<a class="nav-link" href='goWritePost.do'>글쓰기</a>
+					</ul>
 					
-					<button id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>
+			<!-- 		<a id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</a> -->
 				</ul>
 			</div>
 
@@ -338,6 +341,7 @@
 				            <div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱 <span class="likes">\${res[i].P_LIKES}</span>회</button>
 				                <p>\${res[i].P_VIEWS} 회</p>
 				                <button class="btn_bookmark">북마크</button>
+				                <a href="#" id="urlCopy" class="btn_urlCopy" title="새창" onclick="clip(); return false;">링크 공유하기</a>
 				            </div>
 				        </div>
 				    </div>`;
