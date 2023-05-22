@@ -13,36 +13,38 @@
 <script src="assets/js/bootstrap.bundle.js"></script>
 <script src="assets/js/jquery-3.7.0.min.js"></script>
 <style>
-#backgroundArea {
+    @font-face {
+        font-family: 'omyu_pretty';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    * {
+        font-family: 'omyu_pretty';
+    }
+
+    #backgroundArea {
 	min-height:100vh;
 	display: flex;
 	justify-content: space-between;
-            background-color: rgb(243, 243, 229);
-}
+    /* background-color: rgb(243, 243, 229); */
+    }
 
-#leftPage {
-	width: 30%;
-	display: flex;
-	justify-content: center;
-	background-color: beige(7, 160, 7);
-}
-@font-face {
-            font-family: 'omyu_pretty';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
+    #leftPage {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+    }
+
 
 #centerPage {
-	display: flex;
+    display: flex;
 	flex-direction: column;
 	width: 40%;
-   width: 40%;
-   align-items: center;
-   background-color: rgb(235, 207, 138);
-}
-* {
-    font-family: 'omyu_pretty';
+    width: 40%;
+    align-items: center;
+    /* background-color: rgb(235, 207, 138); */
     background-color: rgb(243, 243, 229);
 }
 
@@ -242,14 +244,12 @@
 			</div>
 
 		</div>
-		<hr>
 		<div id="centerPage" class=" border-start border-end border-1">
 
 			<div class="postList">
 			</div>
 		</div>
 
-		<hr>
 		<div id="rightPage">
 			<div style="margin: 30px; position: fixed;">
 				<div id="profileCard" class="card"style="width:450px;  ">

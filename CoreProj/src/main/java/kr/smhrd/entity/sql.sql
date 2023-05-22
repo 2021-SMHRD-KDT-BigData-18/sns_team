@@ -6,6 +6,18 @@ select * from T_COMMENT;
 select * from T_CHATTING;
 select * from T_CHATROOM;
 select * from T_BOOKMARK;
+select * from T_FAVORITES;
+
+drop table T_BOOKMARK;
+
+
+CREATE TABLE T_BOOKMARK
+(
+	P_SEQ	NUMBER(15,0)	NOT NULL,	-- 게시글 번호
+	U_ID	VARCHAR2(30)	NOT NULL,	-- 태그 번호
+	
+);
+
 
 
 select B.*
@@ -16,6 +28,11 @@ select P_SEQ from T_BOOKMARK
 	where A.P_SEQ=B.P_SEQ
 	;
 
+	
+	delete from T_POST
+	where P_SEQ = 20;
+	delete from T_FAVORITES
+	where P_SEQ = 20;
 
 
 select *
@@ -42,6 +59,17 @@ insert into T_CHATROOM values(T_CHATROOM_SEQ.nextval,'aa','300','523',3,sysdate)
 
 
 insert into T_FRIEND values(T_FRIEND_SEQ.nextval,'cc','bb',sysdate);
+
+insert into T_POST values(T_POST_SEQ.nextval,'cc','bb',null,sysdate,0,0,'cc');
+
+T_POST_SEQ.nextval,
+			#{P_TITLE},
+			#{P_CONTENT},
+			#{P_FILE, jdbcType=VARCHAR},
+			sysdate,
+			0,
+			0,
+			#{U_ID}		
 
 
 commit
