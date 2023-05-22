@@ -11,7 +11,7 @@ public class GoWritePlantCon implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		return "";
+		return "plantWritePost";
 	}
 
 }

@@ -63,10 +63,6 @@ public class T_PLANT {
 		PL_WATER = pL_WATER;
 	}
 
-	public String getPL_START_DT() {
-		return PL_START_DT;
-	}
-
 	public void setPL_START_DT(String pL_START_DT) {
 		PL_START_DT = pL_START_DT;
 	}
@@ -85,6 +81,10 @@ public class T_PLANT {
 
 	public void setPL_DT(String pL_DT) {
 		PL_DT = pL_DT;
+	}
+
+	public String getPL_START_DT() {
+		return PL_START_DT;
 	}
 	
 	
