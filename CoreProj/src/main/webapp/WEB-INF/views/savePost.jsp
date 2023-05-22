@@ -219,7 +219,7 @@
         <div id="mypage_area">
             <p id="title">저장 게시글</p>
             
-            <div class="my_info" style="display:flex; flex-flow: row wrap; justify-content:space-between;">
+            <div class="my_info" style="display:flex; flex-flow: row wrap; ">
                 <!-- <span>&ensp;</span> -->
                     <div class="pa_area">
                         <img class="pa_area_img" src="./image/새싹.png">
