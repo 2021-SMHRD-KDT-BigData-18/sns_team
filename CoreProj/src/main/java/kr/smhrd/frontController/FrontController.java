@@ -45,6 +45,7 @@ import kr.smhrd.controller.LoginCon;
 import kr.smhrd.controller.LogoutCon;
 import kr.smhrd.controller.WriteCmtCon;
 import kr.smhrd.controller.WriteDeleteCon;
+import kr.smhrd.controller.WritePlantCon;
 
 // 모든 요청을 받을 수 있도록 url-mapping을 *로 지정
 // @WebServlet("*.do") ---> .do로 끝나는 모든 요청
@@ -100,15 +101,13 @@ public class FrontController extends HttpServlet {
 		mappings.put("/delCmt.do", new DelCmtCon());
 		mappings.put("/goSavePost.do", new GoSavePostCon());
 		mappings.put("/goWritePlant.do", new GoWritePlantCon());
-<<<<<<< HEAD
 		mappings.put("/goPlantPage.do", new GoPlantPageCon());
-=======
 		mappings.put("/loadMyPost.do", new LoadMyPostCon());
 		mappings.put("/loadMyPlant.do", new LoadMyPlantCon());
 		mappings.put("/delFriend.do", new DelFriendCon());
 		mappings.put("/writeDelete.do", new WriteDeleteCon());
 		mappings.put("/writeUpdate.do", new WriteUpdateCon());
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
+		mappings.put("/writePlant.do", new WritePlantCon());
 		
 	}
 	

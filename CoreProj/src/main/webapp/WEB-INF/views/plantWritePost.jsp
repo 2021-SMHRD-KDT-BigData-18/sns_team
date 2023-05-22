@@ -271,7 +271,7 @@
                 </div>
 
 
-                <form class="postWindow" method="post" action="writePost.do" enctype="multipart/form-data">
+                <form class="postWindow" method="post" action="writePlant.do" enctype="multipart/form-data">
                     <span style="margin-top: 10px">식물 이름</span>
                     <input type="text" name="title" id="title" style="width: 70%; height: 3%; border-radius:10px"
                         placeholder="식물 이름을 입력해주세요">

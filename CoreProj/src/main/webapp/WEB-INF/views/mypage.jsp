@@ -259,15 +259,12 @@
                         <span>&nbsp;창고지기 식물&nbsp;</span>
                         <a href="goWritePlant.do" class="btn btn-primary" style="margin-left: 55%">추가하기</a>
                      
-<<<<<<< HEAD
                         <div id="mypa_img">
                         	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
-=======
                         <div id="mypa_img" class="mypa_img">
                             <div class="pa_area">
                                 <img class="pa_area_img" src="./image/새싹.png">
                             </div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
                             <p>&emsp;&emsp;&nbsp;</p>
                             
                         	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
@@ -285,30 +282,20 @@
                    <div class="my_post">
                         <span>&nbsp;게시글&nbsp;</span>
                          <a href="goWritePost.do" class="btn btn-primary" style="margin-left: 66%">추가하기</a>
-<<<<<<< HEAD
-                         <div id="mypa_img">
-                        	<a href="goPostDetail.do" class="pa_area_img"><img class="pa_area_img" src="./image/새싹.png"></a>
-                            <p>&emsp;&emsp;&nbsp;</p>
-                        	<a href="goPostDetail.do" class="pa_area_img"><img class="pa_area_img" src="./image/새싹.png"></a>
-                            <p>&emsp;&emsp;&nbsp;</p>
-                        	<a href="goPostDetail.do" class="pa_area_img"><img class="pa_area_img" src="./image/새싹.png"></a>
-                        	
-                        	
-                        	
+                         <!-- <div id="mypa_img"> -->
                         	
                         	<%--<div class="pa_area">
                             	<img class="pa_area_img" src="./image/새싹.png">
                         	</div>
                         	 --%>
-=======
                          <div id="mypa_img" class="mypa_img">
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
                     	</div>
                 	</div>
                 </div>
            	</div>
        	</div>
-        <div id="rightPage">
+    </div>
+    <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
