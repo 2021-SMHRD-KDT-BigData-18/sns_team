@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import kr.smhrd.controller.BookmarkCon;
 import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.DelCmtCon;
+import kr.smhrd.controller.DelFriendCon;
 import kr.smhrd.controller.DupIDCheckCon;
 import kr.smhrd.controller.FollowCon;
 import kr.smhrd.controller.FriendSelectCon;
@@ -30,6 +31,7 @@ import kr.smhrd.controller.GoSavePostCon;
 import kr.smhrd.controller.GoWritePlantCon;
 import kr.smhrd.controller.GoWritePostCon;
 import kr.smhrd.controller.WritePostCon;
+import kr.smhrd.controller.WriteUpdateCon;
 import kr.smhrd.controller.JoinCon;
 import kr.smhrd.controller.LikeCon;
 import kr.smhrd.controller.LikeUpdateMinusCon;
@@ -37,9 +39,12 @@ import kr.smhrd.controller.LikeUpdatePlusCon;
 import kr.smhrd.controller.LoadBookmarkCon;
 import kr.smhrd.controller.LoadChatListCon;
 import kr.smhrd.controller.LoadCmtCon;
+import kr.smhrd.controller.LoadMyPlantCon;
+import kr.smhrd.controller.LoadMyPostCon;
 import kr.smhrd.controller.LoginCon;
 import kr.smhrd.controller.LogoutCon;
 import kr.smhrd.controller.WriteCmtCon;
+import kr.smhrd.controller.WriteDeleteCon;
 
 // 모든 요청을 받을 수 있도록 url-mapping을 *로 지정
 // @WebServlet("*.do") ---> .do로 끝나는 모든 요청
@@ -95,7 +100,15 @@ public class FrontController extends HttpServlet {
 		mappings.put("/delCmt.do", new DelCmtCon());
 		mappings.put("/goSavePost.do", new GoSavePostCon());
 		mappings.put("/goWritePlant.do", new GoWritePlantCon());
+<<<<<<< HEAD
 		mappings.put("/goPlantPage.do", new GoPlantPageCon());
+=======
+		mappings.put("/loadMyPost.do", new LoadMyPostCon());
+		mappings.put("/loadMyPlant.do", new LoadMyPlantCon());
+		mappings.put("/delFriend.do", new DelFriendCon());
+		mappings.put("/writeDelete.do", new WriteDeleteCon());
+		mappings.put("/writeUpdate.do", new WriteUpdateCon());
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 		
 	}
 	

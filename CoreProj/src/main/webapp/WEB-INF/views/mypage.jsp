@@ -131,6 +131,8 @@
             width: 200px;
             height: 200px;
             margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
 
         .pa_area_img {
@@ -257,8 +259,15 @@
                         <span>&nbsp;창고지기 식물&nbsp;</span>
                         <a href="goWritePlant.do" class="btn btn-primary" style="margin-left: 55%">추가하기</a>
                      
+<<<<<<< HEAD
                         <div id="mypa_img">
                         	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
+=======
+                        <div id="mypa_img" class="mypa_img">
+                            <div class="pa_area">
+                                <img class="pa_area_img" src="./image/새싹.png">
+                            </div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
                             <p>&emsp;&emsp;&nbsp;</p>
                             
                         	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
@@ -276,6 +285,7 @@
                    <div class="my_post">
                         <span>&nbsp;게시글&nbsp;</span>
                          <a href="goWritePost.do" class="btn btn-primary" style="margin-left: 66%">추가하기</a>
+<<<<<<< HEAD
                          <div id="mypa_img">
                         	<a href="goPostDetail.do" class="pa_area_img"><img class="pa_area_img" src="./image/새싹.png"></a>
                             <p>&emsp;&emsp;&nbsp;</p>
@@ -290,6 +300,9 @@
                             	<img class="pa_area_img" src="./image/새싹.png">
                         	</div>
                         	 --%>
+=======
+                         <div id="mypa_img" class="mypa_img">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
                     	</div>
                 	</div>
                 </div>
@@ -322,7 +335,7 @@
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse"
                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body"> 
+                    <div class="accordion-body friends"> 
                     </div>
                     </div>
                 </div>
@@ -332,6 +345,8 @@
     </div>
     
     <script>
+    $(document).ready(loadMyPlant());
+    $(document).ready(loadMyPost());
     $(document).ready(friendSelect());
     function friendSelect(){
 		$.ajax( {
@@ -345,22 +360,100 @@
                  for(let i=0; i<res.length; i++){
                     let html='';
                     rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                    html+='<div class="accordion-body">';
-                 	html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                    html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
+                 	html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
                  	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
-                    html+='</div>';
-                    $(".accordion-body").append(html);
+                    html+='</div> <a  href="javascript:void(0);" onclick="delFriend(\''+res[i].F_ID+'\');">친삭</a></div>';
+                    $(".friends").append(html);
                  }
               },
               error : function(e){
                  //alert("요청 실패!");
                  let html = '';
                  html+='<a href="goLogin.do">로그인을 해주세요.</a>'
-                 $(".accordion-body").append(html);
+                 $(".friends").append(html);
               }
            } );
      }
+    
+    function loadMyPost(){
+    	$.ajax( {
+            url : 'loadMyPost.do', 
+            type : 'post', 
+            data : {}, 
+            dataType : "json", 
+            success : function(res){
+               console.log('시작');
+               console.log(res);
+               for(let i=0; i<res.length; i++){
+                  console.log('불러오기 완료');
+                  let html='';
+                  rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
+                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].P_FILE}">
+                      <p>\${res[i].P_CONTENT}</p>
+                      </div>`;
+                  $(".my_post>#mypa_img").append(html);
+               }
+            },
+            error : function(e){
+               alert("요청 실패!");
+               let html = '';
+               $(".my_post>.mypa_img").append(html);
+            }
+         } );
+    };
 
+    function loadMyPlant(){
+    	$.ajax( {
+            url : 'loadMyPlant.do', 
+            type : 'post', 
+            data : {}, 
+            dataType : "json", 
+            success : function(res){
+               console.log('시작');
+               console.log(res);
+               for(let i=0; i<res.length; i++){
+                  console.log('불러오기 완료');
+                  let html='';
+                  rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPlantDetail.do?p_id=\${res[i].PL_SEQ}';">
+                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].PL_IMG}">
+                      <p>\${res[i].PL_NAME}</p>
+                      </div>`;
+                  $(".my_pa>.mypa_img").append(html);
+               }
+            },
+            error : function(e){
+               alert("요청 실패!");
+               let html = '';
+               $(".my_pa>.mypa_img").append(html);
+            }
+         } );
+    };
+    
+    
+    function delFriend(f_id){
+    	//let f_id = $(this).innerText;
+    	console.log(f_id);
+    	//console.log($(this).prev().children()[5].innerText);    	
+    	$.ajax( {
+            url : 'delFriend.do', 
+            type : 'post',
+            data : {"f_id":f_id},
+            success : function(res){
+            	console.log("친삭완료.");
+            	$(".friends").html('');
+            	   friendSelect();
+            },
+            error : function(e){
+               alert("요청 실패!");
+            }
+         } );
+    }
+    
+    
+    
     
     </script>
     

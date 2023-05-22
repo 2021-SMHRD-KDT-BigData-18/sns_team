@@ -9,6 +9,11 @@
 	<select id="searchWithId" resultType="kr.smhrd.entity.T_POST" >
 		select * from T_POST where P_SEQ = #{p_id}
 	</select>
+	
+	<select id="loadMyPost" resultType="kr.smhrd.entity.T_POST" >
+		select * from T_POST where U_ID = #{u_id}
+	</select>
+	
 
 	<insert id="write" parameterType="kr.smhrd.entity.T_POST">
 		insert into T_POST

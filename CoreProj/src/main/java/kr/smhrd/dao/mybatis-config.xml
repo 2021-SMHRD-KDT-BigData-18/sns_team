@@ -33,5 +33,6 @@
 		<mapper resource="kr/smhrd/dao/T_COMMENTMapper.xml" />
 		<mapper resource="kr/smhrd/dao/T_BOOKMARKMapper.xml" />
 		<mapper resource="kr/smhrd/dao/T_FAVORITESMapper.xml" />
+		<mapper resource="kr/smhrd/dao/T_PLANTMapper.xml" />
 	</mappers>
 </configuration>

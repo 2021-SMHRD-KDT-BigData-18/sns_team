@@ -32,4 +32,18 @@ public class T_CHATTINGDAO {
 
 		return res;
 	}
+	
+	public int delAllChat(int CR_SEQ) {
+		SqlSession session = factory.openSession(true);
+
+		int res = session.delete("delAllChat",CR_SEQ);
+
+		if(res!=0) {
+			System.out.println("채팅 삭제완료");
+		}
+		
+		session.close();
+		
+		return res;
+	}
 }

@@ -89,7 +89,7 @@ public class T_POSTDAO {
 		return row;
 	} 
 	
-	public int writeDelete(String P_SEQ) {
+	public int writeDelete(int P_SEQ) {
 		
 		SqlSession session = factory.openSession(true);
 		
@@ -98,5 +98,15 @@ public class T_POSTDAO {
 		session.close();
 		
 		return row;
+	}
+	
+	public List<T_POST> loadMyPost(String u_id){
+		
+		SqlSession session = factory.openSession(true);
+		List<T_POST> list = session.selectList("loadMyPost", u_id);
+		
+		session.close();
+		
+		return list;
 	}
 }

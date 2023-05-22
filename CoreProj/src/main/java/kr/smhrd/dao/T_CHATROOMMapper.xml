@@ -32,4 +32,13 @@ and CR_TITLE=#{F_ID}) or (U_ID=#{F_ID}
 and CR_TITLE=#{U_ID})
 </select>
 
+
+<delete id="delCR" parameterType="Map">
+delete from T_CHATROOM where (U_ID=#{U_ID}
+and CR_TITLE=#{F_ID}) or (U_ID=#{F_ID}
+and CR_TITLE=#{U_ID})
+</delete>
+
+
+
 </mapper>
