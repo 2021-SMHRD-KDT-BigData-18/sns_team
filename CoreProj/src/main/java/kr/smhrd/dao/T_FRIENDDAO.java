@@ -56,4 +56,18 @@ public class T_FRIENDDAO {
 		}
 		session.close();
 	}
+	
+	public void delFriend(String u_id, String f_id) {
+		SqlSession session = factory.openSession(true);
+		Map<String,String>map = new HashMap<String,String>();
+		map.put("U_ID", u_id);
+		map.put("F_ID", f_id);
+		int l = session.insert("delFollow",map);
+		if(l!=0) {
+			System.out.println("followDel ok!");
+		}
+		session.close();
+	}
+	
+	
 }

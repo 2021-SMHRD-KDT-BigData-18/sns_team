@@ -46,5 +46,17 @@ public class T_CHATROOMDAO {
 	}
 	
 	
+	public void delChatroom(String u_id, String f_id) {
+		SqlSession session = factory.openSession(true);
+		
+		Map<String,String>map = new HashMap<String,String>();
+		map.put("U_ID", u_id);
+		map.put("F_ID", f_id);
+
+		session.delete("delCR",map);
+
+		session.close();
+	}
+	
 	
 }
