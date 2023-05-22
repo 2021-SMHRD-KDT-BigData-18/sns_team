@@ -27,8 +27,9 @@ public class LoadMyPostCon implements Controller {
 		
 		T_POSTDAO dao = new T_POSTDAO();
 		PrintWriter out = response.getWriter();
-		T_USER user = (T_USER)session.getAttribute("user");
-		List<T_POST> list = dao.loadMyPost(user.getU_ID());
+		//T_USER user = (T_USER)session.getAttribute("user");
+		String u_id = request.getParameter("u_id");
+		List<T_POST> list = dao.loadMyPost(u_id);
 		
 		Gson gson = new Gson();
 		String json = gson.toJson(list);

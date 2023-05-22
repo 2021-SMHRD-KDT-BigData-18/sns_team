@@ -315,6 +315,7 @@
                 	</div>
            	</div>
        	</div>
+    </div>
     <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
@@ -349,7 +350,7 @@
             </div>
             </div>
         </div>
-    </div>
+    
     
     <script>
     $(document).ready(loadMyPlant());
@@ -387,7 +388,7 @@
     	$.ajax( {
             url : 'loadMyPost.do', 
             type : 'post', 
-            data : {}, 
+            data : {"u_id":'<%=request.getParameter("u_id")%>'}, 
             dataType : "json", 
             success : function(res){
                console.log('시작');
@@ -415,7 +416,7 @@
     	$.ajax( {
             url : 'loadMyPlant.do', 
             type : 'post', 
-            data : {}, 
+            data : {"u_id":'<%=request.getParameter("u_id")%>'}, 
             dataType : "json", 
             success : function(res){
                console.log('시작');
@@ -463,7 +464,6 @@
     
     
     </script>
-    
 </body>
 
 </html>
