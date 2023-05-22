@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.smhrd.dao.T_PLANT">
+<mapper namespace="kr.smhrd.dao.T_PLANTDAO">
+
+
+<insert id="writePlant" parameterType="kr.smhrd.entity.T_PLANT">
+insert into T_PLANT values(T_PLANT_SEQ.nextval,#{U_ID},#{PL_NAME},#{PL_IMG},0,#{PL_START_DT},#{PL_DESC},sysdate,#{PL_CATE})
+</insert>
+
+<select id="searchPlantWithId" resultType="kr.smhrd.entity.T_PLANT" >
+		select * from T_PLANT where PL_SEQ = #{pl_id}
+	</select>
+
 
 
 <select id="loadMyPlant" resultType="kr.smhrd.entity.T_PLANT" >

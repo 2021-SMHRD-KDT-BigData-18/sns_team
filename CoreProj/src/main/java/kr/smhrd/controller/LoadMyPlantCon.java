@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 
 import kr.smhrd.dao.T_PLANTDAO;
 import kr.smhrd.dao.T_POSTDAO;
+import kr.smhrd.entity.T_PLANT;
 import kr.smhrd.entity.T_POST;
 import kr.smhrd.entity.T_USER;
 
@@ -28,7 +29,7 @@ public class LoadMyPlantCon implements Controller {
 		T_PLANTDAO dao = new T_PLANTDAO();
 		PrintWriter out = response.getWriter();
 		T_USER user = (T_USER)session.getAttribute("user");
-		List<T_POST> list = dao.loadMyPlant(user.getU_ID());
+		List<T_PLANT> list = dao.loadMyPlant(user.getU_ID());
 		
 		Gson gson = new Gson();
 		String json = gson.toJson(list);

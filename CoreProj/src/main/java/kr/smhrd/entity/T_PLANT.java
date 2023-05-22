@@ -9,6 +9,7 @@ public class T_PLANT {
 	private String PL_START_DT;
 	private String PL_DESC;
 	private String PL_DT;
+	private String PL_CATE;
 	
 	public T_PLANT(int pL_SEQ, String u_ID, String pL_NAME, String pL_IMG, String pL_WATER, String pL_START_DT,
 			String pL_DESC, String pL_DT) {
@@ -22,6 +23,21 @@ public class T_PLANT {
 		PL_DESC = pL_DESC;
 		PL_DT = pL_DT;
 	}
+
+	
+	public T_PLANT() {
+		
+	}
+	
+	public String getPL_CATE() {
+		return PL_CATE;
+	}
+
+	public void setPL_CATE(String pL_CATE) {
+		PL_CATE = pL_CATE;
+	}
+
+	
 
 	public int getPL_SEQ() {
 		return PL_SEQ;
