@@ -23,6 +23,7 @@ import kr.smhrd.controller.GoLoginCon;
 import kr.smhrd.controller.GoMainCon;
 import kr.smhrd.controller.GoMainPostCon;
 import kr.smhrd.controller.GoMypageCon;
+import kr.smhrd.controller.GoPlantPageCon;
 import kr.smhrd.controller.GoPostDetailCon;
 import kr.smhrd.controller.GoProfileUpdateCon;
 import kr.smhrd.controller.GoSavePostCon;
@@ -94,6 +95,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/delCmt.do", new DelCmtCon());
 		mappings.put("/goSavePost.do", new GoSavePostCon());
 		mappings.put("/goWritePlant.do", new GoWritePlantCon());
+		mappings.put("/goPlantPage.do", new GoPlantPageCon());
 		
 	}
 	

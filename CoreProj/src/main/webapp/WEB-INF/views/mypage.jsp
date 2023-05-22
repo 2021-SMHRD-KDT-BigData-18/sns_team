@@ -136,7 +136,6 @@
         .pa_area_img {
             width: 200px;
             height: 200px;
-            margin-left: 20px;
         }
         
 
@@ -259,34 +258,38 @@
                         <a href="goWritePlant.do" class="btn btn-primary" style="margin-left: 55%">추가하기</a>
                      
                         <div id="mypa_img">
-                            <div class="pa_area">
-                                <img class="pa_area_img" src="./image/새싹.png">
-                            </div>
+                        	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
                             <p>&emsp;&emsp;&nbsp;</p>
-                            <div class="pa_area">
+                            
+                        	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
+                            <p>&emsp;&emsp;&nbsp;</p>                            
+                        	
+                        	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
+                            
+                            
+                            <%-- <div class="pa_area">
                                 <img class="pa_area_img" src="./image/새싹.png">
                             </div>
-                            <p>&emsp;&emsp;&nbsp;</p>
-                            <div class="pa_area">
-                                <img class="pa_area_img" src="./image/새싹.png">
-                            </div>
+                            --%>
                         </div>
                    	</div>
                    <div class="my_post">
                         <span>&nbsp;게시글&nbsp;</span>
                          <a href="goWritePost.do" class="btn btn-primary" style="margin-left: 66%">추가하기</a>
                          <div id="mypa_img">
-                        	<div class="pa_area">
+                        	<a href="goPostDetail.do" class="pa_area_img"><img class="pa_area_img" src="./image/새싹.png"></a>
+                            <p>&emsp;&emsp;&nbsp;</p>
+                        	<a href="goPostDetail.do" class="pa_area_img"><img class="pa_area_img" src="./image/새싹.png"></a>
+                            <p>&emsp;&emsp;&nbsp;</p>
+                        	<a href="goPostDetail.do" class="pa_area_img"><img class="pa_area_img" src="./image/새싹.png"></a>
+                        	
+                        	
+                        	
+                        	
+                        	<%--<div class="pa_area">
                             	<img class="pa_area_img" src="./image/새싹.png">
                         	</div>
-                        	<p>&emsp;&emsp;&nbsp;</p>
-                        	<div class="pa_area">
-                            	<img class="pa_area_img" src="./image/새싹.png">
-                        	</div>
-                        	<p>&emsp;&emsp;&nbsp;</p>
-                        	<div class="pa_area">
-                            	<img class="pa_area_img" src="./image/새싹.png">
-                        	</div>
+                        	 --%>
                     	</div>
                 	</div>
                 </div>
