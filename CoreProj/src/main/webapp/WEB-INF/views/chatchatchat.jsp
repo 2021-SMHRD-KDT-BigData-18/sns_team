@@ -39,20 +39,20 @@
             min-height: 100vh;
             display: flex;
             /* justify-content: space-between; */
-            background-color: rgb(243, 243, 229);
+            /*background-color: rgb(243, 243, 229);*/
         }
 
         #leftPage {
             width: 30%;
-            background-color: beige(7, 160, 7);
+             /*background-color: beige(7, 160, 7); */
         }
 
         #centerPage {
             display: flex;
             flex-direction: column;
             width: 40%;
-            background-color: rgb(235, 207, 138);
-        }
+            background-color: rgb(243, 24, 229);
+         }
 
         #rightPage {
             display: flex;

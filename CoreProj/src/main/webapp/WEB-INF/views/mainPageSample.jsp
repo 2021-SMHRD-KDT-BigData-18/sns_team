@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,7 +13,9 @@
 <link rel="stylesheet" href="assets/css/bootstrap.css">
 <script src="assets/js/bootstrap.bundle.js"></script>
 <script src="assets/js/jquery-3.7.0.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
+	
     @font-face {
         font-family: 'omyu_pretty';
         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
@@ -68,7 +71,6 @@
 
 .btn-primary { --bs-bg-opacity: 1;
 	background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity))!important;
-	border-color: green;
 }
 
 #profileCard {
@@ -212,9 +214,9 @@
             margin-top: 30%;
 
         }
-        
-        
-       
+		i:hover{
+			color: antiquewhite;
+		}
         
 </style>
 
@@ -227,19 +229,21 @@
 
 				<ul class="nav flex-column">
 					<ul class="nav-item">
-						<a class="nav-link active" aria-current="page" href="goMain.do">Home</a>
+						<a class="nav-link active" aria-current="page" href="goMain.do"><i class="fa-solid fa-house fa-2x " style="color:rgba(15, 114, 60, 0.829)"></i>홈</a>
+						
+
 					</ul>
 					<ul class="nav-item">
-						<a class="nav-link" href="goMypage.do?u_id=${user.getU_ID()}">My Page</a>
+						<a class="nav-link" href="goMypage.do?u_id=${user.getU_ID()}"><i class="fa-solid fa-user fa-2x" style="color:rgba(15, 114, 60, 0.829)"></i>마이페이지</a>
 					</ul>
 					<ul class="nav-item">
-						<a class="nav-link" href="goChatList.do">Chat</a>
+						<a class="nav-link" href="goChatList.do"><i class="fa-brands fa-rocketchat fa-2x" style="color:rgba(15, 114, 60, 0.829)">채팅</i></a>
 					</ul>
 					<!-- <ul class="nav-item">
 						<a class="nav-link" href="goChat.do">ChatChatChatChat</a>
 					</ul> -->
 					<ul class="nav-item">
-						<a class="nav-link" href='goWritePost.do'>글쓰기</a>
+						<a class="nav-link" href='goWritePost.do'><i class="fa-regular fa-pen-to-square fa-2x" style="color:rgba(15, 114, 60, 0.829)">글쓰기</i></a>
 					</ul>
 					
 			<!-- 		<a id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</a> -->
@@ -277,11 +281,11 @@
 						<!-- <img src="${sessionScope.user.getU_PROFILE_IMG()}"> -->
 						<%--<img src="${sessionScope.getU_PROFILE_IMG()}"> --%>
 						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
-							<a href="logout.do" class="btn btn-primary" style="margin-left: 70%">로그아웃</a>
+							<a href="logout.do" class="btn btn-primary" style="margin-left: 70%"><i class="fa fa-arrow-right-from-bracket fa-2x" style="color:rgba(15, 114, 60, 0.829)"></i></a>
 						</c:if>
 						<c:if test="${sessionScope.user.getU_ID() == null}">
 						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 당장 로그인해주세요!!!</h5>
-							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 75%">로그인</a>
+							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 75%"><i class="fa fa-arrow-right-to-bracket fa-2x" style="color:rgba(15, 114, 60, 0.829)"></i></a>
 						</c:if>
 					</div>
 				</div>
@@ -340,8 +344,8 @@
 				            <hr>
 				            <div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱 <span class="likes">\${res[i].P_LIKES}</span>회</button>
 				                <p>\${res[i].P_VIEWS} 회</p>
-				                <button class="btn_bookmark">북마크</button>
-				                <a href="#" id="urlCopy" class="btn_urlCopy" title="새창" onclick="clip(); return false;">링크 공유하기</a>
+				                <button class="btn_bookmark"><i class="fa-regular fa-bookmark"></i></button>
+				                <a href="#" id="urlCopy" class="btn_urlCopy" title="공유하기" onclick="clip(); return false;"><i class="fa-solid fa-share-from-square"></i></a>
 				            </div>
 				        </div>
 				    </div>`;
