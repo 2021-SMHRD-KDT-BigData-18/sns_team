@@ -139,15 +139,17 @@ span {
 }
 
 .pa_area {
-	width: 200px;
-	height: 200px;
-	margin-top: 10px;
+	 width: 200px;
+            height: 200px;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
 }
 
 .pa_area_img {
 	width: 200px;
 	height: 200px;
-	margin-left: 20px;
+	/*margin-left: 20px;*/
 }
 
 .btn {
@@ -275,7 +277,7 @@ span {
 					<div class="my_pa">
 						<span>&nbsp;창고지기 식물&nbsp;</span>
 						<div id="mypa_img">
-							<div class="pa_area">
+							<!--  <div class="pa_area">
 								<img class="pa_area_img" src="./image/새싹.png">
 							</div>
 							<p>&emsp;&emsp;&nbsp;</p>
@@ -285,13 +287,13 @@ span {
 							<p>&emsp;&emsp;&nbsp;</p>
 							<div class="pa_area">
 								<img class="pa_area_img" src="./image/새싹.png">
-							</div>
+							</div>-->
 						</div>
 					</div>
 					<div class="my_post">
 						<span>&nbsp;게시글&nbsp;</span>
 					 <div id="mypa_img">
-                            <div class="pa_area">
+                            <!--<div class="pa_area">
                                 <img class="pa_area_img" src="./image/새싹.png">
                             </div>
                             <p>&emsp;&emsp;&nbsp;</p>
@@ -301,7 +303,7 @@ span {
                             <p>&emsp;&emsp;&nbsp;</p>
                             <div class="pa_area">
                                 <img class="pa_area_img" src="./image/새싹.png">
-                            </div>
+                            </div>-->
                         </div>
 					</div>
 				</div>
@@ -318,11 +320,14 @@ span {
 						style="height: 300px; width: 400px; object-fit: none;"
 						class="card-img-top" alt="프로필 이미지">
 					<div class="card-body">
-						<h5 class="card-title" style="margin-left: 22%;">smhrd 님
+						<h5 class="card-title" style="margin-left: 22%;">${sessionScope.user.getU_ID()}님
 							환영합니다</h5>
-						<a href="#" class="btn btn-primary" style="margin-left: 10%">로그아웃</a>
-						<a href="#" class="btn btn-primary" style="margin-left: 10%;">회원정보
-							수정</a>
+						<c:if test="${sessionScope.user.getU_ID() != null}">
+							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
+						</c:if>
+						<c:if test="${sessionScope.user.getU_ID() == null}">
+							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 8%">로그인</a>
+						</c:if>
 					</div>
 				</div>
 				<br>
@@ -337,10 +342,7 @@ span {
 						<div id="flush-collapseOne" class="accordion-collapse collapse"
 							aria-labelledby="flush-headingOne"
 							data-bs-parent="#accordionFlushExample">
-							<div class="accordion-body">
-								친구목록 띄워주쇼
-								<code>.accordion-flush</code>
-								class. This is the first item's accordion body.
+							<div class="accordion-body friends">
 							</div>
 						</div>
 					</div>
@@ -357,6 +359,9 @@ span {
 
 
 	<script type="text/javascript">
+	$(document).ready(loadMyPlant());
+    $(document).ready(loadMyPost());
+    $(document).ready(friendSelect());
     
     let btn_follow = $('#btn_follow');
     btn_follow.on('click',follow);
@@ -378,6 +383,95 @@ span {
 		    }
 		});
 	}
+    
+    
+    function friendSelect(){
+		$.ajax( {
+              url : 'friendSelect.do', 
+              type : 'post', 
+              data : {}, 
+              dataType : "json", 
+              success : function(res){
+                 console.log('시작');
+                 console.log(res);
+                 for(let i=0; i<res.length; i++){
+                    let html='';
+                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                    html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
+                 	html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                 	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                    html+='</div> <a  href="javascript:void(0);" onclick="delFriend(\''+res[i].F_ID+'\');">친삭</a></div>';
+                    $(".friends").append(html);
+                 }
+              },
+              error : function(e){
+                 //alert("요청 실패!");
+                 let html = '';
+                 html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+                 $(".friends").append(html);
+              }
+           } );
+     }
+    
+    
+    function loadMyPost(){
+    	$.ajax( {
+            url : 'loadMyPost.do', 
+            type : 'post', 
+            data : {"u_id":'<%=request.getParameter("u_id")%>'}, 
+            dataType : "json", 
+            success : function(res){
+               console.log('시작');
+               console.log(res);
+               for(let i=0; i<res.length; i++){
+                  console.log('불러오기 완료');
+                  let html='';
+                  rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
+                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].P_FILE}">
+                      <p>\${res[i].P_TITLE}</p>
+                      </div>`;
+                  $(".my_post>#mypa_img").append(html);
+               }
+            },
+            error : function(e){
+               alert("요청 실패!");
+               let html = '';
+               $(".my_post>.mypa_img").append(html);
+            }
+         } );
+    };
+
+    function loadMyPlant(){
+    	$.ajax( {
+            url : 'loadMyPlant.do', 
+            type : 'post', 
+            data : {"u_id":'<%=request.getParameter("u_id")%>'}, 
+            dataType : "json", 
+            success : function(res){
+               console.log('시작');
+               console.log(res);
+               for(let i=0; i<res.length; i++){
+                  console.log('불러오기 완료');
+                  let html='';
+                  rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPlantDetail.do?pl_id=\${res[i].PL_SEQ}';">
+                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].PL_IMG}">
+                      <p>\${res[i].PL_NAME}</p>
+                      </div>`;
+                  $(".plants").append(html);
+               }
+            },
+            error : function(e){
+               alert("요청 실패!");
+               let html = '';
+               $(".plants").append(html);
+            }
+         } );
+    };
+    
+    
+    
     
     </script>
 

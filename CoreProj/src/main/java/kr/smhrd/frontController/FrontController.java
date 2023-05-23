@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.smhrd.controller.AddEventCon;
 import kr.smhrd.controller.BookmarkCon;
 import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.DelCmtCon;
@@ -24,6 +25,7 @@ import kr.smhrd.controller.GoLoginCon;
 import kr.smhrd.controller.GoMainCon;
 import kr.smhrd.controller.GoMainPostCon;
 import kr.smhrd.controller.GoMypageCon;
+import kr.smhrd.controller.GoPlantDetailCon;
 import kr.smhrd.controller.GoPlantPageCon;
 import kr.smhrd.controller.GoPostDetailCon;
 import kr.smhrd.controller.GoProfileUpdateCon;
@@ -108,6 +110,8 @@ public class FrontController extends HttpServlet {
 		mappings.put("/writeDelete.do", new WriteDeleteCon());
 		mappings.put("/writeUpdate.do", new WriteUpdateCon());
 		mappings.put("/writePlant.do", new WritePlantCon());
+		mappings.put("/goPlantDetail.do", new GoPlantDetailCon());
+		mappings.put("/addEvent.do", new AddEventCon());
 		
 	}
 	

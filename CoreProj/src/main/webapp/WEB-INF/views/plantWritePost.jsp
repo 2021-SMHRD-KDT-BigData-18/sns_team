@@ -278,12 +278,12 @@
                         <br>
                     <span style="margin-top: 10px">식물 종류</span>
                     <br>
-                        <input type="text" name="title" id="title" style="width: 70%; height: 3%; border-radius:10px"
+                        <input type="text" name="pl_cate" id="title" style="width: 70%; height: 3%; border-radius:10px"
                         placeholder="식물 종류를 입력해주세요">
                         <br>
                         <span style="margin-top: 10px">함께한 날짜를 선택해주세요</span>
                         
-                    <input type="date" name="start" id="start" value="2000-01-01" min="2000-01-01" max="2100-01-01">
+                    <input type="date" name="start_dt" id="start" value="2000-01-01" min="2000-01-01" max="2100-01-01">
                         <br>
                     <p>식물 설명</p>
                     <textarea style="width:80%; height:30%" id="content" name="content"

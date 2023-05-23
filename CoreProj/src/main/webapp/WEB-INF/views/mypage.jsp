@@ -259,9 +259,13 @@
                         <span>&nbsp;창고지기 식물&nbsp;</span>
                         <a href="goWritePlant.do" class="btn btn-primary" style="margin-left: 55%">추가하기</a>
                      
+                        <div id="mypa_img" class="plants">
+                        	<!-- <a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
+=======
                         <div id="mypa_img">
                         <!--  
                         	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
                         <div id="mypa_img" class="mypa_img">
                       
                             <div class="pa_area">
@@ -273,7 +277,9 @@
                             <p>&emsp;&emsp;&nbsp;</p>                            
                         	
                         	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
-                            -->
+                            
+                             -->
+                            
                             
                             <%-- <div class="pa_area">
                                 <img class="pa_area_img" src="./image/새싹.png">
@@ -344,7 +350,7 @@
             </div>
             </div>
         </div>
-    </div>
+    
     
     <script>
     $(document).ready(loadMyPlant());
@@ -382,7 +388,7 @@
     	$.ajax( {
             url : 'loadMyPost.do', 
             type : 'post', 
-            data : {}, 
+            data : {"u_id":'<%=request.getParameter("u_id")%>'}, 
             dataType : "json", 
             success : function(res){
                console.log('시작');
@@ -393,7 +399,7 @@
                   rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
                   html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
                       <img class="pa_area_img" src="\${rootpath}/image/\${res[i].P_FILE}">
-                      <p>\${res[i].P_CONTENT}</p>
+                      <p>\${res[i].P_TITLE}</p>
                       </div>`;
                   $(".my_post>#mypa_img").append(html);
                }
@@ -410,7 +416,7 @@
     	$.ajax( {
             url : 'loadMyPlant.do', 
             type : 'post', 
-            data : {}, 
+            data : {"u_id":'<%=request.getParameter("u_id")%>'}, 
             dataType : "json", 
             success : function(res){
                console.log('시작');
@@ -419,17 +425,17 @@
                   console.log('불러오기 완료');
                   let html='';
                   rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPlantDetail.do?p_id=\${res[i].PL_SEQ}';">
+                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPlantDetail.do?pl_id=\${res[i].PL_SEQ}';">
                       <img class="pa_area_img" src="\${rootpath}/image/\${res[i].PL_IMG}">
                       <p>\${res[i].PL_NAME}</p>
                       </div>`;
-                  $(".my_pa>.mypa_img").append(html);
+                  $(".plants").append(html);
                }
             },
             error : function(e){
                alert("요청 실패!");
                let html = '';
-               $(".my_pa>.mypa_img").append(html);
+               $(".plants").append(html);
             }
          } );
     };
@@ -458,7 +464,6 @@
     
     
     </script>
-    
 </body>
 
 </html>

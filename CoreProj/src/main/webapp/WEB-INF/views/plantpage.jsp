@@ -1,3 +1,7 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="kr.smhrd.dao.T_EVENTDAO"%>
+<%@page import="kr.smhrd.entity.T_PLANT"%>
+<%@page import="kr.smhrd.dao.T_PLANTDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
@@ -15,6 +19,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+        <script src="assets/js/jquery-3.7.0.min.js"></script>
+        <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css' rel='stylesheet' />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script>
+  <!-- fullcalendar 언어 CDN -->
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
 
     <style>
         @font-face {
@@ -153,6 +162,19 @@
 </head>
 
 <body>
+<%
+T_PLANTDAO dao = new T_PLANTDAO();
+T_EVENTDAO dao2 = new T_EVENTDAO();
+int pl_id = Integer.parseInt(request.getParameter("pl_id"));
+T_PLANT dto = dao.searchPlantWithId(pl_id);
+String events = dao2.getEvents(pl_id);
+if(events.length()==2){
+	events=null;
+}
+
+%>
+
+
     <div id="backgroundArea">
         <div id="leftPage" class="border-end">
             <div class="navbar">
@@ -178,11 +200,14 @@
                 <!-- <a class="nav-link" aria-current="" href="#">완료 &#x1F4C2;</a> -->
                 
                 <div class="plant">
-                    <span>식물이름 : ${sessionScope.plant.getPL_NAME()}</span>
-                    <span>함께한날짜 : ${sessionScope.plant.getPL_START_DT()}</span>
-                    <span>식물종류 : ${sessionScope.plant.getPL_START_DT()}</span>
+                    <span>식물이름 : <%=dto.getPL_NAME() %></span>
+                    <span>함께한날짜 :<%=dto.getPL_START_DT() %></span>
+                    <span>식물종류 : <%=dto.getPL_CATE() %></span>
                 </div>   
-            </div>    
+            </div>
+            <div id='calendar-container'>
+    		<div id='calendar'></div>
+  			</div>    
         </div>
            
             
@@ -222,6 +247,107 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+    (function(){
+        $(function(){
+          // calendar element 취득
+          var calendarEl = $('#calendar')[0];
+          let events;
+          if(<%=events%>==[]){
+        	  events=null;
+          }
+          else{
+        	  events=JSON.parse('<%=events%>');
+        	  console.log(events);
+          }
+          // full-calendar 생성하기
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            height: '700px', // calendar 높이 설정
+            expandRows: true, // 화면에 맞게 높이 재설정
+            slotMinTime: '08:00', // Day 캘린더에서 시작 시간
+            slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
+            // 해더에 표시할 툴바
+            headerToolbar: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            },
+            initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
+            initialDate: '2023-05-22', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
+            navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
+            editable: true, // 수정 가능?
+            selectable: true, // 달력 일자 드래그 설정가능
+            nowIndicator: true, // 현재 시간 마크
+            dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
+            locale: 'ko', // 한국어 설정
+            eventAdd: function(obj) { // 이벤트가 추가되면 발생하는 이벤트
+              console.log(obj);
+            },
+            eventChange: function(obj) { // 이벤트가 수정되면 발생하는 이벤트
+              console.log(obj);
+            },
+            eventRemove: function(obj){ // 이벤트가 삭제되면 발생하는 이벤트
+              console.log(obj);
+            },
+            select: function(arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.
+              var title = prompt('Event Title:');
+              if (title) {
+                calendar.addEvent({
+                  title: title,
+                  start: arg.start,
+                  end: arg.end,
+                  allDay: arg.allDay
+                });
+                let start='';
+                let end='';
+                start+=arg.start.getFullYear();
+                end+=arg.end.getFullYear();
+                start+='-'+(arg.start.getMonth()+1);
+                end+='-'+(arg.end.getMonth()+1);
+                start+='-'+(arg.start.getDate());
+                end+='-'+(arg.end.getDate());
+                $.ajax({
+                	url : 'addEvent.do', 
+                    type : 'post', 
+                    data : {"title":title,
+                    	"start":start,
+                    	"end":end,
+                    	"allDay":arg.allDay,
+                    	"pl_id":<%=request.getParameter("pl_id") %>}, 
+                    success : function(res){
+                       console.log(res);
+                       
+                    },
+                    error : function(e){
+                       alert("요청 실패!");
+                    }
+                });
+              }
+              calendar.unselect()
+            },
+            // 이벤트 
+            events: events/*[
+              {
+                title: '오늘부터 구현하기..',
+                start: '2023-05-11',
+              },
+              {
+                title: 'Click for Google',
+                url: 'http://google.com/', // 클릭시 해당 url로 이동
+                start: '2021-07-28'
+              }
+            ]*/
+          });
+          // 캘린더 랜더링
+          calendar.render();
+        });
+      })();
+    
+    
+    
+    
+    
+    </script>
 </body>
 
 </html>

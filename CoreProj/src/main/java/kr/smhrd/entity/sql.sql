@@ -7,6 +7,7 @@ select * from T_CHATTING;
 select * from T_CHATROOM;
 select * from T_BOOKMARK;
 select * from T_FAVORITES;
+select * from T_PLANT;
 
 drop table T_BOOKMARK;
 
@@ -82,8 +83,12 @@ where rownum<=1;
 
 select * from T_CHATTING
 	where CR_SEQ=26
-	order by CHAT_DT
+	order by CHAT_DT;
 
+CREATE SEQUENCE T_EVENT_SEQ
+START WITH 1
+INCREMENT BY 1;
+	
 
 
 delete from T_CHATTING;
