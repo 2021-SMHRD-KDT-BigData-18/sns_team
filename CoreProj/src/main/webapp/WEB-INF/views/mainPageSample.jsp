@@ -264,11 +264,15 @@
          <div style="margin: 30px; position: fixed;">
             <div id="profileCard" class="card"style="width:450px;  ">
                <img
+                  src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
+                  alt="프로필 이미지">
+               <%-- <img
                   src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshopping.phinf.naver.net%2Fmain_3807892%2F38078924706.20230218214528.jpg&type=sc960_832"
                   style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
                   alt="프로필 이미지">
                   
-                  <%-- 
+                  
                     <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
                   style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
@@ -379,7 +383,7 @@
                         <div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱 <span class="likes">\${res[i].P_LIKES}</span>회</button>
                             <p>\${res[i].P_VIEWS} 회</p>
                             <button class="btn_bookmark"><i class="fa-regular fa-bookmark"></i></button>
-                            <a href="#" id="urlCopy" class="btn_urlCopy" title="공유하기" onclick="clip(); return false;"><i class="fa-solid fa-share-from-square"></i></a>
+                            <a href="#" id="urlCopy" class="btn_urlCopy" title="공유하기" onclick="clip(\${res[i].P_SEQ}); return false;"><i class="fa-solid fa-share-from-square"></i></a>
                         </div>
                     </div>
                 </div>`;
@@ -459,7 +463,20 @@
             });
          };
          
-         
+         function clip(p_id){
+
+             var url = 'http://localhost:8081/jisik/goPostDetail.do?p_id='+p_id;    
+             var textarea = document.createElement("textarea");  
+             
+             document.body.appendChild(textarea); 
+             //url = window.document.location.href;  
+             textarea.value = url;  
+             textarea.select();  
+             document.execCommand("copy");   
+             document.body.removeChild(textarea); 
+             
+             alert("URL이 복사되었습니다.")  
+         };
          
          function markPost(){
             //console.log($(this).prevAll()[1].children[0].innerText);
@@ -581,6 +598,28 @@
                        });
                }*/
                );
+            
+            
+            function delFriend(f_id){
+            	//let f_id = $(this).innerText;
+            	console.log(f_id);
+            	//console.log($(this).prev().children()[5].innerText);    	
+            	$.ajax( {
+                    url : 'delFriend.do', 
+                    type : 'post',
+                    data : {"f_id":f_id},
+                    success : function(res){
+                    	console.log("친삭완료.");
+                    	$(".friends").html('');
+                    	   friendSelect();
+                    },
+                    error : function(e){
+                       alert("요청 실패!");
+                    }
+                 } );
+            }
+            
+            
    </script>
 
 </body>

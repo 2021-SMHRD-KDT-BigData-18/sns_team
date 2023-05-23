@@ -183,15 +183,15 @@ if(events.length()==2){
         <div id="leftPage">
             <div class="navbar">
                 <ul class="nav flex-column">
-                    <img class=logo src="./image/새싹 누끼.png" >
+                    <a class="nav-link active" aria-current="page" href="goMain.do"><img class=logo src="./image/새싹 누끼.png" ></a>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">홈</a>
+                        <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="" href="#">저장게시글 &#x1F4C2;</a>
+                        <a class="nav-link" aria-current="" href="goSavePost.do">저장게시글 &#x1F4C2;</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./chatList.html">채팅 &#x1F4AC;</a>
+                        <a class="nav-link" href="goChatList.do">채팅 &#x1F4AC;</a>
                     </li>
                 </ul>
             </div>

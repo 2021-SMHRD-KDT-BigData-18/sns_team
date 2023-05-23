@@ -301,10 +301,17 @@
         <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
+                
+                <img
+                  src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
+                  alt="프로필 이미지">
+                
+                <!-- 
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
-                        style="height:200px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
+                        style="height:200px; object-fit: none;" class="card-img-top" alt="프로필 이미지"> -->
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()}</h5>
+                        <h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
 						<c:if test="${sessionScope.user.getU_ID() != null}">
 							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
 						</c:if>
@@ -325,7 +332,7 @@
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body"> 
+                            <div class="accordion-body friends"> 
                             </div>
                         </div>
                     </div>
@@ -356,21 +363,41 @@
                  for(let i=0; i<res.length; i++){
                     let html='';
                     rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                    html+='<div class="accordion-body">';
-                 	html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
-                 	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
-                    html+='</div>';
-                    $(".accordion-body").append(html);
+                    html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
+                    html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                    html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                    html+='</div> <a  href="javascript:void(0);" onclick="delFriend(\''+res[i].F_ID+'\');">친삭</a></div>';
+                    $(".friends").append(html);
                  }
               },
               error : function(e){
                  //alert("요청 실패!");
                  let html = '';
                  html+='<a href="goLogin.do">로그인을 해주세요.</a>'
-                 $(".accordion-body").append(html);
+                 $(".friends").append(html);
               }
            } );
      }
+    
+    
+    function delFriend(f_id){
+    	//let f_id = $(this).innerText;
+    	console.log(f_id);
+    	//console.log($(this).prev().children()[5].innerText);    	
+    	$.ajax( {
+            url : 'delFriend.do', 
+            type : 'post',
+            data : {"f_id":f_id},
+            success : function(res){
+            	console.log("친삭완료.");
+            	$(".friends").html('');
+            	   friendSelect();
+            },
+            error : function(e){
+               alert("요청 실패!");
+            }
+         } );
+    }
 
     
     </script>

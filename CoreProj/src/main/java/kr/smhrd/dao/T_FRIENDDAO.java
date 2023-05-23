@@ -35,7 +35,7 @@ public class T_FRIENDDAO {
 		int res2 = session.selectOne("checkFollowR",map);
 		session.close();
 		
-		if(res==0&&res==0) {
+		if(res==0&&res2==0) {
 			return false;
 		}
 		else {

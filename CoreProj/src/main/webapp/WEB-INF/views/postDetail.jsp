@@ -308,8 +308,6 @@
                 	<c:if test="${user.getU_ID() == requestScope.post.getU_ID()}">
 						<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
                 		<a href="" class="btn btn_change" id="post_delete">✘</a> 
-						<a href="#" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
-                		<a href="#" class="btn btn_change" >✘</a> 
 					</c:if>
                 <div class="postCard">
                     
@@ -326,7 +324,7 @@
                     <div class="card-footer">
                         <p></p>
                         <div class="footer-menu">
-                            <button class="btn btn_like">🌱</button>
+                            <button class="btn btn_like"><p class="post_id" style="display: none;">${requestScope.post.getP_SEQ()}</p>🌱 <span class="likes">${requestScope.post.getP_LIKES()}</span>회</button>
                             <p>${requestScope.post.getP_VIEWS()+1}회</p>	   
                             <button class="btn btn_bookmark">북마크</button>
                             
@@ -351,7 +349,7 @@
         <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
+                    <img src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
                         style="height: 200px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
                     <div class="card-body">
                         <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()}</h5>
@@ -373,7 +371,7 @@
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
+                            <div class="accordion-body friends">
                             </div>
                         </div>
                     </div>
@@ -424,6 +422,19 @@
                     }
                 });
             }
+            
+            function listenerOK(){
+                let prof = $('.profile_img');
+                let btn_bookmark = $('.btn_bookmark');
+                let btn_like=$('.btn_like');
+                console.log(prof);
+                //prof.on('click', goToProf);
+                btn_bookmark.on('click',markPost);
+                btn_like.on('click',likePost);
+            };
+            
+            
+            
             function listenerDelete() {
                 let btn_delete = $('.btn_cmt_delete');
                 console.log(btn_delete);
@@ -510,40 +521,111 @@
             		alert("취소되었습니다.")	;
             		return false;
             	}
-            }) 
+            }); 
             
-    </script>
-    <script>
-    $(document).ready(friendSelect());
-    function friendSelect(){
-		$.ajax( {
-              url : 'friendSelect.do', 
-              type : 'post', 
-              data : {}, 
-              dataType : "json", 
-              success : function(res){
-                 console.log('시작');
-                 console.log(res);
-                 for(let i=0; i<res.length; i++){
-                    let html='';
-                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                    html+='<div class="accordion-body">';
-                 	html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
-                 	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
-                    html+='</div>';
-                    $(".accordion-body").append(html);
-                 }
-              },
-              error : function(e){
-                 //alert("요청 실패!");
-                 let html = '';
-                 html+='<a href="goLogin.do">로그인을 해주세요.</a>'
-                 $(".accordion-body").append(html);
+            
+            $(document).ready(friendSelect());
+            function friendSelect(){
+        		$.ajax( {
+                      url : 'friendSelect.do', 
+                      type : 'post', 
+                      data : {}, 
+                      dataType : "json", 
+                      success : function(res){
+                         console.log('시작');
+                         console.log(res);
+                         for(let i=0; i<res.length; i++){
+                        	 let html='';
+                             rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                             html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
+                             html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                             html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                             html+='</div> <a  href="javascript:void(0);" onclick="delFriend(\''+res[i].F_ID+'\');">친삭</a></div>';
+                             $(".friends").append(html);
+                         }
+                      },
+                      error : function(e){
+                         //alert("요청 실패!");
+                         let html = '';
+                         html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+                         $(".friends").append(html);
+                      }
+                   } );
+             }
+            
+            
+            function likePost(){
+                //console.log($(this).children()[0].innerText);
+                let p_id=$(this).children()[0].innerText;
+                let likes=$(this).children()[1];
+                
+                $.ajax({
+                   url:'like.do',
+                   type:'post',
+                   data:{"p_id":p_id},
+                   success : function(res){
+                      if(res=='added'){
+                           alert("좋아요 성공!");
+                           likes.innerText=Number(likes.innerText)+1;
+                      }
+                      else{
+                      alert("좋아요 삭제!");
+                           likes.innerText=Number(likes.innerText)-1;
+                      }
+                   },
+                   error : function(e){
+                            alert("실패!");
+                         }
+                });
+             };
+             
+             
+             
+             function markPost(){
+                 //console.log($(this).prevAll()[1].children[0].innerText);
+                 let p_id=$(this).prevAll()[1].children[0].innerText;
+                 $.ajax({
+                    url:'bookmark.do',
+                    type:'post',
+                    data:{"p_id":p_id},
+                    success : function(res){
+                       if(res=='added'){
+                            alert("성공!");
+                       }
+                       else{
+                       alert("삭제!");
+                       }
+                       
+                    },
+                    error : function(e){
+                             alert("로그인이 필요합니다!");
+                          }
+                 });
+              };
+              
+              
+              
+              function delFriend(f_id){
+              	//let f_id = $(this).innerText;
+              	console.log(f_id);
+              	//console.log($(this).prev().children()[5].innerText);    	
+              	$.ajax( {
+                      url : 'delFriend.do', 
+                      type : 'post',
+                      data : {"f_id":f_id},
+                      success : function(res){
+                      	console.log("친삭완료.");
+                      	$(".friends").html('');
+                      	   friendSelect();
+                      },
+                      error : function(e){
+                         alert("요청 실패!");
+                      }
+                   } );
               }
-           } );
-     }
-
-    
+              
+            
+            
     </script>
 
 </body>

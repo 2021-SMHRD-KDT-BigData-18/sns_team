@@ -322,11 +322,13 @@
     </div>
     <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
-                <div id="profileCard" class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
-                        style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
+                <div id="profileCard" class="card" style="width:450px;">
+                <img src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
+                    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
+                        style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지"> -->
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()}</h5>
+                        <h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
 						<c:if test="${sessionScope.user.getU_ID() != null}">
 							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
 						</c:if>

@@ -44,7 +44,7 @@ public class WriteUpdateCon implements Controller {
 		System.out.println(Integer.parseInt(request.getParameter("p_id")));
 		
 		HttpSession session = request.getSession();
-		T_USER user = (T_USER) session.getAttribute("user");
+		T_USER user = (T_USER)session.getAttribute("user");
 		String U_ID = user.getU_ID();
 		
 		T_POST dto = new T_POST();
@@ -65,7 +65,7 @@ public class WriteUpdateCon implements Controller {
 		} else {
 			nextView = "redirect:/goPostDetail.do?p_id=" + p_id;
 		}
-		session.setAttribute("user", dto);
+		//session.setAttribute("user", dto);
 		
 		return nextView;
 	}
