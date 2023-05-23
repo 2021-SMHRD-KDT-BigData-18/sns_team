@@ -291,7 +291,7 @@
                         <a class="nav-link active" aria-current="page" href="goMain.do">Home</a>
                     </ul>
                     <ul class="nav-item">
-                        <a class="nav-link" href="goMypage.do?u_id=${user.getU_ID()}">My Page</a>
+                        <a class="nav-link" href="goMypage.do?u_id=${sessionScope.user.getU_ID()}">My Page</a>
                     </ul>
                     <ul class="nav-item">
                         <a class="nav-link" href="goChatList.do">Chat</a>
@@ -306,6 +306,8 @@
             </div> -->
             <div class="postList">
                 	<c:if test="${user.getU_ID() == requestScope.post.getU_ID()}">
+						<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
+                		<a href="" class="btn btn_change" id="post_delete">✘</a> 
 						<a href="#" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
                 		<a href="#" class="btn btn_change" >✘</a> 
 					</c:if>
@@ -495,6 +497,21 @@
                 
                 alert("URL이 복사되었습니다.")  
             }
+            
+            $('#post_delete').on('click', function writeDelete(){
+            	let cc = confirm("정말로 삭제하시겠습니까?");
+            	if(cc==true){
+            		url = "writeDelete.do?P_SEQ=${requestScope.post.getP_SEQ()}";
+            		location.href=url;
+            		alert("삭제되었습니다.");
+            		//location.href="goMain.do";
+            		console.log(url);
+            	}else{
+            		alert("취소되었습니다.")	;
+            		return false;
+            	}
+            }) 
+            
     </script>
     <script>
     $(document).ready(friendSelect());

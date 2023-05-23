@@ -29,6 +29,7 @@ public class WriteDeleteCon implements Controller {
 		String nextView = "redirect:/goMain.do";
 		
 		return nextView;
+		//return null;
 	}
 
 }

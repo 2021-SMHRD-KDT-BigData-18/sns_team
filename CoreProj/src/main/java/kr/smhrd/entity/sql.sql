@@ -8,6 +8,8 @@ select * from T_CHATROOM;
 select * from T_BOOKMARK;
 select * from T_FAVORITES;
 select * from T_PLANT;
+<<<<<<< HEAD
+=======
 
 drop table T_BOOKMARK;
 
@@ -57,6 +59,7 @@ INSERT INTO T_BOOKMARK VALUES(4,'안명');
 
 
 
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
 select B.*
 from(

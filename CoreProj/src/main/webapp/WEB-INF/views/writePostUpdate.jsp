@@ -1,3 +1,5 @@
+<%@page import="kr.smhrd.entity.T_POST"%>
+<%@page import="kr.smhrd.dao.T_POSTDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -240,11 +242,17 @@
 </head>
 
 <body>
-
+<%
+	T_POSTDAO dao = new T_POSTDAO();
+	T_POST dto = dao.searchWithId(Integer.parseInt(request.getParameter("p_id")));
+	
+	
+	
+%>
     <div id="backgroundArea">
         <div id="leftPage">
             <div class="navbar">
-                <img class="img" src="./image/로고 누끼.png" width="300">
+                <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고 누끼.png" width="300">
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">
@@ -269,19 +277,17 @@
                 </div>
 
 
-                <form class="postWindow" method="post" action="writePost.do" enctype="multipart/form-data">
+                <form class="postWindow" method="post" action="writeUpdate.do?p_id=<%=dto.getP_SEQ() %>" enctype="multipart/form-data">
                     <span style="margin-top: 10px">제목</span>
                     <input type="text" name="title" id="title" style="width: 70%; height: 3%; border-radius:10px"
-                        placeholder="제목을 입력해주세요">
+                        placeholder="제목을 입력해주세요" value="<%=dto.getP_TITLE() %>">
                     <p>게시글 입력</p>
                     <textarea style="width:80%; height:60%" id="content" name="content"
-                        style="width: 570px;height: 300px;size:20px" placeholder="수정할 내용을 입력해주세요"></textarea>
+                        style="width: 570px;height: 300px;size:20px" placeholder="수정할 내용을 입력해주세요"><%=dto.getP_CONTENT() %></textarea>
                     <p></p>
                     <br>
                     <br>
                     <br>
-                    <input type="file" name="filename" style="float: right;" accept=".png, .jpg, .jpeg">
-
                     <br>
                     <br>
                     <br>
@@ -299,9 +305,13 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
                         style="height:200px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-left: 15%;">smhrd 님 환영합니다</h5>
-                        <a href="#" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
-                        <a href="#" class="btn btn-primary" style="margin-left: 5%;">회원정보 수정</a>
+                        <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()}</h5>
+						<c:if test="${sessionScope.user.getU_ID() != null}">
+							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
+						</c:if>
+						<c:if test="${sessionScope.user.getU_ID() == null}">
+							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 8%">로그인</a>
+						</c:if>
                     </div>
                 </div>
 
@@ -316,9 +326,7 @@
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body"> 친구목록 띄워주쇼 <code>.accordion-flush</code> class. This is the
-                                first item's accordion
-                                body.</div>
+                            <div class="accordion-body"> </div>
                         </div>
                     </div>
                 </div>

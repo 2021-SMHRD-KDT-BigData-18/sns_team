@@ -82,6 +82,10 @@ public class T_POSTDAO {
 		
 		SqlSession session = factory.openSession(true);
 		
+		System.out.println("dao에서 출력");
+		System.out.println(dto.getP_SEQ());
+		
+		
 		int row = session.update("writeUpdate", dto);
 		
 		session.close();
