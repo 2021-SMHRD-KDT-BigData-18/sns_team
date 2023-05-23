@@ -21,6 +21,10 @@ select count(*) from T_CHATTING
 insert into T_CHATTING values(T_CHATTING_SEQ.nextval,#{CR_SEQ},#{TALKER},#{CHAT_CONTENT},sysdate,null)
 </insert>
 
+<delete id="delAllChat">
+delete from T_CHATTING where CR_SEQ = #{CR_SEQ}
+</delete>
+
 
 
 </mapper>

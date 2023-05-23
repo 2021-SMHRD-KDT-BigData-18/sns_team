@@ -25,6 +25,10 @@
 	<insert id="followR" parameterType="Map">
 		insert into T_FRIEND values(T_FRIEND_SEQ.nextval,#{F_ID},#{U_ID},sysdate)
 	</insert>
+	
+	<delete id="delFollow" parameterType="Map">
+		delete from T_FRIEND where (U_ID = #{U_ID} and F_ID=#{F_ID}) OR (U_ID = #{F_ID} and F_ID=#{U_ID})
+	</delete>
 
 
 </mapper>

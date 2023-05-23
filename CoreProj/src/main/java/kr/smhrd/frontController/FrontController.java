@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.smhrd.controller.AddEventCon;
 import kr.smhrd.controller.BookmarkCon;
 import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.DelCmtCon;
+import kr.smhrd.controller.DelFriendCon;
 import kr.smhrd.controller.DupIDCheckCon;
 import kr.smhrd.controller.FollowCon;
 import kr.smhrd.controller.FriendSelectCon;
@@ -23,6 +25,8 @@ import kr.smhrd.controller.GoLoginCon;
 import kr.smhrd.controller.GoMainCon;
 import kr.smhrd.controller.GoMainPostCon;
 import kr.smhrd.controller.GoMypageCon;
+import kr.smhrd.controller.GoPlantDetailCon;
+import kr.smhrd.controller.GoPlantPageCon;
 import kr.smhrd.controller.GoPostDetailCon;
 import kr.smhrd.controller.GoProfileUpdateCon;
 import kr.smhrd.controller.GoSavePostCon;
@@ -38,10 +42,13 @@ import kr.smhrd.controller.LikeUpdatePlusCon;
 import kr.smhrd.controller.LoadBookmarkCon;
 import kr.smhrd.controller.LoadChatListCon;
 import kr.smhrd.controller.LoadCmtCon;
+import kr.smhrd.controller.LoadMyPlantCon;
+import kr.smhrd.controller.LoadMyPostCon;
 import kr.smhrd.controller.LoginCon;
 import kr.smhrd.controller.LogoutCon;
 import kr.smhrd.controller.WriteCmtCon;
 import kr.smhrd.controller.WriteDeleteCon;
+import kr.smhrd.controller.WritePlantCon;
 
 // 모든 요청을 받을 수 있도록 url-mapping을 *로 지정
 // @WebServlet("*.do") ---> .do로 끝나는 모든 요청
@@ -97,9 +104,16 @@ public class FrontController extends HttpServlet {
 		mappings.put("/delCmt.do", new DelCmtCon());
 		mappings.put("/goSavePost.do", new GoSavePostCon());
 		mappings.put("/goWritePlant.do", new GoWritePlantCon());
+		mappings.put("/goPlantPage.do", new GoPlantPageCon());
+		mappings.put("/loadMyPost.do", new LoadMyPostCon());
+		mappings.put("/loadMyPlant.do", new LoadMyPlantCon());
+		mappings.put("/delFriend.do", new DelFriendCon());
 		mappings.put("/writeDelete.do", new WriteDeleteCon());
 		mappings.put("/writeUpdate.do", new WriteUpdateCon());
 		mappings.put("/goWritePostUpdate.do", new GoWritePostUpdateCon());
+		mappings.put("/writePlant.do", new WritePlantCon());
+		mappings.put("/goPlantDetail.do", new GoPlantDetailCon());
+		mappings.put("/addEvent.do", new AddEventCon());
 		
 	}
 	

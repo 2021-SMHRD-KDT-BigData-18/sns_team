@@ -14,8 +14,21 @@
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <script src="assets/js/bootstrap.bundle.js"></script>
     <script src="assets/js/jquery-3.7.0.min.js"></script>
-    <style>
+    <style> 
+    	@font-face {
+                font-family: 'omyu_pretty';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+        }
         #backgroundArea {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            /*background-color: rgb(243, 243, 229);*/
+            background-color: #F7F7F7;
+        }
+       /* #backgroundArea {
             @font-face {
                 font-family: 'omyu_pretty';
                 src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
@@ -27,12 +40,13 @@
             justify-content: space-between;
             background-color: rgb(243, 243, 229);
         }
+        */
 
         #leftPage {
             width: 30%;
             display: flex;
             justify-content: center;
-            background-color: beige(7, 160, 7);
+            /*background-color: beige(7, 160, 7);*/
         }
 
 
@@ -41,12 +55,13 @@
             flex-direction: column;
             width: 40%;
             align-items: center;
-            background-color: rgb(235, 207, 138);
+            /*background-color: rgb(235, 207, 138);*/
+            background-color: #FBF8F1;
         }
 
         * {
             font-family: 'omyu_pretty';
-            background-color: rgb(243, 243, 229);
+            /*background-color: rgb(243, 243, 229);*/
         }
 
         #rightPage {
@@ -62,7 +77,7 @@
             width: 200px;
             position: fixed;
             margin-top: 15%;
-            background-color: beige(7, 160, 7);
+            /*background-color: beige(7, 160, 7);*/
             align-items: flex-end;
             line-height: 1.5;
         }
@@ -121,10 +136,10 @@
             padding-bottom: 10px;
         }
 
-        .btn-primary {
+        /* .btn-primary {
             --bs-bg-opacity: 1;
             background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
-        }
+        } */
 
         #profileCard {
             margin: 50px;
@@ -147,7 +162,7 @@
             border-radius: 10px;
             /*background-color: white;*/
             margin-bottom: 10px;
-            background-color: rgb(243, 243, 229);
+            /*background-color: rgb(243, 243, 229);*/
         }
 
         .postCardImg {
@@ -188,7 +203,7 @@
         }
 
         hr {
-            background-color: rgb(243, 243, 229);
+            /*background-color: rgb(243, 243, 229);*/
         }
 
         #cmt_list {
@@ -202,12 +217,13 @@
         .btn {
             font-size: 20px;
             padding: 10px 15px;
-            border-radius: 10px;
+            /* border-radius: 10px; */
+            border: 0;
             /* border: 3px solid burlywood; */
-            background-color: rgb(238, 238, 186);
+            /* background-color: rgb(238, 238, 186); */
             color: #703c3c;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            /* letter-spacing: 5px; */
             font-weight: bold;
             position: relative;
             transition: all 0.4s;
@@ -234,12 +250,10 @@
             transform: translateY(-100%);
         }
 
+        
         .btn:hover {
-            /* color:green;  */
-            color:rgb(0, 78, 52); 
-            background-color: #83ab85;
-         }
-
+        color: rgb(0, 78, 52);
+        }
 
 
 
@@ -256,7 +270,7 @@
             text-align: center;
         }
         #cmt_list{
-            background: rgb(243, 243, 229);
+            /*background: rgb(243, 243, 229);*/
             height: 200px;
         }
      
@@ -268,7 +282,7 @@
 <body>
 
     <div id="backgroundArea">
-        <div id="leftPage" class="border-end">
+        <div id="leftPage">
             <div class="navbar">
                 <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/지식창고_로고.png" width="300"></a>
 
@@ -294,6 +308,8 @@
                 	<c:if test="${user.getU_ID() == requestScope.post.getU_ID()}">
 						<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
                 		<a href="" class="btn btn_change" id="post_delete">✘</a> 
+						<a href="#" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
+                		<a href="#" class="btn btn_change" >✘</a> 
 					</c:if>
                 <div class="postCard">
                     
@@ -302,8 +318,7 @@
                         <h5 class="card-title">${requestScope.post.getP_TITLE()}</h5>
                         <p class="card-text">${requestScope.post.getU_ID()}</p>
                         <p class="card-text">${requestScope.post.getP_CONTENT()}</p>
-                        <a href="#" id="urlCopy" class="btn_urlCopy" title="새창" onclick="clip(); return false;">링크 공유하기</a>
-						<p>${requestScope.post.getP_VIEWS()+1}회</p>	                    
+						                 
                     </div>
                     <img src="http://218.157.19.25:8081/jisik/P_FILE/${requestScope.post.getP_FILE()}"
                         class="postCardImg" alt="프로필 이미지">
@@ -312,7 +327,11 @@
                         <p></p>
                         <div class="footer-menu">
                             <button class="btn btn_like">🌱</button>
+                            <p>${requestScope.post.getP_VIEWS()+1}회</p>	   
                             <button class="btn btn_bookmark">북마크</button>
+                            
+                        <a href="#" id="urlCopy" class="btn_urlCopy" title="새창" onclick="clip(); return false;">링크 공유하기</a>
+
 
                         </div>
                         <hr>
@@ -367,6 +386,7 @@
     <script>
         
             $(document).ready(cmtLoad());
+            $(document).ready(listenerOK());
             function cmtLoad() {
             	let p_seq = <%=request.getParameter("p_id")%>;
             	console.log(p_seq);
@@ -475,7 +495,7 @@
                 document.execCommand("copy");   
                 document.body.removeChild(textarea); 
                 
-                alert("URL이 복사되었습니다.");  
+                alert("URL이 복사되었습니다.")  
             }
             
             $('#post_delete').on('click', function writeDelete(){

@@ -29,7 +29,8 @@
             min-height: 100vh;
             display: flex;
             justify-content: space-between;
-            background-color: rgb(243, 243, 229);
+            /*background-color: rgb(243, 243, 229);*/
+            background-color: #F7F7F7;
         }
 
         #leftPage {
@@ -42,7 +43,8 @@
             flex-direction: column;
             width: 40%;
             /* align-items: center; */
-            background-color: rgb(235, 207, 138);
+            /*background-color: rgb(235, 207, 138);*/
+             background-color: #FBF8F1;
         }
 
         #rightPage {
@@ -141,13 +143,18 @@
         list-style: none;
         }
         .chat_list_wrap .header {
-        font-size: 30px;
-        padding: 20px 0;
+        font-size: 40px;
+        padding: 20px;
         background: #83ab85;
         color: white;
         text-align: center;
         font-family: "Josefin Sans", sans-serif;
+        color: white;
+        letter-spacing: 5px;
         }
+        
+        
+        
         .chat_list_wrap .search {
         background: #eee;
         padding: 7px;

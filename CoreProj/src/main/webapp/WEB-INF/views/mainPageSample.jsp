@@ -29,6 +29,7 @@
 	display: flex;
 	justify-content: space-between;
     /* background-color: rgb(243, 243, 229); */
+    background-color: #F7F7F7;
     }
 
     #leftPage {
@@ -45,7 +46,8 @@
     width: 40%;
     align-items: center;
     /* background-color: rgb(235, 207, 138); */
-    background-color: rgb(243, 243, 229);
+    /*background-color: rgb(243, 243, 229);*/
+    background-color: #FBF8F1;
 }
 
 #rightPage {
@@ -221,7 +223,8 @@
 </head>
 <body>
 	<div id="backgroundArea">
-		<div id="leftPage" class="border-end">
+		<div id="leftPage">
+		<!-- <div id="leftPage" class="border-end"> -->
 			<div class="navbar">
 				<a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/지식창고_로고.png" width="300"></a>
 
@@ -238,13 +241,17 @@
 					<!-- <ul class="nav-item">
 						<a class="nav-link" href="goChat.do">ChatChatChatChat</a>
 					</ul> -->
+					<ul class="nav-item">
+						<a class="nav-link" href='goWritePost.do'>글쓰기</a>
+					</ul>
 					
-					<button id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</button>
+			<!-- 		<a id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</a> -->
 				</ul>
 			</div>
 
 		</div>
 		<div id="centerPage" class=" border-start border-end border-1">
+		<!-- <div id="centerPage" class=" border-start border-end border-1"> -->
 
 			<div class="postList">
 			</div>
@@ -293,7 +300,7 @@
 						<div id="flush-collapseOne" class="accordion-collapse collapse"
 							aria-labelledby="flush-headingOne"
 							data-bs-parent="#accordionFlushExample">
-							<div class="accordion-body">
+							<div class="accordion-body friends">
 								
 							</div>
 						</div>
@@ -338,6 +345,7 @@
 				            <div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱 <span class="likes">\${res[i].P_LIKES}</span>회</button>
 				                <p>\${res[i].P_VIEWS} 회</p>
 				                <button class="btn_bookmark">북마크</button>
+				                <a href="#" id="urlCopy" class="btn_urlCopy" title="새창" onclick="clip(); return false;">링크 공유하기</a>
 				            </div>
 				        </div>
 				    </div>`;
@@ -436,11 +444,41 @@
 						
 					},
 					error : function(e){
-	                     alert("실패!");
+	                     alert("로그인이 필요합니다!");
 	                  }
 				});
 			};
-		
+			
+			
+			function friendSelect(){
+				$.ajax( {
+		              url : 'friendSelect.do', 
+		              type : 'post', 
+		              data : {}, 
+		              dataType : "json", 
+		              success : function(res){
+		                 console.log('시작');
+		                 console.log(res);
+		                 for(let i=0; i<res.length; i++){
+		                    let html='';
+		                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+		                    html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
+		                 	html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+		                 	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+		                    html+='</div> <a  href="javascript:void(0);" onclick="delFriend(\''+res[i].F_ID+'\');">친삭</a></div>';
+		                    $(".friends").append(html);
+		                 }
+		              },
+		              error : function(e){
+		                 //alert("요청 실패!");
+		                 let html = '';
+		                 html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+		                 $(".friends").append(html);
+		              }
+		           } );
+		     }
+			
+		/*
 			function friendSelect(){
 				
 	            $.ajax({
@@ -468,9 +506,8 @@
 	                     $(".accordion-body").append(html);
 	                  }
 	               });
-	         }
+	         }*/
 
-			
 			$('.btn_like').on('click',  
 					function LikeUpdatePlus(){
 				let p_seq = $('p.post_id').innerText;
@@ -487,7 +524,7 @@
 							    
 							    error: 
 							    function (request, status, error){  
-							      alert("실패")                  
+							      alert("로그인이 필요합니다!")                  
 							    }
 							  });
 					}/*,

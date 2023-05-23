@@ -104,5 +104,13 @@ public class T_POSTDAO {
 		return row;
 	}
 	
-
+	public List<T_POST> loadMyPost(String u_id){
+		
+		SqlSession session = factory.openSession(true);
+		List<T_POST> list = session.selectList("loadMyPost", u_id);
+		
+		session.close();
+		
+		return list;
+	}
 }

@@ -41,7 +41,8 @@
             min-height: 100vh;
             display: flex;
             justify-content: space-between;
-            background-color: rgb(243, 243, 229);
+            /*background-color: rgb(243, 243, 229);*/
+            background-color: #F7F7F7;
         }
         
         #leftPage {
@@ -50,7 +51,8 @@
         
         #mypage_area {
             width: 40%;
-            background-color: rgb(235, 207, 138);
+            /*background-color: rgb(235, 207, 138);*/
+            background-color: #FBF8F1;
         }
         
         #rightPage {
@@ -67,6 +69,8 @@
             padding: 20px;
             text-align: center;
             font-size: 40px;
+            color: white;
+            letter-spacing: 5px;
         }
         
         .nav {
@@ -131,12 +135,13 @@
             width: 200px;
             height: 200px;
             margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
 
         .pa_area_img {
             width: 200px;
             height: 200px;
-            margin-left: 20px;
         }
         
 
@@ -217,7 +222,7 @@
 
 <body>
     <div id="backgroundArea">
-        <div id="leftPage" class="border-end">
+        <div id="leftPage">
             <div class="navbar">
                 <ul class="nav flex-column">
                     <a class="nav-link active" aria-current="page" href="goMain.do"><img class=logo src="./image/새싹 누끼.png" ></a>
@@ -234,7 +239,7 @@
             </div>
         </div>
 
-        <div id="mypage_area">
+        <div id="mypage_area" class=" border-start border-end border-1">
             <p id="title">My Page</p>
             
             <div class="my_info">
@@ -243,7 +248,7 @@
                 <span>&emsp;&emsp;</span>
                 <div class="id_nick">
                     <span class="my_id">${sessionScope.user.getU_ID()}</span>
-                    <span class="my_name">창고지기</span>
+                    <span class="my_name">${sessionScope.user.getU_NICK()}</span>
                 </div>
                 </div>
                 <div class="pro1">
@@ -258,41 +263,64 @@
                         <span>&nbsp;창고지기 식물&nbsp;</span>
                         <a href="goWritePlant.do" class="btn btn-primary" style="margin-left: 55%">추가하기</a>
                      
+                        <div id="mypa_img" class="plants">
+                        	<!-- <a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
+=======
                         <div id="mypa_img">
+                        <!--  
+                        	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
+                        <div id="mypa_img" class="mypa_img">
+                      
                             <div class="pa_area">
                                 <img class="pa_area_img" src="./image/새싹.png">
                             </div>
                             <p>&emsp;&emsp;&nbsp;</p>
-                            <div class="pa_area">
+                            
+                        	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
+                            <p>&emsp;&emsp;&nbsp;</p>                            
+                        	
+                        	<a href="goPlantPage.do" class="pa_area"><img class="pa_area_img" src="./image/새싹.png"></a>
+                            
+                             -->
+                            
+                            
+                            <%-- <div class="pa_area">
                                 <img class="pa_area_img" src="./image/새싹.png">
                             </div>
-                            <p>&emsp;&emsp;&nbsp;</p>
-                            <div class="pa_area">
-                                <img class="pa_area_img" src="./image/새싹.png">
-                            </div>
+                            --%>
                         </div>
-                   	</div>
+                   	<!--  </div>-->
+                   </div>
                    <div class="my_post">
                         <span>&nbsp;게시글&nbsp;</span>
                          <a href="goWritePost.do" class="btn btn-primary" style="margin-left: 66%">추가하기</a>
                          <div id="mypa_img">
-                        	<div class="pa_area">
+                        	 <!--
+                        	<a href="goPostDetail.do" class="pa_area_img"><img class="pa_area_img" src="./image/새싹.png"></a>
+                            <p>&emsp;&emsp;&nbsp;</p>
+                           
+                        	<a href="goPostDetail.do" class="pa_area_img"><img class="pa_area_img" src="./image/새싹.png"></a>
+                            <p>&emsp;&emsp;&nbsp;</p>
+                        	<a href="goPostDetail.do" class="pa_area_img"><img class="pa_area_img" src="./image/새싹.png"></a>
+                        	 -->
+                        	
+                        	
+                         <!-- <div id="mypa_img"> -->
+                        	<%--<div class="pa_area">
                             	<img class="pa_area_img" src="./image/새싹.png">
                         	</div>
-                        	<p>&emsp;&emsp;&nbsp;</p>
-                        	<div class="pa_area">
-                            	<img class="pa_area_img" src="./image/새싹.png">
-                        	</div>
-                        	<p>&emsp;&emsp;&nbsp;</p>
-                        	<div class="pa_area">
-                            	<img class="pa_area_img" src="./image/새싹.png">
-                        	</div>
+                        	 --%>
+                		</div>
+                		   <!-- 
+                         <div id="mypa_img" class="mypa_img">
                     	</div>
+                    	-->
                 	</div>
-                </div>
            	</div>
        	</div>
-        <div id="rightPage">
+    </div>
+    <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
@@ -319,16 +347,18 @@
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse"
                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body"> 
+                    <div class="accordion-body friends"> 
                     </div>
                     </div>
                 </div>
             </div>
             </div>
         </div>
-    </div>
+    
     
     <script>
+    $(document).ready(loadMyPlant());
+    $(document).ready(loadMyPost());
     $(document).ready(friendSelect());
     function friendSelect(){
 		$.ajax( {
@@ -342,25 +372,102 @@
                  for(let i=0; i<res.length; i++){
                     let html='';
                     rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                    html+='<div class="accordion-body">';
-                 	html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                    html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
+                 	html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
                  	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
-                    html+='</div>';
-                    $(".accordion-body").append(html);
+                    html+='</div> <a  href="javascript:void(0);" onclick="delFriend(\''+res[i].F_ID+'\');">친삭</a></div>';
+                    $(".friends").append(html);
                  }
               },
               error : function(e){
                  //alert("요청 실패!");
                  let html = '';
                  html+='<a href="goLogin.do">로그인을 해주세요.</a>'
-                 $(".accordion-body").append(html);
+                 $(".friends").append(html);
               }
            } );
      }
+    
+    function loadMyPost(){
+    	$.ajax( {
+            url : 'loadMyPost.do', 
+            type : 'post', 
+            data : {"u_id":'<%=request.getParameter("u_id")%>'}, 
+            dataType : "json", 
+            success : function(res){
+               console.log('시작');
+               console.log(res);
+               for(let i=0; i<res.length; i++){
+                  console.log('불러오기 완료');
+                  let html='';
+                  rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
+                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].P_FILE}">
+                      <p>\${res[i].P_TITLE}</p>
+                      </div>`;
+                  $(".my_post>#mypa_img").append(html);
+               }
+            },
+            error : function(e){
+               alert("요청 실패!");
+               let html = '';
+               $(".my_post>.mypa_img").append(html);
+            }
+         } );
+    };
 
+    function loadMyPlant(){
+    	$.ajax( {
+            url : 'loadMyPlant.do', 
+            type : 'post', 
+            data : {"u_id":'<%=request.getParameter("u_id")%>'}, 
+            dataType : "json", 
+            success : function(res){
+               console.log('시작');
+               console.log(res);
+               for(let i=0; i<res.length; i++){
+                  console.log('불러오기 완료');
+                  let html='';
+                  rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPlantDetail.do?pl_id=\${res[i].PL_SEQ}';">
+                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].PL_IMG}">
+                      <p>\${res[i].PL_NAME}</p>
+                      </div>`;
+                  $(".plants").append(html);
+               }
+            },
+            error : function(e){
+               alert("요청 실패!");
+               let html = '';
+               $(".plants").append(html);
+            }
+         } );
+    };
+    
+    
+    function delFriend(f_id){
+    	//let f_id = $(this).innerText;
+    	console.log(f_id);
+    	//console.log($(this).prev().children()[5].innerText);    	
+    	$.ajax( {
+            url : 'delFriend.do', 
+            type : 'post',
+            data : {"f_id":f_id},
+            success : function(res){
+            	console.log("친삭완료.");
+            	$(".friends").html('');
+            	   friendSelect();
+            },
+            error : function(e){
+               alert("요청 실패!");
+            }
+         } );
+    }
+    
+    
+    
     
     </script>
-    
 </body>
 
 </html>

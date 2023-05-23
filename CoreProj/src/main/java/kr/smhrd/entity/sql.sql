@@ -8,6 +8,58 @@ select * from T_CHATROOM;
 select * from T_BOOKMARK;
 select * from T_FAVORITES;
 select * from T_PLANT;
+<<<<<<< HEAD
+=======
+
+drop table T_BOOKMARK;
+
+
+CREATE TABLE T_BOOKMARK
+(
+	P_SEQ	NUMBER(15,0)	NOT NULL,	-- 게시글 번호
+	U_ID	VARCHAR2(30)	NOT NULL,	-- 유저 아이디
+	CONSTRAINT T_BOOKMARK_P_SEQ_FK
+	FOREIGN KEY (P_SEQ)
+	REFERENCES T_POST(P_SEQ)
+	ON DELETE CASCADE
+);
+
+ALTER TABLE T_BOOKMARK
+ADD CONSTRAINT T_BOOKMARK_U_ID_FK
+FOREIGN KEY (U_ID)
+REFERENCES T_USER(U_ID)
+ON DELETE CASCADE;
+
+ALTER TABLE T_COMMENT
+ADD CONSTRAINT T_COMMENT_P_SEQ_FK
+FOREIGN KEY (P_SEQ)
+REFERENCES T_POST(P_SEQ)
+ON DELETE CASCADE;
+
+
+
+
+
+ALTER TABLE T_COMMENT
+DROP CONSTRAINT FK_T_COMMENT_P_SEQ_T_POST_P_SE;
+FOREIGN KEY (P_SEQ)
+REFERENCES T_POST(P_SEQ)
+ON DELETE CASCADE;
+
+
+
+
+
+INSERT INTO T_BOOKMARK VALUES(10,'w');
+INSERT INTO T_BOOKMARK VALUES(10,'bb');
+INSERT INTO T_BOOKMARK VALUES(10,'hh');
+INSERT INTO T_BOOKMARK VALUES(6,'안명');
+INSERT INTO T_BOOKMARK VALUES(2,'안명');
+INSERT INTO T_BOOKMARK VALUES(4,'안명');
+
+
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
 select B.*
 from(
@@ -17,6 +69,11 @@ select P_SEQ from T_BOOKMARK
 	where A.P_SEQ=B.P_SEQ
 	;
 
+	
+	delete from T_POST
+	where P_SEQ = 10;
+	delete from T_USER
+	where U_ID = '안명';
 
 
 select *
@@ -29,8 +86,12 @@ where rownum<=1;
 
 select * from T_CHATTING
 	where CR_SEQ=26
-	order by CHAT_DT
+	order by CHAT_DT;
 
+CREATE SEQUENCE T_EVENT_SEQ
+START WITH 1
+INCREMENT BY 1;
+	
 
 
 delete from T_CHATTING;
@@ -43,6 +104,17 @@ insert into T_CHATROOM values(T_CHATROOM_SEQ.nextval,'aa','300','523',3,sysdate)
 
 
 insert into T_FRIEND values(T_FRIEND_SEQ.nextval,'cc','bb',sysdate);
+
+insert into T_POST values(T_POST_SEQ.nextval,'cc','bb',null,sysdate,0,0,'cc');
+
+T_POST_SEQ.nextval,
+			#{P_TITLE},
+			#{P_CONTENT},
+			#{P_FILE, jdbcType=VARCHAR},
+			sysdate,
+			0,
+			0,
+			#{U_ID}		
 
 
 commit
