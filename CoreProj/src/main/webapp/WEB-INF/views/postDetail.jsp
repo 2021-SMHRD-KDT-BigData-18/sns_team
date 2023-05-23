@@ -277,7 +277,7 @@
                         <a class="nav-link active" aria-current="page" href="goMain.do">Home</a>
                     </ul>
                     <ul class="nav-item">
-                        <a class="nav-link" href="goMypage.do?u_id=${user.getU_ID()}">My Page</a>
+                        <a class="nav-link" href="goMypage.do?u_id=${sessionScope.user.getU_ID()}">My Page</a>
                     </ul>
                     <ul class="nav-item">
                         <a class="nav-link" href="goChatList.do">Chat</a>
@@ -292,8 +292,8 @@
             </div> -->
             <div class="postList">
                 	<c:if test="${user.getU_ID() == requestScope.post.getU_ID()}">
-						<a href="#" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
-                		<a href='writeDelete.do?p_id=<%=request.getParameter("p_id")%>' class="btn btn_change" id="post_delete">✘</a> 
+						<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
+                		<a href="" class="btn btn_change" id="post_delete">✘</a> 
 					</c:if>
                 <div class="postCard">
                     
@@ -484,7 +484,8 @@
             		url = "writeDelete.do?P_SEQ=${requestScope.post.getP_SEQ()}";
             		location.href=url;
             		alert("삭제되었습니다.");
-            		console(url);
+            		//location.href="goMain.do";
+            		console.log(url);
             	}else{
             		alert("취소되었습니다.")	;
             		return false;

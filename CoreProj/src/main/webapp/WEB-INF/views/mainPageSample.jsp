@@ -271,7 +271,7 @@
 
 						<!-- <img src="\${sessionScope.getU_PROFILE_IMG()}"> -->
 
-						<!-- <img src="${sessionScope.user.getU_PROFILE_IMG()}"> -->
+						<!-- <img src="\${sessionScope.user.getU_PROFILE_IMG()}"> -->
 						<%--<img src="${sessionScope.getU_PROFILE_IMG()}"> --%>
 						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
 							<a href="logout.do" class="btn btn-primary" style="margin-left: 70%">로그아웃</a>

@@ -46,10 +46,9 @@
 	<update id="writeUpdate" parameterType="kr.smhrd.entity.T_POST">
 		update T_POST
 		set P_TITLE = #{P_TITLE},
-			P_CONTENT = #{P_CONTENT}
-			P_FILE = #{P_FILE, jdbcType=VARCHAR},
+			P_CONTENT = #{P_CONTENT},
 			P_DT = sysdate
-		where U_ID = #{U_ID}
+		where P_SEQ = #{P_SEQ}
 	</update>
 	
 	<delete id="writeDelete">

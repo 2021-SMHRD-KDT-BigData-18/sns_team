@@ -7,7 +7,7 @@ select * from T_CHATTING;
 select * from T_CHATROOM;
 select * from T_BOOKMARK;
 select * from T_FAVORITES;
-
+select * from T_PLANT;
 
 select B.*
 from(

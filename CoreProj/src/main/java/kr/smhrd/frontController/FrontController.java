@@ -28,6 +28,7 @@ import kr.smhrd.controller.GoProfileUpdateCon;
 import kr.smhrd.controller.GoSavePostCon;
 import kr.smhrd.controller.GoWritePlantCon;
 import kr.smhrd.controller.GoWritePostCon;
+import kr.smhrd.controller.GoWritePostUpdateCon;
 import kr.smhrd.controller.WritePostCon;
 import kr.smhrd.controller.WriteUpdateCon;
 import kr.smhrd.controller.JoinCon;
@@ -98,6 +99,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/goWritePlant.do", new GoWritePlantCon());
 		mappings.put("/writeDelete.do", new WriteDeleteCon());
 		mappings.put("/writeUpdate.do", new WriteUpdateCon());
+		mappings.put("/goWritePostUpdate.do", new GoWritePostUpdateCon());
 		
 	}
 	

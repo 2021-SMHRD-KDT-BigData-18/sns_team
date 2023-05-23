@@ -38,7 +38,10 @@ public class WritePostCon implements Controller {
 		String U_ID = ((T_USER)request.getSession().getAttribute("user")).getU_ID();
 		
 		String P_FILE = multi.getFilesystemName("filename");
-		if(multi.getParameter("filename")==null) {
+//		if(multi.getParameter("filename")==null) {
+//			P_FILE=null;
+//		}
+		if(multi.getFilesystemName("filename")==null) {
 			P_FILE=null;
 		}
 		

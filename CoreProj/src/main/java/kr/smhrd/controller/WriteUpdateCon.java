@@ -23,7 +23,8 @@ public class WriteUpdateCon implements Controller {
 		request.setCharacterEncoding("UTF-8");
 		
 		String path = request.getServletContext().getRealPath("P_FILE");
-		
+		System.out.println(path);
+
 		int maxSize = 10 * 1024 * 1024;
 		
 		String encoding = "UTF-8";
@@ -31,21 +32,27 @@ public class WriteUpdateCon implements Controller {
 		DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
 		
 		MultipartRequest multi = new MultipartRequest(request, path, maxSize, encoding, rename);
-		String P_TITLE = request.getParameter("P_TITLE");
-		String P_CONTENT = request.getParameter("P_CONTENT");
-		String P_DT = request.getParameter("P_DT");
-		String U_ID = ((T_USER)request.getSession().getAttribute("user")).getU_ID();
 		
-		String P_FILE = multi.getFilesystemName("filename");
+		
+		String P_TITLE = multi.getParameter("title");
+		System.out.println(multi.getParameter("title"));
+		String P_CONTENT = multi.getParameter("content");
+		System.out.println(multi.getParameter("content"));
+		//String P_DT = request.getParameter("P_DT");
+
+		int p_id = Integer.parseInt(request.getParameter("p_id"));
+		System.out.println(Integer.parseInt(request.getParameter("p_id")));
 		
 		HttpSession session = request.getSession();
-		T_POST user = (T_POST) session.getAttribute("user");
-
+		T_USER user = (T_USER) session.getAttribute("user");
+		String U_ID = user.getU_ID();
+		
 		T_POST dto = new T_POST();
 		dto.setP_TITLE(P_TITLE);
+		dto.setP_SEQ(p_id);
 		dto.setP_CONTENT(P_CONTENT);
-		dto.setP_FILE(P_FILE);
-		dto.setP_DT(P_DT);
+		//dto.setP_DT(P_DT);
+		dto.setU_ID(U_ID);
 		
 		T_POSTDAO dao = new T_POSTDAO();
 
@@ -54,12 +61,12 @@ public class WriteUpdateCon implements Controller {
 		String nextView = "";
 		
 		if (row > 0) {
-			nextView = "redirect:/goPostDetail.do?u_id=" + U_ID;
-			session.setAttribute("user", dto);
+			nextView = "redirect:/goPostDetail.do?p_id=" + p_id;
 		} else {
-			nextView = "redirect:/goPostDetail.do?u_id=" + U_ID;
+			nextView = "redirect:/goPostDetail.do?p_id=" + p_id;
 		}
-
+		session.setAttribute("user", dto);
+		
 		return nextView;
 	}
 
