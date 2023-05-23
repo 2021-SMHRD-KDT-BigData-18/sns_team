@@ -13,7 +13,9 @@
 <script src="assets/js/jquery-3.7.0.min.js"></script>
 <style>
 body {
-	background-color: rgba(26, 255, 0, 0.166);
+	/*background-color: rgba(26, 255, 0, 0.166);*/
+	/*background-color: #F7F7F7;*/
+	background-color: #FBF8F1;
 }
 
 @font-face {
@@ -21,8 +23,6 @@ body {
 	src:
 		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
 		format('woff2');
-	font-weight: normal;
-	font-style: normal;
 }
 
 * {
@@ -101,7 +101,8 @@ h1 img:nth-child(5) {
 input:focus ~label, input:valid ~label {
 	font-size: 16px;
 	bottom: 40px;
-	color: #666;
+	/*color: #666;*/
+	color: #83ab85;
 	font-weight: bold;
 }
 
@@ -117,7 +118,7 @@ input:focus ~span, input:valid ~span {
 	text-align: center;
 	margin: 30px;
 	width: 200px;
-	color: green;
+	color: #83ab85;
 	background-color: beige;
 	h1 img: nth-child(7){     
 	animation-delay:.6s;
@@ -125,7 +126,6 @@ input:focus ~span, input:valid ~span {
 
 }
 .inputZone {
-	margin-left: 50px;
 	margin-top: 30px;
 }
 
@@ -138,7 +138,7 @@ h1 img:nth-child(8) {
 	margin: 30px;
 	width: 200px;
 	text-align: center;
-	color: green;
+	color: #83ab85;
 	background-color: beige;
 }
 
@@ -150,6 +150,7 @@ h1 img:nth-child(8) {
 .container {
 	display: flex;
 	flex-direction: column;
+	margin-top: 120px;
 }
 
 form {
