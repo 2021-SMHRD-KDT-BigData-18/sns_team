@@ -244,7 +244,7 @@
                 <span>&emsp;&emsp;</span>
                 <div class="id_nick">
                     <span class="my_id">${sessionScope.user.getU_ID()}</span>
-                    <span class="my_name">창고지기</span>
+                    <span class="my_name">${sessionScope.user.getU_NICK()}</span>
                 </div>
                 </div>
                 <div class="pro1">

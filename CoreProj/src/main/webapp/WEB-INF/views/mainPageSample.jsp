@@ -440,7 +440,7 @@
 						
 					},
 					error : function(e){
-	                     alert("실패!");
+	                     alert("로그인이 필요합니다!");
 	                  }
 				});
 			};
@@ -520,7 +520,7 @@
 							    
 							    error: 
 							    function (request, status, error){  
-							      alert("실패")                  
+							      alert("로그인이 필요합니다!")                  
 							    }
 							  });
 					}/*,

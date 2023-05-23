@@ -262,8 +262,8 @@ span {
 				<div class="pro">
 					<img class="pro_img" src="./image/친구새싹누끼.png"> <span>&emsp;&emsp;</span>
 					<div class="id_nick">
-						<span class="my_id"><%=friend.getU_ID()%></span> <span
-							class="my_name"><%=friend.getU_NICK() %></span>
+						<span class="my_id"><%=friend.getU_ID()%></span>
+						<span class="my_name"><%=friend.getU_NICK() %></span>
 					</div>
 					<button class="btn" id = "btn_follow">풀링</button>
 					<br>
