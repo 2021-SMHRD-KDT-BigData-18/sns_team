@@ -305,7 +305,10 @@
                   <%--<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀 </h5> --%>
                   <c:if test="${sessionScope.user.getU_ID() != null}">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
                   <!-- <img src="\${sessionScope.getU_PROFILE_IMG()}"> -->
 
                   <!-- <img src="${sessionScope.user.getU_PROFILE_IMG()}"> -->
@@ -342,7 +345,12 @@
 						<!-- <img src="\${sessionScope.user.getU_PROFILE_IMG()}"> -->
 						<%--<img src="${sessionScope.getU_PROFILE_IMG()}"> --%>
 						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
+<<<<<<< HEAD
 							<a href="logout.do" class="btn btn-primary" style="margin-left: 70%"><i class="fa fa-arrow-right-from-bracket fa-2x" style="color:rgba(15, 114, 60, 0.829)"></i></a>
+=======
+							<a href="logout.do" class="btn btn-primary" style="margin-left: 70%">로그아웃</a>
+						
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 						<c:if test="${sessionScope.user.getU_ID() == null}">
 						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 당장 로그인해주세요!!!</h5>
 							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 75%"><i class="fa fa-arrow-right-to-bracket fa-2x" style="color:rgba(15, 114, 60, 0.829)"></i></a>
