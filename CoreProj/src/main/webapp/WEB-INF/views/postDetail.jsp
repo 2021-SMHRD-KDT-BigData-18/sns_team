@@ -384,6 +384,7 @@
     <script>
         
             $(document).ready(cmtLoad());
+            $(document).ready(listenerOK());
             function cmtLoad() {
             	let p_seq = <%=request.getParameter("p_id")%>;
             	console.log(p_seq);
