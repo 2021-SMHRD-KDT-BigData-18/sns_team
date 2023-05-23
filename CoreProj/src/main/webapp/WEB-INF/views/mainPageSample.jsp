@@ -29,6 +29,7 @@
 	display: flex;
 	justify-content: space-between;
     /* background-color: rgb(243, 243, 229); */
+    background-color: #F7F7F7;
     }
 
     #leftPage {
@@ -45,7 +46,8 @@
     width: 40%;
     align-items: center;
     /* background-color: rgb(235, 207, 138); */
-    background-color: rgb(243, 243, 229);
+    /*background-color: rgb(243, 243, 229);*/
+    background-color: #FBF8F1;
 }
 
 #rightPage {
@@ -221,7 +223,8 @@
 </head>
 <body>
 	<div id="backgroundArea">
-		<div id="leftPage" class="border-end">
+		<div id="leftPage">
+		<!-- <div id="leftPage" class="border-end"> -->
 			<div class="navbar">
 				<a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/지식창고_로고.png" width="300"></a>
 
@@ -248,6 +251,7 @@
 
 		</div>
 		<div id="centerPage" class=" border-start border-end border-1">
+		<!-- <div id="centerPage" class=" border-start border-end border-1"> -->
 
 			<div class="postList">
 			</div>
