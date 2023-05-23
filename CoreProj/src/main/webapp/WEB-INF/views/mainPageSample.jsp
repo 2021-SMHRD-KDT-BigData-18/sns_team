@@ -343,7 +343,6 @@
 			</div>
 		</div>
 	</div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
     
 
    <script>
