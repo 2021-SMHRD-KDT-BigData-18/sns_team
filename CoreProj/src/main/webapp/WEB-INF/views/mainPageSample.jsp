@@ -231,7 +231,7 @@
          <div class="navbar">
             <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/지식창고_로고.png" width="300"></a>
 
-<<<<<<< HEAD
+
 				<ul class="nav flex-column">
 					<ul class="nav-item">
 						<a class="nav-link active" aria-current="page" href="goMain.do"><i class="fa-solid fa-house fa-2x " style="color:rgba(15, 114, 60, 0.829)"></i>홈</a>
@@ -258,8 +258,7 @@
             <ul class="nav flex-column">
                <ul class="nav-item">
                   <a class="nav-link active" aria-current="page" href="goMain.do"><i class="fa-solid fa-house fa-2x " style="color:rgba(15, 114, 60, 0.829)"></i>홈</a>
-                  
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
+
 
                </ul>
                <ul class="nav-item">
@@ -306,7 +305,7 @@
                   <%--<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀 </h5> --%>
                   <c:if test="${sessionScope.user.getU_ID() != null}">
 
-<<<<<<< HEAD
+
                   <!-- <img src="\${sessionScope.getU_PROFILE_IMG()}"> -->
 
                   <!-- <img src="${sessionScope.user.getU_PROFILE_IMG()}"> -->
@@ -340,12 +339,10 @@
          </div>
       </div>
    </div>
-=======
 						<!-- <img src="\${sessionScope.user.getU_PROFILE_IMG()}"> -->
 						<%--<img src="${sessionScope.getU_PROFILE_IMG()}"> --%>
 						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
 							<a href="logout.do" class="btn btn-primary" style="margin-left: 70%"><i class="fa fa-arrow-right-from-bracket fa-2x" style="color:rgba(15, 114, 60, 0.829)"></i></a>
-						</c:if>
 						<c:if test="${sessionScope.user.getU_ID() == null}">
 						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 당장 로그인해주세요!!!</h5>
 							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 75%"><i class="fa fa-arrow-right-to-bracket fa-2x" style="color:rgba(15, 114, 60, 0.829)"></i></a>
@@ -372,10 +369,7 @@
 			</div>
 		</div>
 	</div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
-    
 
-<<<<<<< HEAD
 	<script>
 		$(document).ready(postLoad());
 		
@@ -572,7 +566,7 @@
 	                  }
 	               });
 	         }*/
-=======
+
    <script>
       $(document).ready(postLoad());
       
@@ -769,7 +763,7 @@
                      }
                   });
             }*/
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
+
 
          $('.btn_like').on('click',  
                function LikeUpdatePlus(){
