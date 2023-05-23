@@ -244,7 +244,7 @@
             
             <div class="my_info">
                 <div class="pro">
-                <img class="pro_img" src="./image/새새싹.png">
+                <img class="pro_img" src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}">
                 <span>&emsp;&emsp;</span>
                 <div class="id_nick">
                     <span class="my_id">${sessionScope.user.getU_ID()}</span>
@@ -373,7 +373,7 @@
                  console.log(res);
                  for(let i=0; i<res.length; i++){
                     let html='';
-                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                    rootpath="http://218.157.19.25:8081/jisik/P_FILE";
                     html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
                  	html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
                  	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
@@ -404,7 +404,7 @@
                   let html='';
                   rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
                   html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
-                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].P_FILE}">
+                      <img class="pa_area_img" src="\${rootpath}\${res[i].P_FILE}">
                       <p>\${res[i].P_TITLE}</p>
                       </div>`;
                   $(".my_post>#mypa_img").append(html);
@@ -432,7 +432,7 @@
                   let html='';
                   rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
                   html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPlantDetail.do?pl_id=\${res[i].PL_SEQ}';">
-                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].PL_IMG}">
+                      <img class="pa_area_img" src="\${rootpath}\${res[i].PL_IMG}">
                       <p>\${res[i].PL_NAME}</p>
                       </div>`;
                   $(".plants").append(html);
