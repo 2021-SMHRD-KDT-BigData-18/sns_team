@@ -11,169 +11,174 @@
 <link rel="stylesheet" href="assets/css/bootstrap.css">
 <script src="assets/js/bootstrap.bundle.js"></script>
 <script src="assets/js/jquery-3.7.0.min.js"></script>
+
 <style>
 body {
-	/*background-color: rgba(26, 255, 0, 0.166);*/
-	/*background-color: #F7F7F7;*/
-	background-color: #FBF8F1;
+   /*background-color: rgba(26, 255, 0, 0.166);*/
+   /*background-color: #F7F7F7;*/
+   background-color: #FBF8F1;
+	/*background-color: white;*/
 }
 
 @font-face {
-	font-family: 'omyu_pretty';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
-		format('woff2');
+   font-family: 'omyu_pretty';
+   src:
+      url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
+      format('woff2');
 }
 
 * {
-	align-items: center;
-	box-sizing: border-box;
-	font-family: 'omyu_pretty';
+   align-items: center;
+   box-sizing: border-box;
+   font-family: 'omyu_pretty';
 }
 
 img {
-	width: 300px;
-	height: 400px;
-	position: relative;
-	top: 100px;
-	margin-top: 250px;
-	margin-left: 400px;
-	display: inline-block;
-	animation: bounce .8s ease infinite alternate;
-	text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0
-		5px 0 #CCC, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0
-		transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, .4);
+   width: 300px;
+   height: 400px;
+   position: relative;
+   top: 100px;
+   margin-top: 250px;
+   margin-left: 400px;
+   display: inline-block;
+   animation: bounce .8s ease infinite alternate;
+   text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0
+      5px 0 #CCC, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0
+      transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, .4);
 }
 
 div {
-	position: relative;
-	width: 300px;
-	color: green;
+   position: relative;
+   width: 300px;
+   color: green;
 }
 
 h1 img:nth-child(2) {
-	animation-delay: .1s;
+   animation-delay: .1s;
 }
 
 input {
-	font-size: 15px;
-	color: #222222;
-	width: 300px;
-	border: none;
-	border-bottom: solid #aaaaaa 1px;
-	padding-bottom: 10px;
-	text-align: center;
-	position: relative;
-	background: none;
-	z-index: 5;
+   font-size: 15px;
+   color: #222222;
+   width: 300px;
+   border: none;
+   border-bottom: solid #aaaaaa 1px;
+   padding-bottom: 10px;
+   text-align: center;
+   position: relative;
+   background: none;
+   z-index: 5;
 }
 
 h1 img:nth-child(3) {
-	animation-delay: .2s;
+   animation-delay: .2s;
 }
 
 input::placeholder {
-	color: #aaaaaa;
+   color: #aaaaaa;
 }
 
 h1 img:nth-child(4) {
-	animation-delay: .3s;
+   animation-delay: .3s;
 }
 
 input:focus {
-	outline: none;
+   outline: none;
 }
 
 label {
-	position: absolute;
-	color: #aaa;
-	left: 10px;
-	font-size: 20px;
-	bottom: 8px;
-	transition: all .2s;
-	margin: 0 auto;
+   position: absolute;
+   color: #aaa;
+   left: 10px;
+   font-size: 20px;
+   bottom: 8px;
+   transition: all .2s;
+   margin: 0 auto;
 }
 
 h1 img:nth-child(5) {
-	animation-delay: .4s;
+   animation-delay: .4s;
 }
 
 input:focus ~label, input:valid ~label {
-	font-size: 16px;
-	bottom: 40px;
-	/*color: #666;*/
-	color: #83ab85;
-	font-weight: bold;
+   font-size: 16px;
+   bottom: 40px;
+   /*color: #666;*/
+   color: #83ab85;
+   font-weight: bold;
 }
 
 h1 img:nth-child(6) {
-	animation-delay: .5s;
+   animation-delay: .5s;
 }
 
 input:focus ~span, input:valid ~span {
-	width: 100%;
+   width: 100%;
 }
 
 .btn {
-	text-align: center;
-	margin: 30px;
-	width: 200px;
-	color: #83ab85;
-	background-color: beige;
-	h1 img: nth-child(7){     
-	animation-delay:.6s;
+   text-align: center;
+   margin: 30px;
+   width: 200px;
+   color: #83ab85;
+   background-color: beige;
+   h1 img: nth-child(7){     
+   animation-delay:.6s;
 }
 
 }
 .inputZone {
-	margin-top: 30px;
+   margin-top: 30px;
 }
 
 h1 img:nth-child(8) {
-	animation-delay: .7s;
+   animation-delay: .7s;
 }
 
 .btn1 {
-	text-align: center;
-	margin: 30px;
-	width: 200px;
-	text-align: center;
-	color: #83ab85;
-	background-color: beige;
+   text-align: center;
+   margin: 30px;
+   width: 200px;
+   text-align: center;
+   color: #83ab85;
+   background-color: beige;
 }
 
 .lo_area {
-	display: flex;
-	flex-direction: column;
+   display: flex;
+   flex-direction: column;
 }
 
 .container {
-	display: flex;
-	flex-direction: column;
-	margin-top: 120px;
+   display: flex;
+   flex-direction: column;
+   margin-top: 120px;
+   
+   	border-radius: 2%;
+	color:rgb(0, 78, 52);
 }
 
 form {
-	display: flex;
-	flex-direction: column;
+   display: flex;
+   flex-direction: column;
 }
 
 @
 keyframes bounce { 100% {
-	top: -20px;
-	text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0
-		5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0
-		50px 25px rgba(0, 0, 0, .2);
+   top: -20px;
+   text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0
+      5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0
+      50px 25px rgba(0, 0, 0, .2);
 }
 
 }
 .lo_area {
-	width: 300px;
-	height: 400px;
-	text-align: center;
-	font-size: 50px;
-	font-weight: bold;
-	border: "1px solid black";
+   width: 300px;
+   height: 400px;
+   text-align: center;
+   font-size: 50px;
+   font-weight: bold;
+   border: "1px solid black";
 }
 </style>
 </head>
@@ -181,7 +186,7 @@ keyframes bounce { 100% {
 <body>
 	<div class="container">
 		<div class="lo_area">
-			<div style="text-align: center;">로그인</div>
+			<div style="text-align: center; margin-top: 40px;">로그인</div>
 			<form action="login.do" method="post">
 
 				<div class="inputZone">
@@ -190,13 +195,13 @@ keyframes bounce { 100% {
 				<div class="inputZone">
 					<input name="U_PW" type="password" required> <label>PASSWORD</label>
 				</div>
-				<button type="submit" class="btn">로그인</button>
+				<button type="submit" class="btn btn-primary" style=" width: 80px; margin-top: 70px; margin-left: 340px;">로그인</button>
 
 			</form>
-			<div style="text-align: center;">-----아직 계정이 없으신가요?-----</div>
-			<br>
+			<div style="text-align: center; font-size: 25px; margin-top: 70px; width: 800px">-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;아직 계정이 없으신가요?&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;</div>
+			<%-- <div style="text-align: center; font-size: 25px; margin-top: 100px">-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;아직 계정이 없으신가요?&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;</div>--%>
 			<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-				data-bs-target="#joinModal">회원가입</button>
+				data-bs-target="#joinModal" style="margin-top: 50px">회원가입</button>
 		</div>
 
 	</div>
@@ -204,7 +209,7 @@ keyframes bounce { 100% {
 
 	<div class="modal fade" id="joinModal" tabindex="-1"
 		aria-labelledby="joinModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
+		<div class="modal-dialog" >
 			<div class="modal-content">
 				<div class="modal-header" style="text-align: center;">
 					<h1 class="modal-title fs-5" id="joinModalLabel">회원가입</h1>
