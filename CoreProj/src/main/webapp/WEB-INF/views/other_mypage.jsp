@@ -50,7 +50,8 @@
 	min-height: 100vh;
 	display: flex;
 	justify-content: space-between;
-	background-color: rgb(243, 243, 229);
+	/*background-color: rgb(243, 243, 229);*/
+	background-color: #F7F7F7;
 }
 
 #leftPage {
@@ -59,7 +60,8 @@
 
 #mypage_area {
 	width: 40%;
-	background-color: rgb(235, 207, 138);
+	/*background-color: rgb(235, 207, 138);*/
+	background-color: #FBF8F1;
 }
 
 #rightPage {
@@ -75,8 +77,8 @@
 	background: #83ab85;
 	padding: 20px;
 	text-align: center;
-	font-size: 30px;
-	font-weight: bold;
+	font-size: 40px;
+	color: white;
 	letter-spacing: 5px;
 }
 
@@ -242,7 +244,7 @@ span {
 
 
 	<div id="backgroundArea">
-		<div id="leftPage" class="border-end">
+		<div id="leftPage">
 			<div class="navbar">
 				<ul class="nav flex-column">
 					<a class="nav-link active" aria-current="page" href="goMain.do"><img
@@ -256,14 +258,14 @@ span {
 			</div>
 		</div>
 		
-		<div id="mypage_area">
+		<div id="mypage_area" class=" border-start border-end border-1">
 			<p id="title"> <%=friend.getU_NICK() %> Page</p>
 			<div class="my_info">
 				<div class="pro">
 					<img class="pro_img" src="./image/친구새싹누끼.png"> <span>&emsp;&emsp;</span>
 					<div class="id_nick">
-						<span class="my_id"><%=friend.getU_ID()%></span> <span
-							class="my_name"><%=friend.getU_NICK() %></span>
+						<span class="my_id"><%=friend.getU_ID()%></span>
+						<span class="my_name"><%=friend.getU_NICK() %></span>
 					</div>
 					<button class="btn" id = "btn_follow">풀링</button>
 					<br>

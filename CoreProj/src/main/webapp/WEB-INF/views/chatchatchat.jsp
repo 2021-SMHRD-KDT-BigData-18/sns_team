@@ -40,6 +40,10 @@
             display: flex;
             /* justify-content: space-between; */
             /*background-color: rgb(243, 243, 229);*/
+<<<<<<< HEAD
+=======
+             background-color: #F7F7F7;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
         }
 
         #leftPage {
@@ -51,8 +55,13 @@
             display: flex;
             flex-direction: column;
             width: 40%;
+<<<<<<< HEAD
             background-color: rgb(243, 24, 229);
          }
+=======
+            /*background-color: rgb(235, 207, 138);*/
+        }
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
         #rightPage {
             display: flex;
@@ -205,17 +214,23 @@
 
 
 #chatWrap {
-    width: 600px;
-    border: 1px solid #ddd;
+    width: 40%;
+    /*border: 1px solid #ddd;*/
+    background-color: #FBF8F1;
 }
 
 #chatHeader {
-    height: 60px;
+    /*height: 60px;*/
     text-align: center;
     line-height: 60px;
-    font-size: 25px;
-    font-weight: 900;
+    font-size: 40px;
     border-bottom: 1px solid #ddd;
+    background: #83ab85;
+    padding: 20px;
+    color: white;
+    letter-spacing: 5px;
+    
+    
 }
 
 #chatLog {
@@ -327,7 +342,7 @@ List<T_CHATTING> chatRecord = dao2.list(roomId);
         </div>
 
         <!-- 뽀려온거 -->
-        <div id="chatWrap">
+        <div id="chatWrap" class=" border-start border-end border-1">
             <div id="chatHeader">풀채팅</div>
 
             <%--<% T_USER dto=new T_USER(); dto.setU_ID("smhrd"); session.setAttribute("user", dto); --%>

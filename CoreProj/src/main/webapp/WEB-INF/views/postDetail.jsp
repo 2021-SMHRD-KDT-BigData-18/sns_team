@@ -14,8 +14,21 @@
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <script src="assets/js/bootstrap.bundle.js"></script>
     <script src="assets/js/jquery-3.7.0.min.js"></script>
-    <style>
+    <style> 
+    	@font-face {
+                font-family: 'omyu_pretty';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+        }
         #backgroundArea {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            /*background-color: rgb(243, 243, 229);*/
+            background-color: #F7F7F7;
+        }
+       /* #backgroundArea {
             @font-face {
                 font-family: 'omyu_pretty';
                 src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
@@ -27,12 +40,13 @@
             justify-content: space-between;
             background-color: rgb(243, 243, 229);
         }
+        */
 
         #leftPage {
             width: 30%;
             display: flex;
             justify-content: center;
-            background-color: beige(7, 160, 7);
+            /*background-color: beige(7, 160, 7);*/
         }
 
 
@@ -41,12 +55,13 @@
             flex-direction: column;
             width: 40%;
             align-items: center;
-            background-color: rgb(235, 207, 138);
+            /*background-color: rgb(235, 207, 138);*/
+            background-color: #FBF8F1;
         }
 
         * {
             font-family: 'omyu_pretty';
-            background-color: rgb(243, 243, 229);
+            /*background-color: rgb(243, 243, 229);*/
         }
 
         #rightPage {
@@ -62,7 +77,7 @@
             width: 200px;
             position: fixed;
             margin-top: 15%;
-            background-color: beige(7, 160, 7);
+            /*background-color: beige(7, 160, 7);*/
             align-items: flex-end;
             line-height: 1.5;
         }
@@ -147,7 +162,7 @@
             border-radius: 10px;
             /*background-color: white;*/
             margin-bottom: 10px;
-            background-color: rgb(243, 243, 229);
+            /*background-color: rgb(243, 243, 229);*/
         }
 
         .postCardImg {
@@ -188,7 +203,7 @@
         }
 
         hr {
-            background-color: rgb(243, 243, 229);
+            /*background-color: rgb(243, 243, 229);*/
         }
 
         #cmt_list {
@@ -255,7 +270,7 @@
             text-align: center;
         }
         #cmt_list{
-            background: rgb(243, 243, 229);
+            /*background: rgb(243, 243, 229);*/
             height: 200px;
         }
      
@@ -267,7 +282,7 @@
 <body>
 
     <div id="backgroundArea">
-        <div id="leftPage" class="border-end">
+        <div id="leftPage">
             <div class="navbar">
                 <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/지식창고_로고.png" width="300"></a>
 
@@ -369,6 +384,7 @@
     <script>
         
             $(document).ready(cmtLoad());
+            $(document).ready(listenerOK());
             function cmtLoad() {
             	let p_seq = <%=request.getParameter("p_id")%>;
             	console.log(p_seq);

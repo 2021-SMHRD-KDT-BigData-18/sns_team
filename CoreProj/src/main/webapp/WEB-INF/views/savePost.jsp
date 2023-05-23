@@ -39,7 +39,8 @@
             min-height: 100vh;
             display: flex;
             justify-content: space-between;
-            background-color: rgb(243, 243, 229);
+            /*background-color: rgb(243, 243, 229);*/
+            background-color: #F7F7F7;
         }
         
         #leftPage {
@@ -48,7 +49,8 @@
         
         #mypage_area {
             width: 40%;
-            background-color: rgb(235, 207, 138);
+            /*background-color: rgb(235, 207, 138);*/
+            background-color: #FBF8F1;
         }
         
         #rightPage {
@@ -65,6 +67,8 @@
             padding: 20px;
             text-align: center;
             font-size: 40px;
+            color: white;
+            letter-spacing: 5px;
         }
         
         .nav {
@@ -203,7 +207,7 @@
 
 <body>
     <div id="backgroundArea">
-        <div id="leftPage" class="border-end">
+        <div id="leftPage">
             <div class="navbar">
                 <ul class="nav flex-column">
                     <a class="nav-link active" aria-current="page" href="goMain.do"><img class=logo src="./image/새싹 누끼.png" >
@@ -217,7 +221,7 @@
             </div>
         </div>
 
-        <div id="mypage_area">
+        <div id="mypage_area" class=" border-start border-end border-1">
             <p id="title">저장 게시글</p>
             
             <div class="my_info" style="display:flex; flex-flow: row wrap; ">

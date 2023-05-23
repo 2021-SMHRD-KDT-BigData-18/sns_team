@@ -29,7 +29,6 @@
             min-height: 100vh;
             display: flex;
             justify-content: space-between;
-            background-color: rgb(243, 243, 229);
         }
 
         #leftPage {
@@ -135,12 +134,13 @@
         }
 
         .chat_list_wrap .header {
-            font-size: 30px;
-            padding: 20px 0;
+            font-size: 40px;
+            padding: 20px;
             background: #83ab85;
             color: white;
             text-align: center;
             font-family: "Josefin Sans", sans-serif;
+            letter-spacing: 5px;
         }
 
         .chat_list_wrap .search {
