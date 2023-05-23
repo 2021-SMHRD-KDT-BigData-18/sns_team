@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.smhrd.controller.AddEventCon;
 import kr.smhrd.controller.BookmarkCon;
+import kr.smhrd.controller.ChangeProfCon;
 import kr.smhrd.controller.Controller;
 import kr.smhrd.controller.DelCmtCon;
 import kr.smhrd.controller.DelFriendCon;
@@ -114,6 +115,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/writePlant.do", new WritePlantCon());
 		mappings.put("/goPlantDetail.do", new GoPlantDetailCon());
 		mappings.put("/addEvent.do", new AddEventCon());
+		mappings.put("/changeProf.do", new ChangeProfCon());
 		
 	}
 	
