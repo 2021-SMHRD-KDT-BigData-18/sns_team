@@ -40,20 +40,28 @@
             display: flex;
             /* justify-content: space-between; */
             /*background-color: rgb(243, 243, 229);*/
+<<<<<<< HEAD
+=======
              background-color: #F7F7F7;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
         }
 
         #leftPage {
             width: 30%;
-            background-color: beige(7, 160, 7);
+             /*background-color: beige(7, 160, 7); */
         }
 
         #centerPage {
             display: flex;
             flex-direction: column;
             width: 40%;
+<<<<<<< HEAD
+            background-color: rgb(243, 24, 229);
+         }
+=======
             /*background-color: rgb(235, 207, 138);*/
         }
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
         #rightPage {
             display: flex;
