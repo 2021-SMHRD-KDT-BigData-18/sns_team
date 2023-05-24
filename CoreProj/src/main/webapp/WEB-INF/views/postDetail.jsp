@@ -304,11 +304,18 @@
         <div id="centerPage" class=" border-start border-end border-1">
             <!-- <div class="btnchange">
             </div> -->
-            <div class="postList">
+            
+        
                 	<c:if test="${user.getU_ID() == requestScope.post.getU_ID()}">
-						<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✎</a>
-                		<a href="" class="btn btn_change" id="post_delete">✘</a> 
+                	<ul>
+						<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change"><i class=class="fa-regular fa-circle-user fa-lg"></i>수정</a>
+                		<a href="" class="btn btn_change" id="post_delete"><i class="fa fa-xmark"></i></a> 
+						<%--<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✏</a>
+                		<a href="" class="btn btn_change" id="post_delete">✘</a>
+						--%>					
+					</ul>
 					</c:if>
+            <div class="postList">
                 <div class="postCard">
                     
                     <div class="card-body">
