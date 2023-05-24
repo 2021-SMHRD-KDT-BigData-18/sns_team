@@ -314,8 +314,6 @@
         <div id="centerPage" class=" border-start border-end border-1">
             <!-- <div class="btnchange">
             </div> -->
-            
-        
                 	<c:if test="${user.getU_ID() == requestScope.post.getU_ID()}">
                 	<div>
                 		<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change">
@@ -329,6 +327,9 @@
 						<%--<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change"><i class="fas fa-pencil-alt"></i></a>
                 		<a href="" class="btn btn_change" id="post_delete"><i class="fa fa-xmark"></i></a>  --%>
 					</div>
+					</c:if>
+                	<c:if test="${user.getU_ID() != requestScope.post.getU_ID()}">
+                		<p style="margin-top: 20px">&emsp;</p>
 					</c:if>
             <div class="postList">
                 <div class="postCard">
