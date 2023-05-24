@@ -263,9 +263,9 @@ span {
 			<p id="title"> <%=friend.getU_NICK() %> Page</p>
 			<div class="my_info">
 				<div class="pro">
-					<img class="pro_img" src="./image/친구새싹누끼.png"> <span>&emsp;&emsp;</span>
+					<img class="pro_img" src="./image/친구새싹누끼.png"> <span>&emsp;</span>
 					<div class="id_nick">
-						<span class="my_id"><%=friend.getU_ID()%></span>
+						<span class="my_id" ><%=friend.getU_ID()%></span>
 						<span class="my_name"><%=friend.getU_NICK() %></span>
 					</div>
 					<c:if test="${requestScope.checkFollow eq 'false'}">
