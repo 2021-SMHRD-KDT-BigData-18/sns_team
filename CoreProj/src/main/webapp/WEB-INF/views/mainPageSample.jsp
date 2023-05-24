@@ -223,10 +223,18 @@
 
 </head>
 <body>
+<<<<<<< HEAD
 	<div id="backgroundArea">
 		<div id="leftPage" class="border-end">
 			<div class="navbar">
 				<a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/지식창고_로고.png" width="300"></a>
+=======
+   <div id="backgroundArea">
+      <div id="leftPage">
+      <!-- <div id="leftPage" class="border-end"> -->
+         <div class="navbar">
+            <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
 				<ul class="nav flex-column">
 					<ul class="nav-item">
@@ -259,6 +267,7 @@
 			</div>
 		</div>
 
+<<<<<<< HEAD
 		<div id="rightPage">
 			<div style="margin: 30px; position: fixed;">
 				<div id="profileCard" class="card"style="width:450px;  ">
@@ -277,6 +286,30 @@
 					<div class="card-body">
 						<%--<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀 </h5> --%>
 						<c:if test="${sessionScope.user.getU_ID() != null}">
+=======
+      <div id="rightPage">
+         <div style="margin: 30px; position: fixed;">
+            <div id="profileCard" class="card"style="width:450px;  ">
+               <img
+                  src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
+                  alt="프로필 이미지">
+               <%-- <img
+                  src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshopping.phinf.naver.net%2Fmain_3807892%2F38078924706.20230218214528.jpg&type=sc960_832"
+                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
+                  alt="프로필 이미지">
+                  
+                  
+                    <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
+                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
+                  alt="프로필 이미지"> 
+                  --%>
+                  
+               <div class="card-body">
+                  <%--<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀 </h5> --%>
+                  <c:if test="${sessionScope.user.getU_ID() != null}">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
 						<!-- <img src="\${sessionScope.getU_PROFILE_IMG()}"> -->
 
@@ -313,6 +346,7 @@
 	</div>
     
 
+<<<<<<< HEAD
 	<script>
 		$(document).ready(postLoad());
 		
@@ -509,7 +543,219 @@
 	                  }
 	               });
 	         }*/
+=======
+   <script>
+      $(document).ready(postLoad());
+      
+      function postLoad() {
+         $.ajax({
+            url : "goMainPost.do",
+            type : "post",
+            data : {},
+            dataType : "json",
+            success : function(res) {
+               let html='';
+               console.log(res);
+               console.log('dkssud');
+               for(let i=0; i<res.length; i++){
+                  rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                  html=`<div class="postCard">
+                    <div class="card-body" style="display: flex;">
+                        <div class="profile_img"> <p style="display: none;">\${res[i].U_ID}</p></div>
+                        <div style="width:307px">
+                        <p id="post_id" style="display: none;">\${res[i].P_SEQ}</p>
+                            <h5 class="card-title">
+                            \${res[i].P_TITLE}</h5>
+                            <span class="card-text">\${res[i].U_ID}</span>
+                            <br>
+                            <span class="card-text">\${res[i].P_CONTENT}</span>
+                        </div>
+                    </div>
+                    <img src="\${rootpath}\${res[i].P_FILE}" class="postCardImg" alt="프로필 이미지">
+                    <div class="card-footer">
+                        <p></p>
+                        <hr>
+                        <div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱 <span class="likes">\${res[i].P_LIKES}</span>회</button>
+                            <p>\${res[i].P_VIEWS} 회</p>
+                            <button class="btn_bookmark"><i class="fa-regular fa-bookmark"></i></button>
+                            <a href="#" id="urlCopy" class="btn_urlCopy" title="공유하기" onclick="clip(\${res[i].P_SEQ}); return false;"><i class="fa-solid fa-share-from-square"></i></a>
+                        </div>
+                    </div>
+                </div>`;
+                  
+                  
+                  /*html='';
+                  rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                  html+='<div class="postCard"><div class="card-body"><div></div><p id="post_id" style="display: none;">';
+                  html+=res[i].P_SEQ;
+                  html+='</p>';
+                  html+='<h5 class="card-title">';
+                  html+=res[i].P_TITLE+'</h5>';
+                  html+='<p class="card-text">'+res[i].U_ID+'</p>';
+                  html+='<p class="card-text">'+res[i].P_CONTENT+'</p></div>';
+                  html+='<img src="'+rootpath+res[i].P_FILE+'" class="postCardImg" alt="프로필 이미지">';
+                  html+='<div class="card-footer"><p></p><hr>';
+                  html+='<div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">'+res[i].P_SEQ+'</p>🌱</button>';
+                  html+='<p>' + res[i].P_VIEWS +'회</p>';
+                  html+='<button class="btn_bookmark">북마크</button></div></div></div>';*/
+                  $(".postList").append(html);
+                   }
+               listenerOK();
+               friendSelect();
+            },
+            error : function(e) {
+               // 요청이 실패하면 실행될 콜백함수
+               alert("요청 실패!");
+            }
+         });
+      }
+      function listenerOK() {
+         let post = $('.card-body>div+div');
+         let prof = $('.profile_img');
+         let btn_bookmark = $('.btn_bookmark');
+         let btn_like=$('.btn_like');
+         console.log(prof);
+         post.on('click',goToPost);
+         prof.on('click', goToProf);
+         btn_bookmark.on('click',markPost);
+         btn_like.on('click',likePost);
+         };
+         
+         function goToProf(){
+            let u_id = $(this).children()[0].innerText;
+            console.log(u_id);
+            location.href='goMypage.do?u_id='+u_id;
+         }
+         
+         
+         function goToPost() {
+            let p_id=$(this).children()[0].innerText;
+            location.href='goPostDetail.do?p_id='+p_id;
+         };
+         
+         function likePost(){
+            //console.log($(this).children()[0].innerText);
+            let p_id=$(this).children()[0].innerText;
+            let likes=$(this).children()[1];
+            
+            $.ajax({
+               url:'like.do',
+               type:'post',
+               data:{"p_id":p_id},
+               success : function(res){
+                  if(res=='added'){
+                       alert("좋아요 성공!");
+                       likes.innerText=Number(likes.innerText)+1;
+                  }
+                  else{
+                  alert("좋아요 삭제!");
+                       likes.innerText=Number(likes.innerText)-1;
+                  }
+               },
+               error : function(e){
+                        alert("실패!");
+                     }
+            });
+         };
+         
+         function clip(p_id){
 
+             var url = 'http://localhost:8081/jisik/goPostDetail.do?p_id='+p_id;    
+             var textarea = document.createElement("textarea");  
+             
+             document.body.appendChild(textarea); 
+             //url = window.document.location.href;  
+             textarea.value = url;  
+             textarea.select();  
+             document.execCommand("copy");   
+             document.body.removeChild(textarea); 
+             
+             alert("URL이 복사되었습니다.")  
+         };
+         
+         function markPost(){
+            //console.log($(this).prevAll()[1].children[0].innerText);
+            let p_id=$(this).prevAll()[1].children[0].innerText;
+            $.ajax({
+               url:'bookmark.do',
+               type:'post',
+               data:{"p_id":p_id},
+               success : function(res){
+                  if(res=='added'){
+                       alert("성공!");
+                  }
+                  else{
+                  alert("삭제!");
+                  }
+                  
+               },
+               error : function(e){
+                        alert("로그인이 필요합니다!");
+                     }
+            });
+         };
+         
+         
+         function friendSelect(){
+            $.ajax( {
+                    url : 'friendSelect.do', 
+                    type : 'post', 
+                    data : {}, 
+                    dataType : "json", 
+                    success : function(res){
+                       console.log('시작');
+                       console.log(res);
+                       for(let i=0; i<res.length; i++){
+                          let html='';
+                          rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                          html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
+                          html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                          html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                          html+='</div> <a  href="javascript:void(0);" onclick="delFriend(\''+res[i].F_ID+'\');">친삭</a></div>';
+                          $(".friends").append(html);
+                       }
+                    },
+                    error : function(e){
+                       //alert("요청 실패!");
+                       let html = '';
+                       html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+                       $(".friends").append(html);
+                    }
+                 } );
+           }
+         
+      /*
+         function friendSelect(){
+            
+               $.ajax({
+                     url : 'friendSelect.do', 
+                     type : 'post', 
+                     data : {}, 
+                     dataType : "json", 
+                     success : function(res){
+                        console.log('시작');
+                        console.log(res);
+                        for(let i=0; i<res.length; i++){
+                           let html='';
+                           rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                           html+='<div class="accordion-body">';
+                        html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                        html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                           html+='</div>';
+                           $(".accordion-body").append(html);
+                        }
+                     },
+                     error : function(e){
+                        //alert("요청 실패!");
+                        let html = '';
+                        html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+                        $(".accordion-body").append(html);
+                     }
+                  });
+            }*/
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
+
+<<<<<<< HEAD
 			$('.btn_like').on('click',  
 					function LikeUpdatePlus(){
 				let p_seq = $('p.post_id').innerText;
@@ -550,6 +796,70 @@
 					}*/
 					);
 	</script>
+=======
+         $('.btn_like').on('click',  
+               function LikeUpdatePlus(){
+            let p_seq = $('p.post_id').innerText;
+                    $.ajax({
+                         url: "likeUpdatePlus.do",
+                         type: "POST",
+                         dataType: "json",
+                         data: p_seq,  
+                         success: 
+                         function(data){                     
+                            alert("'좋아요'가 반영되었습니다!") ;  
+                               $(".btn_like").html("🌱" + data.P_LIKES);  
+                         },   
+                         
+                         error: 
+                         function (request, status, error){  
+                           alert("로그인이 필요합니다!")                  
+                         }
+                       });
+               }/*,
+               function LikeUpdateMinus(){
+                    $.ajax({
+                         url: "likeUpdateMinus.do",
+                         type: "POST",
+                         dataType: "json",
+                         data: {},   
+                         success: 
+                         function(data){                     
+                            alert("'좋아요'가 반영되었습니다!") ;  
+                               $(".btn_like").html("🌱" + data.like);  
+                         },   
+                         
+                         error: 
+                         function (request, status, error){  
+                           alert("실패")                  
+                         }
+                       });
+               }*/
+               );
+            
+            
+            function delFriend(f_id){
+            	//let f_id = $(this).innerText;
+            	console.log(f_id);
+            	//console.log($(this).prev().children()[5].innerText);    	
+            	$.ajax( {
+                    url : 'delFriend.do', 
+                    type : 'post',
+                    data : {"f_id":f_id},
+                    success : function(res){
+                    	console.log("친삭완료.");
+                    	$(".friends").html('');
+                    	   friendSelect();
+                    },
+                    error : function(e){
+                       alert("요청 실패!");
+                    }
+                 } );
+            }
+            
+            
+   </script>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
 </body>
 </html>

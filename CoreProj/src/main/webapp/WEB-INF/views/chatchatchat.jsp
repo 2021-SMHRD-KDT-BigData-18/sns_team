@@ -324,7 +324,7 @@ List<T_CHATTING> chatRecord = dao2.list(roomId);
     <div id="backgroundArea">
         <div id="leftPage">
             <div class="navbar">
-                <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고 누끼.png" width="300"></a>
+                <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">
@@ -430,12 +430,11 @@ List<T_CHATTING> chatRecord = dao2.list(roomId);
                             친구목록
                         </button>
                     </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body"> 친구목록 띄워주쇼 <code>.accordion-flush</code> class. This is the
-                            first item's accordion
-                            body.</div>
-                    </div>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body friends"> 
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -489,13 +488,45 @@ List<T_CHATTING> chatRecord = dao2.list(roomId);
 
 </script>
 <script type="text/javascript">
+
+
+$(document).ready(friendSelect());
+function friendSelect(){
+	$.ajax( {
+          url : 'friendSelect.do', 
+          type : 'post', 
+          data : {}, 
+          dataType : "json", 
+          success : function(res){
+             console.log('시작');
+             console.log(res);
+             for(let i=0; i<res.length; i++){
+                let html='';
+                rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
+                html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                html+='</div> <a  href="javascript:void(0);" onclick="delFriend(\''+res[i].F_ID+'\');">친삭</a></div>';
+                $(".friends").append(html);
+             }
+          },
+          error : function(e){
+             //alert("요청 실패!");
+             let html = '';
+             html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+             $(".friends").append(html);
+          }
+       } );
+ }
+
+
+
+
+
+
     var textarea = document.getElementById("chatLog");
     var path='ws://218.157.19.25:8081/jisik/broadcasting/';
     path+=<%=roomId%>
-    /*if('${user.getU_ID()}'=='aa'){path+='123';}
-    else if('${user.getU_ID()}'=='bb'){path+='123';}
-    else if('${user.getU_ID()}'=='cc'){path+='456';}
-    else if('${user.getU_ID()}'=='dd'){path+='456';}*/
     var webSocket = new WebSocket(path);
     var inputMessage = document.getElementById('inputMessage');
     webSocket.onerror = function(event) {
@@ -566,6 +597,36 @@ List<T_CHATTING> chatRecord = dao2.list(roomId);
         var elem = document.getElementById('chatLog');
         elem.scrollTop = elem.scrollHeight;
     }, 0);
+    
+    
+    
+    
+    
+    function delFriend(f_id){
+    	//let f_id = $(this).innerText;
+    	console.log(f_id);
+    	//console.log($(this).prev().children()[5].innerText);    	
+    	$.ajax( {
+            url : 'delFriend.do', 
+            type : 'post',
+            data : {"f_id":f_id},
+            success : function(res){
+            	console.log("친삭완료.");
+            	$(".friends").html('');
+            	   friendSelect();
+            },
+            error : function(e){
+               alert("요청 실패!");
+            }
+         } );
+    }
+    
+    /*if('${user.getU_ID()}'=='aa'){path+='123';}
+    else if('${user.getU_ID()}'=='bb'){path+='123';}
+    else if('${user.getU_ID()}'=='cc'){path+='456';}
+    else if('${user.getU_ID()}'=='dd'){path+='456';}*/
+    
+    
 </script>
 
     

@@ -240,6 +240,7 @@ span {
 	T_USER friend = dao.searchUser((request.getParameter("u_id")));
 	T_FRIENDDAO f_dao = new T_FRIENDDAO();
 	boolean checkFollow = f_dao.checkFollow(((T_USER)session.getAttribute("user")).getU_ID() ,friend.getU_ID());
+	request.setAttribute("checkFollow", checkFollow);
 %>
 
 
@@ -267,7 +268,9 @@ span {
 						<span class="my_id"><%=friend.getU_ID()%></span>
 						<span class="my_name"><%=friend.getU_NICK() %></span>
 					</div>
+					<c:if test="${requestScope.checkFollow eq 'false'}">
 					<button class="btn" id = "btn_follow">풀링</button>
+					</c:if>
 					<br>
 				</div>
 				<div class="pro1">
@@ -278,7 +281,7 @@ span {
 				<div class="p_p_info">
 					<div class="my_pa">
 						<span>&nbsp;창고지기 식물&nbsp;</span>
-						<div id="mypa_img">
+						<div id="mypa_img" class="plants">
 							<!--  <div class="pa_area">
 								<img class="pa_area_img" src="./image/새싹.png">
 							</div>
@@ -316,14 +319,17 @@ span {
 
 		<div id="rightPage">
 			<div style="margin: 30px; position: fixed; max-width: 450px;">
-				<div id="profileCard" class="card">
-					<img
+				<div id="profileCard" class="card" style="width:450px;">
+				<img
+                  src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
+                  alt="프로필 이미지">
+					<!-- <img
 						src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
 						style="height: 300px; width: 400px; object-fit: none;"
-						class="card-img-top" alt="프로필 이미지">
+						class="card-img-top" alt="프로필 이미지"> -->
 					<div class="card-body">
-						<h5 class="card-title" style="margin-left: 22%;">${sessionScope.user.getU_ID()}님
-							환영합니다</h5>
+						<h5 class="card-title" style="margin-left: 22%;">${sessionScope.user.getU_ID()}님 환영합니다🍀</h5>
 						<c:if test="${sessionScope.user.getU_ID() != null}">
 							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
 						</c:if>
@@ -472,7 +478,24 @@ span {
          } );
     };
     
-    
+    function delFriend(f_id){
+    	//let f_id = $(this).innerText;
+    	console.log(f_id);
+    	//console.log($(this).prev().children()[5].innerText);    	
+    	$.ajax( {
+            url : 'delFriend.do', 
+            type : 'post',
+            data : {"f_id":f_id},
+            success : function(res){
+            	console.log("친삭완료.");
+            	$(".friends").html('');
+            	   friendSelect();
+            },
+            error : function(e){
+               alert("요청 실패!");
+            }
+         } );
+    }
     
     
     </script>

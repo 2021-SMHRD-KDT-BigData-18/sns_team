@@ -225,7 +225,7 @@
         <div id="leftPage">
             <div class="navbar">
                 <ul class="nav flex-column">
-                    <a class="nav-link active" aria-current="page" href="goMain.do"><img class=logo src="./image/새싹 누끼.png" ></a>
+                    <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
                     </li>
@@ -244,7 +244,7 @@
             
             <div class="my_info">
                 <div class="pro">
-                <img class="pro_img" src="./image/새새싹.png">
+                <img class="pro_img" src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}">
                 <span>&emsp;&emsp;</span>
                 <div class="id_nick">
                     <span class="my_id">${sessionScope.user.getU_ID()}</span>
@@ -322,11 +322,13 @@
     </div>
     <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
-                <div id="profileCard" class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
-                        style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
+                <div id="profileCard" class="card" style="width:450px;">
+                <img src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
+                    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
+                        style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지"> -->
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()}</h5>
+                        <h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
 						<c:if test="${sessionScope.user.getU_ID() != null}">
 							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
 						</c:if>
@@ -371,7 +373,7 @@
                  console.log(res);
                  for(let i=0; i<res.length; i++){
                     let html='';
-                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                    rootpath="http://218.157.19.25:8081/jisik/P_FILE";
                     html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
                  	html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
                  	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
@@ -402,7 +404,7 @@
                   let html='';
                   rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
                   html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
-                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].P_FILE}">
+                      <img class="pa_area_img" src="\${rootpath}\${res[i].P_FILE}">
                       <p>\${res[i].P_TITLE}</p>
                       </div>`;
                   $(".my_post>#mypa_img").append(html);
@@ -430,7 +432,7 @@
                   let html='';
                   rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
                   html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPlantDetail.do?pl_id=\${res[i].PL_SEQ}';">
-                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].PL_IMG}">
+                      <img class="pa_area_img" src="\${rootpath}\${res[i].PL_IMG}">
                       <p>\${res[i].PL_NAME}</p>
                       </div>`;
                   $(".plants").append(html);

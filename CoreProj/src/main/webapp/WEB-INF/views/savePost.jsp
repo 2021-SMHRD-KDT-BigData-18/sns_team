@@ -210,7 +210,7 @@
         <div id="leftPage">
             <div class="navbar">
                 <ul class="nav flex-column">
-                    <a class="nav-link active" aria-current="page" href="goMain.do"><img class=logo src="./image/새싹 누끼.png" >
+                    <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
                     </li>
@@ -242,10 +242,15 @@
         <div id="rightPage">
 			<div style="margin: 30px; position: fixed;">
 				<div id="profileCard" class="card"style="width:450px;  ">
+				
+				<img src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
+                  
+                  <!-- 
 					<img
 						src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshopping.phinf.naver.net%2Fmain_3807892%2F38078924706.20230218214528.jpg&type=sc960_832"
 						style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
-						alt="프로필 이미지">
+						alt="프로필 이미지"> -->
 						
 						<%-- 
 					  	<img
@@ -282,7 +287,7 @@
 						<div id="flush-collapseOne" class="accordion-collapse collapse"
 							aria-labelledby="flush-headingOne"
 							data-bs-parent="#accordionFlushExample">
-							<div class="accordion-body">
+							<div class="accordion-body friends">
 								
 							</div>
 						</div>
@@ -305,9 +310,9 @@
                 let html='';
                 console.log(res);
                 for(let i=0; i<res.length; i++){
-                    rootpath='P_FILE/';
+                    rootpath='http://218.157.19.25:8081/jisik/P_FILE/';
                     html+=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';" style="margin-left:24px;">
-                        <img class="pa_area_img" src="\${rootpath}/image/\${res[i].P_FILE}">
+                        <img class="pa_area_img" src="\${rootpath}\${res[i].P_FILE}">
                         <p></p>
                         </div>
                         <p>&emsp;</p>`;
@@ -335,13 +340,13 @@
                  console.log('시작');
                  console.log(res);
                  for(let i=0; i<res.length; i++){
-                    let html='';
-                    rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                    html+='<div class="accordion-body">';
-                 html+='<img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
-                 html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
-                    html+='</div>';
-                    $(".accordion-body").append(html);
+                	 let html='';
+                     rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                     html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
+                  	html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                  	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                     html+='</div> <a  href="javascript:void(0);" onclick="delFriend(\''+res[i].F_ID+'\');">친삭</a></div>';
+                     $(".friends").append(html);
                  }
               },
               error : function(e){
@@ -353,6 +358,25 @@
            });
      }
     
+    
+    function delFriend(f_id){
+      	//let f_id = $(this).innerText;
+      	console.log(f_id);
+      	//console.log($(this).prev().children()[5].innerText);    	
+      	$.ajax( {
+              url : 'delFriend.do', 
+              type : 'post',
+              data : {"f_id":f_id},
+              success : function(res){
+              	console.log("친삭완료.");
+              	$(".friends").html('');
+              	   friendSelect();
+              },
+              error : function(e){
+                 alert("요청 실패!");
+              }
+           } );
+      }
     
     
     

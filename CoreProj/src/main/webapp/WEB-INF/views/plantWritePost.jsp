@@ -249,7 +249,7 @@
     <div id="backgroundArea">
         <div id="leftPage">
             <div class="navbar">
-                <img class="img" src="./image/로고 누끼.png" width="300">
+                <a class="nav-link active" aria-current="page" href="goMain.do"><img class=logo src="./image/새싹 누끼.png" ></a>
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">
@@ -311,12 +311,16 @@
         <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
-                        style="height:200px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
+                
+                <img src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
+                
+                   <!--  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
+                        style="height:200px; object-fit: none;" class="card-img-top" alt="프로필 이미지"> -->
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-left: 15%;">smhrd 님 환영합니다</h5>
-                        <a href="#" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
-                        <a href="#" class="btn btn-primary" style="margin-left: 5%;">회원정보 수정</a>
+                        <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
+                        <a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
+                       <!-- <a href="#" class="btn btn-primary" style="margin-left: 5%;">회원정보 수정</a>-->
                     </div>
                 </div>
 
@@ -330,11 +334,12 @@
                             </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body"> 친구목록 띄워주쇼 <code>.accordion-flush</code> class. This is the
-                                first item's accordion
-                                body.</div>
-                        </div>
+							aria-labelledby="flush-headingOne"
+							data-bs-parent="#accordionFlushExample">
+							<div class="accordion-body friends">
+								
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
@@ -342,12 +347,68 @@
     </div>
 
     <script>
+    	$(document).ready(friendSelect());
         let post = $('.postCard>.card-body');
         console.log(post);
         post.on('click', printID);
         function printID() {
             console.log($(this).children()[0].innerText);
         }
+        
+        
+        
+function friendSelect(){
+    		
+            $.ajax({
+                  url : 'friendSelect.do', 
+                  type : 'post', 
+                  data : {}, 
+                  dataType : "json", 
+                  success : function(res){
+                     console.log('시작');
+                     console.log(res);
+                     for(let i=0; i<res.length; i++){
+                    	 let html='';
+                         rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                         html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
+                      	html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                      	html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                         html+='</div> <a  href="javascript:void(0);" onclick="delFriend(\''+res[i].F_ID+'\');">친삭</a></div>';
+                         $(".friends").append(html);
+                     }
+                  },
+                  error : function(e){
+                     //alert("요청 실패!");
+                     let html = '';
+                     html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+                     $(".friends").append(html);
+                  }
+               });
+         }
+        
+        
+        
+        
+        function delFriend(f_id){
+          	//let f_id = $(this).innerText;
+          	console.log(f_id);
+          	//console.log($(this).prev().children()[5].innerText);    	
+          	$.ajax( {
+                  url : 'delFriend.do', 
+                  type : 'post',
+                  data : {"f_id":f_id},
+                  success : function(res){
+                  	console.log("친삭완료.");
+                  	$(".friends").html('');
+                  	   friendSelect();
+                  },
+                  error : function(e){
+                     alert("요청 실패!");
+                  }
+               } );
+          }
+        
+        
     </script>
 
 
