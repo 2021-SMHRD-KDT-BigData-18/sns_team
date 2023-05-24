@@ -26,9 +26,9 @@
     }
 
     #backgroundArea {
-	min-height:100vh;
-	display: flex;
-	justify-content: space-between;
+   min-height:100vh;
+   display: flex;
+   justify-content: space-between;
     /* background-color: rgb(243, 243, 229); */
     background-color: #F7F7F7;
     }
@@ -42,8 +42,8 @@
 
 #centerPage {
     display: flex;
-	flex-direction: column;
-	width: 40%;
+   flex-direction: column;
+   width: 40%;
     width: 40%;
     align-items: center;
     /* background-color: rgb(235, 207, 138); */
@@ -52,16 +52,16 @@
 }
 
 #rightPage {
-	display: flex;
-	flex-direction: column;
-	width: 30%;
-	border: 0px solid black;
-	position: relative;
-	align-items: center;
+   display: flex;
+   flex-direction: column;
+   width: 30%;
+   border: 0px solid black;
+   position: relative;
+   align-items: center;
 }
 
 .nav {
-	width: 200px;
+   width: 200px;
     position: fixed;
     margin-top: 15%;
     background-color: beige(7, 160, 7);
@@ -71,6 +71,7 @@
 
 .btn-primary { --bs-bg-opacity: 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
 background-color:white;
 
 
@@ -78,62 +79,68 @@ background-color:white;
 	background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity))!important;
 	border-color: green;
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
+=======
+background-color:white;
+
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 }
 
 #profileCard {
-	margin: 10px;
-	width: 550px;
-	
+   margin: 10px;
+   width: 550px;
+   
 }
 .navbar {
-	display: flex;
-	margin: 10px;
-	flex-direction: column;
-	justify-content: space-between;
-	position: fixed;
+   display: flex;
+   margin: 10px;
+   flex-direction: column;
+   justify-content: space-between;
+   position: fixed;
 }
 
 .postList {
-	margin-top: 60px;
-	width: 90%;
+   margin-top: 60px;
+   width: 90%;
 }
 
 .postCard {
-	border-radius: 10px;
-	background-color: white;
-	margin-bottom: 10px;
+   border-radius: 10px;
+   background-color: white;
+   margin-bottom: 10px;
 }
 
 .postCardImg {
-	object-fit: cover;
-	border-radius: 10px;
-	width: 100%;
+   object-fit: cover;
+   border-radius: 10px;
+   width: 100%;
 }
 
 #searchArea {
-	display: flex;
-	flex-direction: row;
-	width: 38%;
-	background-color: gray;
-	margin: 10px;
-	position: fixed;
+   display: flex;
+   flex-direction: row;
+   width: 38%;
+   background-color: gray;
+   margin: 10px;
+   position: fixed;
 }
 
 #btnPost {
-	position: fixed;
-	top: 70%;
+   position: fixed;
+   top: 70%;
 }
 
 .modal-body>span {
-	white-space: pre-wrap;
+   white-space: pre-wrap;
 }
 
 .footer-menu {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	padding-bottom: 10px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding-bottom: 10px;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -141,6 +148,9 @@ background-color:white;
             --bs-bg-opacity: 1;
             background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
         }
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
+=======
+
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
         #profileCard {
@@ -225,11 +235,18 @@ background-color:white;
 
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         i{
         	color:rgba(15, 114, 60, 0.829);
         	fa-lg;
         }
 =======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
+=======
+        i{
+           color:rgba(15, 114, 60, 0.829);
+           fa-lg;
+        }
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
         
         
@@ -250,38 +267,42 @@ background-color:white;
 						<a class="nav-link active" aria-current="page" href="goMain.do" style="color: burlywood;"><i class="fa fa-house fa-lg " style="color:rgba(15, 114, 60, 0.829);"></i>&ensp;홈</a>
 =======
    <div id="backgroundArea">
-      <div id="leftPage">
-      <!-- <div id="leftPage" class="border-end"> -->
+      <div id="leftPage" class="border-end">
          <div class="navbar">
-            <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
-
+            <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/지식창고_로고.png" width="300"></a>
+  
             <ul class="nav flex-column">
                <ul class="nav-item">
+<<<<<<< HEAD
                   <a class="nav-link active" aria-current="page" href="goMain.do"><i class="fa-solid fa-house fa-2x " style="color:rgba(15, 114, 60, 0.829)"></i>홈</a>
                   
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
+=======
+                  <a class="nav-link active" aria-current="page" href="goMain.do" style="color: burlywood;"><i class="fa fa-house fa-lg " style="color:rgba(15, 114, 60, 0.829);"></i>&ensp;홈</a>
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
                </ul>
                <ul class="nav-item">
-                  <a class="nav-link" href="goMypage.do?u_id=${user.getU_ID()}"><i class="fa-solid fa-user fa-2x" style="color:rgba(15, 114, 60, 0.829)"></i>마이페이지</a>
+                  <a class="nav-link" href="goMypage.do?u_id=${user.getU_ID()}" style="color: burlywood;"><i class="fa-regular fa-circle-user fa-lg" style="color:rgba(15, 114, 60, 0.829)"></i>&ensp;마이페이지</a>
                </ul>
                <ul class="nav-item">
-                  <a class="nav-link" href="goChatList.do"><i class="fa-brands fa-rocketchat fa-2x" style="color:rgba(15, 114, 60, 0.829)">채팅</i></a>
+                  <a class="nav-link" href="goChatList.do" style="color: burlywood; "><i class="fa-regular fa-comment fa-lg" style="color:rgba(15, 114, 60, 0.829)"></i>&ensp;채팅</a>
                </ul>
                <!-- <ul class="nav-item">
                   <a class="nav-link" href="goChat.do">ChatChatChatChat</a>
                </ul> -->
                <ul class="nav-item">
-                  <a class="nav-link" href='goWritePost.do'><i class="fa-regular fa-pen-to-square fa-2x" style="color:rgba(15, 114, 60, 0.829)">글쓰기</i></a>
+                  <a class="nav-link" href='goWritePost.do' style="color: burlywood;"><i class="fa-regular fa-pen-to-square fa-lg" style="color:rgba(15, 114, 60, 0.829)"></i>&ensp;글쓰기</a>
                </ul>
-               
+               <ul class="nav-item">
+                  <a class="nav-link" href='goSavePost.do' style="color: burlywood;"><i class="fa-solid fa-folder fa-lg" style="color:rgba(15,114,60,0.829)"></i>&ensp;저장글</a>
+               </ul>
          <!--       <a id="btnPost" onclick="location.href='goWritePost.do'">글쓰기</a> -->
             </ul>
          </div>
 
       </div>
       <div id="centerPage" class=" border-start border-end border-1">
-      <!-- <div id="centerPage" class=" border-start border-end border-1"> -->
 
          <div class="postList">
          </div>
@@ -311,15 +332,11 @@ background-color:white;
          <div style="margin: 30px; position: fixed;">
             <div id="profileCard" class="card"style="width:450px;  ">
                <img
-                  src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
-                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
-                  alt="프로필 이미지">
-               <%-- <img
                   src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshopping.phinf.naver.net%2Fmain_3807892%2F38078924706.20230218214528.jpg&type=sc960_832"
-                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
+                  style="height: 250px; width:250px; object-fit: none;" class="card-img-top"
                   alt="프로필 이미지">
                   
-                  
+                  <%-- 
                     <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
                   style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
@@ -364,37 +381,6 @@ background-color:white;
          </div>
       </div>
    </div>
-						<!-- <img src="\${sessionScope.user.getU_PROFILE_IMG()}"> -->
-						<%--<img src="${sessionScope.getU_PROFILE_IMG()}"> --%>
-						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
-							<a href="logout.do" class="btn btn-primary" style="margin-left: 70%">로그아웃</a>
-						
-						<c:if test="${sessionScope.user.getU_ID() == null}">
-						<h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 당장 로그인해주세요!!!</h5>
-							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 75%">로그인</a>
-						</c:if>
-					</div>
-				</div>
-				<div class="accordion" id="friendList">
-					<div class="accordion-item">
-						<h2 class="accordion-header" id="btn_friendList">
-							<button class="accordion-button collapsed" type="button"
-								data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-								aria-expanded="false" aria-controls="flush-collapseOne">
-								친구목록</button>
-						</h2>
-						<div id="flush-collapseOne" class="accordion-collapse collapse"
-							aria-labelledby="flush-headingOne"
-							data-bs-parent="#accordionFlushExample">
-							<div class="accordion-body friends">
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
     
 
 <<<<<<< HEAD
@@ -612,7 +598,7 @@ background-color:white;
                   rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
                   html=`<div class="postCard">
                     <div class="card-body" style="display: flex;">
-                        <div class="profile_img" style='background-image:url("\${rootpath}\${res[i].U_PROFILE_IMG}");background-size: contain;background-position:center;background-repeat: no-repeat;'> <p style="display: none;">\${res[i].U_ID}</p></div>
+                        <div class="profile_img"> <p style="display: none;">\${res[i].U_ID}</p></div>
                         <div style="width:307px">
                         <p id="post_id" style="display: none;">\${res[i].P_SEQ}</p>
                             <h5 class="card-title">
@@ -622,14 +608,14 @@ background-color:white;
                             <span class="card-text">\${res[i].P_CONTENT}</span>
                         </div>
                     </div>
-                    <img src="\${rootpath}\${res[i].P_FILE}" class="postCardImg" alt="게시글 이미지">
+                    <img src="\${rootpath}\${res[i].P_FILE}" class="postCardImg" alt="프로필 이미지">
                     <div class="card-footer">
                         <p></p>
                         <hr>
-                        <div class="footer-menu"><button class="btn_like"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱 <span class="likes">\${res[i].P_LIKES}</span>회</button>
-                            <p>\${res[i].P_VIEWS} 회</p>
-                            <button class="btn_bookmark"><i class="fa-regular fa-bookmark"></i></button>
-                            <a href="#" id="urlCopy" class="btn_urlCopy" title="공유하기" onclick="clip(\${res[i].P_SEQ}); return false;"><i class="fa-solid fa-share-from-square"></i></a>
+                        <div class="footer-menu"><button class="btn_like" style="border:none;"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱 <span class="likes">\${res[i].P_LIKES}</span>회</button>
+                            <p><i class="fa-solid fa-chart-simple"></i>&ensp;\${res[i].P_VIEWS} 회</p>
+                            <button class="btn_bookmark"; style="border:none;"><i class="fa-regular fa-bookmark"></i></button>
+                            <a href="#" id="urlCopy" class="btn_urlCopy" title="링크 공유" onclick="clip(); return false;"><i class="fa-solid fa-share-from-square"></i></a>
                         </div>
                     </div>
                 </div>`;
@@ -709,6 +695,7 @@ background-color:white;
             });
          };
          
+<<<<<<< HEAD
          function clip(p_id){
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
@@ -766,6 +753,9 @@ background-color:white;
              
              alert("URL이 복사되었습니다.")  
          };
+=======
+         
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
          
          function markPost(){
             //console.log($(this).prevAll()[1].children[0].innerText);
@@ -784,7 +774,7 @@ background-color:white;
                   
                },
                error : function(e){
-                        alert("로그인이 필요합니다!");
+                        alert("실패!");
                      }
             });
          };
@@ -864,7 +854,7 @@ background-color:white;
                          
                          error: 
                          function (request, status, error){  
-                           alert("로그인이 필요합니다!")                  
+                           alert("실패")                  
                          }
                        });
                }/*,
@@ -887,29 +877,8 @@ background-color:white;
                        });
                }*/
                );
-            
-            
-            function delFriend(f_id){
-            	//let f_id = $(this).innerText;
-            	console.log(f_id);
-            	//console.log($(this).prev().children()[5].innerText);    	
-            	$.ajax( {
-                    url : 'delFriend.do', 
-                    type : 'post',
-                    data : {"f_id":f_id},
-                    success : function(res){
-                    	console.log("친삭완료.");
-                    	$(".friends").html('');
-                    	   friendSelect();
-                    },
-                    error : function(e){
-                       alert("요청 실패!");
-                    }
-                 } );
-            }
-            
-            
    </script>
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/sns_team.git
 
 </body>
+</html>
