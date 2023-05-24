@@ -245,7 +245,7 @@
             <div class="my_info">
                 <div class="pro">
                 <img class="pro_img" src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}">
-                <span>&emsp;&emsp;</span>
+                <span>&emsp;</span>
                 <div class="id_nick">
                     <span class="my_id">${sessionScope.user.getU_ID()}</span>
                     <span class="my_name">${sessionScope.user.getU_NICK()}</span>

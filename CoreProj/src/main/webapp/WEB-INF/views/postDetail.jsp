@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="assets/js/bootstrap.bundle.js"></script>
     <script src="assets/js/jquery-3.7.0.min.js"></script>
     <style> 
@@ -154,7 +155,7 @@
         }
 
         .postList {
-            margin-top: 60px;
+            margin-top: 10px;
             width: 90%;
         }
 
@@ -210,7 +211,7 @@
             list-style: none;
         }
         #cmtinput{
-            width: 82%;
+            width: 50%;
             border-radius: 10px;
             margin-left: 5px;
         }
@@ -221,13 +222,13 @@
             border: 0;
             /* border: 3px solid burlywood; */
             /* background-color: rgb(238, 238, 186); */
-            color: #703c3c;
             text-transform: uppercase;
             /* letter-spacing: 5px; */
             font-weight: bold;
             position: relative;
             transition: all 0.4s;
             overflow: hidden;
+	        color: rgb(0, 78, 52);
         }
 
         .btn:focus {
@@ -252,7 +253,7 @@
 
         
         .btn:hover {
-        color: rgb(0, 78, 52);
+            color: #83ab85;
         }
 
 
@@ -263,7 +264,7 @@
         }
         .text_input input[type="text"] {
             background: white;
-            width: 90%;
+            width: 85%;
             border-radius: 4px;
             padding: 10px 0;
             border: 0;
@@ -273,6 +274,15 @@
             /*background: rgb(243, 243, 229);*/
             height: 200px;
         }
+        
+        
+		.material-symbols-outlined {
+		  font-variation-settings:
+		  'FILL' 0,
+		  'wght' 700,
+		  'GRAD' 0,
+		  'opsz' 48
+		}
      
          
     </style>
@@ -307,13 +317,18 @@
             
         
                 	<c:if test="${user.getU_ID() == requestScope.post.getU_ID()}">
-                	<ul>
-						<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change"><i class=class="fa-regular fa-circle-user fa-lg"></i>수정</a>
-                		<a href="" class="btn btn_change" id="post_delete"><i class="fa fa-xmark"></i></a> 
-						<%--<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change" style="margin-left: 560px; margin-top: 50px;">✏</a>
-                		<a href="" class="btn btn_change" id="post_delete">✘</a>
-						--%>					
-					</ul>
+                	<div>
+                		<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change">
+                			<span class="material-symbols-outlined" style="margin-top: 20px; margin-left: 550px;">edit_square</span>&nbsp;수정
+                		</a>
+                		<a href="" class="btn btn_change" id="post_delete" style="margin-top: 20px;">
+                			<span class="material-symbols-outlined">close</span>&nbsp;삭제
+						</a>
+						
+						
+						<%--<a href="goWritePostUpdate.do?p_id=${requestScope.post.getP_SEQ()}" class="btn btn_change"><i class="fas fa-pencil-alt"></i></a>
+                		<a href="" class="btn btn_change" id="post_delete"><i class="fa fa-xmark"></i></a>  --%>
+					</div>
 					</c:if>
             <div class="postList">
                 <div class="postCard">
@@ -339,11 +354,10 @@
 
 
                         </div>
-                        <hr>
                         <div id="cmtInputArea">
                             <div class="text_input">
-                                <input type="text" placeholder="댓글 입력" id="cmtInput" name="cmtInput">
-                                <button id="btn_cmt" style="border-radius: 5px; width: 90px; height: 40px; margin-right: 5px;">댓글 달기</button>
+                                <input type="text" placeholder="댓글 입력" id="cmtInput" name="cmtInput" style="box-shadow: 2px 2px 2px #aaaaaa;">
+                                <button id="btn_cmt" style="border: 0;  border-radius: 5px; width: 90px; height: 45px; margin-left: 3px; box-shadow: 2px 2px 2px #aaaaaa;">댓글 달기</button>
                             </div>
                             <!-- <input type="text" id="cmtInput" name="cmtInput"> -->
                         </div>
