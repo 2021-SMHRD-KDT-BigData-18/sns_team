@@ -227,7 +227,7 @@
       <div id="leftPage">
       <!-- <div id="leftPage" class="border-end"> -->
          <div class="navbar">
-            <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/지식창고_로고.png" width="300"></a>
+            <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
 
             <ul class="nav flex-column">
                <ul class="nav-item">

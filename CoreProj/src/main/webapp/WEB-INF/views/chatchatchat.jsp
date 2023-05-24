@@ -316,7 +316,7 @@ List<T_CHATTING> chatRecord = dao2.list(roomId);
     <div id="backgroundArea">
         <div id="leftPage">
             <div class="navbar">
-                <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고 누끼.png" width="300"></a>
+                <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">
@@ -519,10 +519,6 @@ function friendSelect(){
     var textarea = document.getElementById("chatLog");
     var path='ws://218.157.19.25:8081/jisik/broadcasting/';
     path+=<%=roomId%>
-    /*if('${user.getU_ID()}'=='aa'){path+='123';}
-    else if('${user.getU_ID()}'=='bb'){path+='123';}
-    else if('${user.getU_ID()}'=='cc'){path+='456';}
-    else if('${user.getU_ID()}'=='dd'){path+='456';}*/
     var webSocket = new WebSocket(path);
     var inputMessage = document.getElementById('inputMessage');
     webSocket.onerror = function(event) {
@@ -617,6 +613,10 @@ function friendSelect(){
          } );
     }
     
+    /*if('${user.getU_ID()}'=='aa'){path+='123';}
+    else if('${user.getU_ID()}'=='bb'){path+='123';}
+    else if('${user.getU_ID()}'=='cc'){path+='456';}
+    else if('${user.getU_ID()}'=='dd'){path+='456';}*/
     
     
 </script>

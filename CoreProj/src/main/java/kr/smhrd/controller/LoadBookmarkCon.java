@@ -20,6 +20,8 @@ public class LoadBookmarkCon implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		response.setCharacterEncoding("UTF-8");
+		
 		T_BOOKMARKDAO dao = new T_BOOKMARKDAO();
 		String u_id = ((T_USER)request.getSession().getAttribute("user")).getU_ID();
 		List<T_POST> list = dao.loadBookmark(u_id);

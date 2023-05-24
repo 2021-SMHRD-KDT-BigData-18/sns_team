@@ -183,7 +183,7 @@ if(events.length()==2){
         <div id="leftPage">
             <div class="navbar">
                 <ul class="nav flex-column">
-                    <a class="nav-link active" aria-current="page" href="goMain.do"><img class=logo src="./image/새싹 누끼.png" ></a>
+                    <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
                     </li>
@@ -200,7 +200,7 @@ if(events.length()==2){
         
             <p id="title">plant Page</p>
             <div class="pro">
-                <img class="pro_img" src="${sessionScope.plant.getPL_IMG()}" style="margin-right:15%;">
+                <img class="pro_img" src="http://218.157.19.25:8081/jisik/P_FILE/${requestScope.plant.getPL_IMG()}" style="margin-right:15%;">
                 <!-- <a class="nav-link" aria-current="" href="#">완료 &#x1F4C2;</a> -->
                 
                 <div class="plant">
@@ -222,12 +222,13 @@ if(events.length()==2){
         <div id="rightPage">
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
-                        style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
+                    <img
+                  src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top"
+                  alt="프로필 이미지">
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-left: 22%;">smhrd 님 환영합니다</h5>
+                        <h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
                         <a href="#" class="btn btn-primary" style="margin-left: 10%">로그아웃</a>
-                        <a href="#" class="btn btn-primary" style="margin-left: 10%;">회원정보 수정</a>
                     </div>
                 </div>
                 <br>
@@ -241,17 +242,22 @@ if(events.length()==2){
                         </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body"> 친구목록 띄워주쇼 <code>.accordion-flush</code> class. This is the
-                        first item's accordion
-                        body.</div>
-                    </div>
+							aria-labelledby="flush-headingOne"
+							data-bs-parent="#accordionFlushExample">
+							<div class="accordion-body friends">
+								
+							</div>
+						</div>
                 </div>
             </div>
             </div>
         </div>
     </div>
     <script type="text/javascript">
+    
+    $(document).ready(friendSelect());
+    
+    
     (function(){
         $(function(){
           // calendar element 취득
@@ -346,6 +352,35 @@ if(events.length()==2){
           calendar.render();
         });
       })();
+    
+    
+    function friendSelect(){
+        $.ajax( {
+                url : 'friendSelect.do', 
+                type : 'post', 
+                data : {}, 
+                dataType : "json", 
+                success : function(res){
+                   console.log('시작');
+                   console.log(res);
+                   for(let i=0; i<res.length; i++){
+                      let html='';
+                      rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
+                      html+='<div class="accordion-body" style="display:flex; justify-content:space-between;">';
+                      html+='<div><img src="'+rootpath+res[i].P_FILE+' alt="프로필 이미지" class="accordion-file>';
+                      html+='<p class="accordion-name">'+res[i].F_ID+'</p>';
+                      html+='</div> <a  href="javascript:void(0);" onclick="delFriend(\''+res[i].F_ID+'\');">친삭</a></div>';
+                      $(".friends").append(html);
+                   }
+                },
+                error : function(e){
+                   //alert("요청 실패!");
+                   let html = '';
+                   html+='<a href="goLogin.do">로그인을 해주세요.</a>'
+                   $(".friends").append(html);
+                }
+             } );
+       }
     
     
     
