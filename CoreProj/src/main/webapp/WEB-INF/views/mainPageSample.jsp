@@ -11,6 +11,7 @@
 <title>Document</title>
 <link rel="stylesheet" href="assets/css/bootstrap.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script src="assets/js/bootstrap.bundle.js"></script>
 <script src="assets/js/jquery-3.7.0.min.js"></script>
 <style>
@@ -216,6 +217,10 @@ background-color:white;
            color:rgba(15, 114, 60, 0.829);
            fa-lg;
         }
+		.material-symbols-outlined {
+		   font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 48
+		}
+        
         
         
        
@@ -345,10 +350,17 @@ background-color:white;
                     <div class="card-footer">
                         <p></p>
                         <hr>
-                        <div class="footer-menu"><button class="btn_like" style="border:none;"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱 <span class="likes">\${res[i].P_LIKES}</span>회</button>
-                            <p><i class="fa-solid fa-chart-simple"></i>&ensp;\${res[i].P_VIEWS} 회</p>
-                            <button class="btn_bookmark"; style="border:none;"><i class="fa-regular fa-bookmark"></i></button>
-                            <a href="#" id="urlCopy" class="btn_urlCopy" title="링크 공유" onclick="clip(); return false;"><i class="fa-solid fa-share-from-square"></i></a>
+                        <div class="footer-menu">
+                        
+                        <button class="btn_like" style="border:none; background-color: white; font-size: 18px;"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p><span class="material-symbols-outlined" style="color:green;">
+                        psychiatry
+                        </span> <span class="likes">\${res[i].P_LIKES}</span>회</button>
+
+                        	<%--<button class="btn_like" style="border:none; background-color: white; font-size: 18px;"><p class="post_id" style="display: none;">\${res[i].P_SEQ}</p>🌱 <span class="likes">\${res[i].P_LIKES}</span>회</button>
+                            --%>
+                            <p style="font-size:18px;"><i class="fa-solid fa-chart-simple fa-xl"></i>&ensp;\${res[i].P_VIEWS} 회</p>
+                            <button class="btn_bookmark fa-xl" style="border:none; background-color: white;"><i class="fa-regular fa-bookmark"></i></button>
+                            <a href="#" id="urlCopy" class="btn_urlCopy fa-xl" title="링크 공유" onclick="clip(); return false;"><i class="fa-solid fa-share-from-square"></i></a>
                         </div>
                     </div>
                 </div>`;

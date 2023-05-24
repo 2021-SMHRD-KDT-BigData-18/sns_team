@@ -184,7 +184,12 @@
             /* color:green;  */
             color:rgb(0, 78, 52); 
             background-color: #83ab85;
+            border-color:transparent;
          }
+         .btn-primary{
+         --bs-btn-border-color:transparent;}
+         
+         
         .pro {
             display: flex;
             flex-flow: row nowrap;
