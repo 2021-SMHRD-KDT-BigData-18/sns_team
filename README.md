@@ -11,6 +11,10 @@ SNS
 2023.05.11 ~ 2023.05.25 (2주)
 <br>
 
+## ⛏ 기술스택
+![image](https://github.com/2021-SMHRD-KDT-BigData-18/sns_team/assets/112811673/337b281f-3e74-4a3f-ba89-19612f394e46)
+
+
 
 ## ⭐ 주요 기능
 * 1 : 1 실시간 채팅
@@ -21,7 +25,7 @@ SNS
 
 
 ## ⚙ 시스템 아키텍처
-
+![image](https://github.com/2021-SMHRD-KDT-BigData-18/sns_team/assets/112811673/06e2d49a-e02b-4282-bf1c-247cd32be984)
 
 ## 📌 서비스 흐름도
 
