@@ -21,7 +21,7 @@ public class JoinCon implements Controller {
 		String U_ID = request.getParameter("U_ID");
 		String U_PW = request.getParameter("U_PW");
 		String U_NICK = request.getParameter("U_NICK");
-		String U_PROFILE_IMG = "ss";//request.getParameter("U_PROFILE_IMG");
+		String U_PROFILE_IMG = "새싹 누끼.png";//request.getParameter("U_PROFILE_IMG");
 
 		T_USER dto = new T_USER();
 		System.out.println(U_ID);

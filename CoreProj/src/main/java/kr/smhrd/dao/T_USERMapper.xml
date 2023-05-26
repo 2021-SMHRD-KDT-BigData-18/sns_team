@@ -15,4 +15,9 @@
 		select * from T_USER WHERE  U_ID = #{U_ID}
 	</select>
 	
+	<update id="changeProf" parameterType="kr.smhrd.entity.T_USER">
+	update T_USER SET U_NICK=#{U_NICK}, U_PW=#{U_PW}, U_PROFILE_IMG=#{U_PROFILE_IMG}
+	where U_ID=#{U_ID}
+	</update>
+	
 </mapper>

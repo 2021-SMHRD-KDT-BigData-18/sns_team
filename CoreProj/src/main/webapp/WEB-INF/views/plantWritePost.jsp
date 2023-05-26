@@ -76,7 +76,6 @@
         }
 
         #profileCard {
-            margin: 90px;
             width: 450px;
         }
 
@@ -125,7 +124,6 @@
 
         .img {
             display: flex;
-            position: fixed;
 
         }
 
@@ -249,7 +247,7 @@
     <div id="backgroundArea">
         <div id="leftPage">
             <div class="navbar">
-                <a class="nav-link active" aria-current="page" href="goMain.do"><img class=logo src="./image/새싹 누끼.png" ></a>
+                <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
 
                 <ul class="nav flex-column">
                     <ul class="nav-item">
@@ -309,6 +307,45 @@
         </div>
 
         <div id="rightPage">
+        
+        
+        <div style="margin: 30px; position: fixed; max-width: 450px;">
+                <div id="profileCard" class="card" style="width:450px;">
+                <img src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit:contain;" class="card-img-top" alt="프로필 이미지">
+                    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
+                        style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지"> -->
+                    <div class="card-body">
+                        <h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
+						<c:if test="${sessionScope.user.getU_ID() != null}">
+							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
+						</c:if>
+						<c:if test="${sessionScope.user.getU_ID() == null}">
+							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 8%">로그인</a>
+						</c:if>
+                    </div>
+                </div>
+                <br>
+                <div class="accordion" id="friendList">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="btn_friendList">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false"
+                            aria-controls="flush-collapseOne">
+                            친구목록
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body friends"> 
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        
+        
+        <!-- 
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
                 
@@ -316,11 +353,11 @@
                   style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
                 
                    <!--  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
-                        style="height:200px; object-fit: none;" class="card-img-top" alt="프로필 이미지"> -->
+                        style="height:200px; object-fit: none;" class="card-img-top" alt="프로필 이미지"> 
                     <div class="card-body">
                         <h5 class="card-title" style="margin-left: 15%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
                         <a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
-                       <!-- <a href="#" class="btn btn-primary" style="margin-left: 5%;">회원정보 수정</a>-->
+                       <!-- <a href="#" class="btn btn-primary" style="margin-left: 5%;">회원정보 수정</a>
                     </div>
                 </div>
 
@@ -342,7 +379,11 @@
 						</div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            
+            
+            
+            
         </div>
     </div>
 

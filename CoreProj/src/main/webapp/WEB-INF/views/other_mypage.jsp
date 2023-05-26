@@ -24,6 +24,19 @@
 
 <script src="assets/js/jquery-3.7.0.min.js"></script>
 
+
+<link rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+   integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+   crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	
+
+
+
+
+
 <style>
 @font-face {
 	font-family: 'omyu_pretty';
@@ -192,10 +205,13 @@ span {
 }
 
 .btn:hover {
-	/* color:green;  */
-	color: rgb(0, 78, 52);
-	background-color: #83ab85;
-}
+            /* color:green;  */
+            color:rgb(0, 78, 52); 
+            background-color: #83ab85;
+            border-color:transparent;
+         }
+         .btn-primary{
+         --bs-btn-border-color:transparent;}
 
 .pro {
 	display: flex;
@@ -248,11 +264,16 @@ span {
 		<div id="leftPage">
 			<div class="navbar">
 				<ul class="nav flex-column">
-					<a class="nav-link active" aria-current="page" href="goMain.do"><img
-						class=logo src="./image/새싹 누끼.png"></a>
+				<ul class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="goMain.do"
+                     style="color: burlywood;"><i class="fa fa-house fa-lg "
+                     style="color: rgba(15, 114, 60, 0.829);"></i>&ensp;홈</a>
+
+               </ul>
+				<!--	<a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="goMain.do">홈</a></li>
-					<!-- <li class="nav-item">
+					 <li class="nav-item">
                         <a class="nav-link" href="./chatList.html">채팅방 &#x1F4AC;</a>
                     </li> -->
 				</ul>
@@ -263,9 +284,9 @@ span {
 			<p id="title"> <%=friend.getU_NICK() %> Page</p>
 			<div class="my_info">
 				<div class="pro">
-					<img class="pro_img" src="./image/친구새싹누끼.png"> <span>&emsp;</span>
+					<img class="pro_img" src="http://218.157.19.25:8081/jisik/P_FILE/<%=friend.getU_PROFILE_IMG() %>"> <span>&emsp;&emsp;</span>
 					<div class="id_nick">
-						<span class="my_id" ><%=friend.getU_ID()%></span>
+						<span class="my_id"><%=friend.getU_ID()%></span>
 						<span class="my_name"><%=friend.getU_NICK() %></span>
 					</div>
 					<c:if test="${requestScope.checkFollow eq 'false'}">
@@ -318,6 +339,46 @@ span {
 		</div>
 
 		<div id="rightPage">
+		
+		 <div style="margin: 30px; position: fixed; max-width: 450px;">
+                <div id="profileCard" class="card" style="width:450px;">
+                <img src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit:contain;" class="card-img-top" alt="프로필 이미지">
+                    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
+                        style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지"> -->
+                    <div class="card-body">
+                        <h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
+						<c:if test="${sessionScope.user.getU_ID() != null}">
+							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
+						</c:if>
+						<c:if test="${sessionScope.user.getU_ID() == null}">
+							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 8%">로그인</a>
+						</c:if>
+                    </div>
+                </div>
+                <br>
+                <div class="accordion" id="friendList">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="btn_friendList">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false"
+                            aria-controls="flush-collapseOne">
+                            친구목록
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body friends"> 
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+		
+		
+		
+		
+		<!--  
 			<div style="margin: 30px; position: fixed; max-width: 450px;">
 				<div id="profileCard" class="card" style="width:450px;">
 				<img
@@ -327,7 +388,7 @@ span {
 					<!-- <img
 						src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
 						style="height: 300px; width: 400px; object-fit: none;"
-						class="card-img-top" alt="프로필 이미지"> -->
+						class="card-img-top" alt="프로필 이미지">
 					<div class="card-body">
 						<h5 class="card-title" style="margin-left: 22%;">${sessionScope.user.getU_ID()}님 환영합니다🍀</h5>
 						<c:if test="${sessionScope.user.getU_ID() != null}">
@@ -355,7 +416,13 @@ span {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
+			
+			
+			
+			
+			
+			
 		</div>
 
 
@@ -435,8 +502,8 @@ span {
                   console.log('불러오기 완료');
                   let html='';
                   rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
-                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].P_FILE}">
+                  html=`<div class="pa_area" onclick="location.href='http://218.157.19.25:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
+                      <img class="pa_area_img" src="\${rootpath}\${res[i].P_FILE}">
                       <p>\${res[i].P_TITLE}</p>
                       </div>`;
                   $(".my_post>#mypa_img").append(html);
@@ -463,8 +530,8 @@ span {
                   console.log('불러오기 완료');
                   let html='';
                   rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPlantDetail.do?pl_id=\${res[i].PL_SEQ}';">
-                      <img class="pa_area_img" src="\${rootpath}/image/\${res[i].PL_IMG}">
+                  html=`<div class="pa_area" onclick="location.href='http://218.157.19.25:8081/jisik/goPlantDetail.do?pl_id=\${res[i].PL_SEQ}';">
+                      <img class="pa_area_img" src="\${rootpath}\${res[i].PL_IMG}">
                       <p>\${res[i].PL_NAME}</p>
                       </div>`;
                   $(".plants").append(html);

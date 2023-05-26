@@ -25,6 +25,7 @@ import kr.smhrd.controller.GoChatListCon;
 import kr.smhrd.controller.GoLoginCon;
 import kr.smhrd.controller.GoMainCon;
 import kr.smhrd.controller.GoMainPostCon;
+import kr.smhrd.controller.GoMainmainCon;
 import kr.smhrd.controller.GoMypageCon;
 import kr.smhrd.controller.GoPlantDetailCon;
 import kr.smhrd.controller.GoPlantPageCon;
@@ -116,6 +117,7 @@ public class FrontController extends HttpServlet {
 		mappings.put("/goPlantDetail.do", new GoPlantDetailCon());
 		mappings.put("/addEvent.do", new AddEventCon());
 		mappings.put("/changeProf.do", new ChangeProfCon());
+		mappings.put("/goMainmain.do", new GoMainmainCon());
 		
 	}
 	

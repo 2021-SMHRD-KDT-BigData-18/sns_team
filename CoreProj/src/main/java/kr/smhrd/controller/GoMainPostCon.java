@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import kr.smhrd.dao.T_POSTDAO;
+import kr.smhrd.entity.PostTemp;
 import kr.smhrd.entity.T_POST;
 
 
@@ -25,7 +26,8 @@ public class GoMainPostCon implements Controller {
 		PrintWriter out = response.getWriter();
 
 		// 회원 전체 목록을 json 형식
-		List<T_POST> list = dao.list();
+		List<PostTemp> list = dao.list();
+		//System.out.println(list.get(1).getU_PROFILE_IMG());
 //		request.setAttribute("posts", list);
 
 		// Java 객체를 Json으로 변환시키기위한 Gson 라이브러리

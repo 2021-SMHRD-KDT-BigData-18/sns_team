@@ -48,6 +48,13 @@ public class T_USERDAO {
 		return user;
 	}
 	
+	public int changeProf(T_USER dto) {
+		SqlSession session = factory.openSession(true);
+		int res = session.update("changeProf", dto);
+		session.close();
+		return res;
+	}
+	
 	
 	
 }

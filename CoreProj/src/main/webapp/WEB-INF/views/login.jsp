@@ -50,8 +50,7 @@ img {
 div {
    position: relative;
    width: 300px;
-   color: rgb(0, 78, 52);
-   /*color: #83ab85;*/
+   color: green;
 }
 
 h1 img:nth-child(2) {
@@ -130,7 +129,6 @@ input:focus ~span, input:valid ~span {
 }
 .inputZone {
    margin-top: 30px;
-   margin-right: 65px;
 }
 
 h1 img:nth-child(8) {
@@ -158,11 +156,6 @@ h1 img:nth-child(8) {
    
    	border-radius: 2%;
 	color:rgb(0, 78, 52);
-	
-	width: 550px;
-   	height: 730px;
-   	background-color: white;
-   	box-shadow: 3px 3px 3px #aaaaaa;
 }
 
 form {
@@ -193,19 +186,19 @@ keyframes bounce { 100% {
 <body>
 	<div class="container">
 		<div class="lo_area">
-			<div style="text-align: center; margin-top: 40px; color: rgb(0, 78, 52); text-shadow: 3px 3px 1px #aaaa;">로그인</div>
+			<div style="text-align: center; margin-top: 40px;">로그인</div>
 			<form action="login.do" method="post">
 
 				<div class="inputZone">
-					<input name="U_ID" type="text" required style="width: 370px;"> <label>ID</label>
+					<input name="U_ID" type="text" required> <label>ID</label>
 				</div>
 				<div class="inputZone">
-					<input name="U_PW" type="password" required style="width: 370px;"> <label>PASSWORD</label>
+					<input name="U_PW" type="password" required> <label>PASSWORD</label>
 				</div>
-				<button type="submit" class="btn btn-primary" style=" width: 80px; margin-top: 70px;">로그인</button>
+				<button type="submit" class="btn btn-primary" style=" width: 80px; margin-top: 70px; margin-left: 340px;">로그인</button>
 
 			</form>
-			<div style="text-align: center; font-size: 25px; margin-top: 70px; width: 800px">-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;아직 계정이 없으신가요?&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;</div>
+			<div style="text-align: center; font-size: 25px; margin-top: 70px; width: 800px">-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;아직 계정이 없으신가요?&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;</div>
 			<%-- <div style="text-align: center; font-size: 25px; margin-top: 100px">-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;-&ensp;아직 계정이 없으신가요?&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;</div>--%>
 			<button type="button" class="btn btn-primary" data-bs-toggle="modal"
 				data-bs-target="#joinModal" style="margin-top: 50px">회원가입</button>
@@ -218,26 +211,24 @@ keyframes bounce { 100% {
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog" >
 			<div class="modal-content">
-				<div class="modal-header" style="text-align: center; width: 497px">
+				<div class="modal-header" style="text-align: center;">
 					<h1 class="modal-title fs-5" id="joinModalLabel">회원가입</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
-				<span>&emsp;</span>
 				<div
-					style="display: flex; flex-direction: column; ">
-					<%-- style="display: flex; flex-direction: column; align-items: center;">  --%>
-					<span style="margin-right: 263px">아이디</span> <input type="text" id="inputID" name="U_ID"
+					style="display: flex; flex-direction: column; align-items: center;">
+					<span>아이디</span> <input type="text" id="inputID" name="U_ID"
 						placeholder="아이디를 입력해주세요."> <span id="checkResult"></span>
 					<br> <span>비밀번호</span> <input type="password" id="inputPW"
 						name="U_PW" placeholder="비밀번호를 입력해주세요."> <br> <span>닉네임</span>
 					<input type="text" id="inputNICK" name="U_NICK"
 						placeholder="닉네임을 입력해주세요.">
 				</div>
-				<%--<div class="modal-footer"> --%>
-				<div class="modal-title">
-					<button type="button" id="btn_join" class="btn btn-primary" style="margin-left: 200px; width: 100px">회원가입</button>
+				<div class="modal-footer">
+					<button type="button" id="btn_join" class="btn btn-primary">가입</button>
 				</div>
+				<div class="modal-footer"></div>
 			</div>
 		</div>
 
@@ -281,9 +272,9 @@ keyframes bounce { 100% {
 						var p = $('#checkResult');
 
 						if (res == "OK") {
-							p.html('사용 가능한 아이디입니다.').css("color", "rgb(84, 127, 219)");
+							p.html('사용가능한 아이디 입니다.').css("color", "skyblue");
 						} else {
-							p.html('중복된 아이디입니다.').css("color", "rgb(219, 84, 84)");
+							p.html('중복된 아이디 입니다.').css("color", "orange");
 						}
 
 					},

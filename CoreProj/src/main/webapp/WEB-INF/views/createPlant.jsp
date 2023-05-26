@@ -306,7 +306,7 @@
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
-                        style="height:200px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
+                        style="height:200px; object-fit:contain;" class="card-img-top" alt="프로필 이미지">
                     <div class="card-body">
                         <h5 class="card-title" style="margin-left: 15%;">smhrd 님 환영합니다</h5>
                         <a href="#" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>

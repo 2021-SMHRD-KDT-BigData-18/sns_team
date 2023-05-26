@@ -17,6 +17,15 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 	<script src="assets/js/jquery-3.7.0.min.js"></script>
+	
+	<link rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+   integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+   crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	
+	
     <style>
         @font-face {
             font-family: 'omyu_pretty';
@@ -184,7 +193,13 @@
             /* color:green;  */
             color:rgb(0, 78, 52); 
             background-color: #83ab85;
+            border-color:transparent;
          }
+         .btn-primary{
+         --bs-btn-border-color:transparent;}
+         
+         
+         
         .pro {
             display: flex;
             flex-flow: row nowrap;
@@ -225,6 +240,29 @@
         <div id="leftPage">
             <div class="navbar">
                 <ul class="nav flex-column">
+                
+                <ul class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="goMain.do"
+                     style="color: burlywood;"><i class="fa fa-house fa-lg "
+                     style="color: rgba(15, 114, 60, 0.829);"></i>&ensp;홈</a>
+
+               </ul>
+               
+               <ul class="nav-item">
+                  <a class="nav-link" href="goChatList.do" style="color: burlywood;"><i
+                     class="fa-regular fa-comment fa-lg"
+                     style="color: rgba(15, 114, 60, 0.829)"></i>&ensp;채팅</a>
+               </ul>
+               
+               <ul class="nav-item">
+                  <a class="nav-link" href='goSavePost.do' style="color: burlywood;"><i
+                     class="fa-solid fa-folder fa-lg"
+                     style="color: rgba(15, 114, 60, 0.829)"></i>&ensp;저장글</a>
+               </ul>
+                
+                
+                
+                <!-- 
                     <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
@@ -234,7 +272,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="goChatList.do">채팅 &#x1F4AC;</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -245,7 +283,7 @@
             <div class="my_info">
                 <div class="pro">
                 <img class="pro_img" src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}">
-                <span>&emsp;</span>
+                <span>&emsp;&emsp;</span>
                 <div class="id_nick">
                     <span class="my_id">${sessionScope.user.getU_ID()}</span>
                     <span class="my_name">${sessionScope.user.getU_NICK()}</span>
@@ -324,7 +362,7 @@
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card" style="width:450px;">
                 <img src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
-                  style="height: 250px; whidgh:250px; object-fit: none;" class="card-img-top" alt="프로필 이미지">
+                  style="height: 250px; whidgh:250px; object-fit:contain;" class="card-img-top" alt="프로필 이미지">
                     <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
                         style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지"> -->
                     <div class="card-body">
@@ -403,7 +441,7 @@
                   console.log('불러오기 완료');
                   let html='';
                   rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
+                  html=`<div class="pa_area" onclick="location.href='http://218.157.19.25:8081/jisik/goPostDetail.do?p_id=\${res[i].P_SEQ}';">
                       <img class="pa_area_img" src="\${rootpath}\${res[i].P_FILE}">
                       <p>\${res[i].P_TITLE}</p>
                       </div>`;
@@ -431,7 +469,7 @@
                   console.log('불러오기 완료');
                   let html='';
                   rootpath="http://218.157.19.25:8081/jisik/P_FILE/";
-                  html=`<div class="pa_area" onclick="location.href='http://localhost:8081/jisik/goPlantDetail.do?pl_id=\${res[i].PL_SEQ}';">
+                  html=`<div class="pa_area" onclick="location.href='http://218.157.19.25:8081/jisik/goPlantDetail.do?pl_id=\${res[i].PL_SEQ}';">
                       <img class="pa_area_img" src="\${rootpath}\${res[i].PL_IMG}">
                       <p>\${res[i].PL_NAME}</p>
                       </div>`;

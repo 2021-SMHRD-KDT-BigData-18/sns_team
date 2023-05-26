@@ -25,6 +25,16 @@
   <!-- fullcalendar 언어 CDN -->
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
 
+
+<link rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+   integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+   crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+
     <style>
         @font-face {
             font-family: 'omyu_pretty';
@@ -147,7 +157,10 @@
             /* color:green;  */
             color:rgb(0, 78, 52); 
             background-color: #83ab85;
+            border-color:transparent;
          }
+         .btn-primary{
+         --bs-btn-border-color:transparent;}
         .pro {
             display: flex;
             font-size: 30px;
@@ -183,16 +196,24 @@ if(events.length()==2){
         <div id="leftPage">
             <div class="navbar">
                 <ul class="nav flex-column">
-                    <a class="nav-link active" aria-current="page" href="goMain.do"><img class="img" src="./image/로고새싹누끼.png" width="300"></a>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="goMain.do">홈</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="" href="goSavePost.do">저장게시글 &#x1F4C2;</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="goChatList.do">채팅 &#x1F4AC;</a>
-                    </li>
+                    <ul class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="goMain.do"
+                     style="color: burlywood;"><i class="fa fa-house fa-lg "
+                     style="color: rgba(15, 114, 60, 0.829);"></i>&ensp;홈</a>
+
+               </ul>
+               
+               <ul class="nav-item">
+                  <a class="nav-link" href="goChatList.do" style="color: burlywood;"><i
+                     class="fa-regular fa-comment fa-lg"
+                     style="color: rgba(15, 114, 60, 0.829)"></i>&ensp;채팅</a>
+               </ul>
+               
+               <ul class="nav-item">
+                  <a class="nav-link" href='goSavePost.do' style="color: burlywood;"><i
+                     class="fa-solid fa-folder fa-lg"
+                     style="color: rgba(15, 114, 60, 0.829)"></i>&ensp;저장글</a>
+               </ul>
                 </ul>
             </div>
         </div>
@@ -205,8 +226,9 @@ if(events.length()==2){
                 
                 <div class="plant">
                     <span>식물이름 : <%=dto.getPL_NAME() %></span>
-                    <span>함께한날짜 :<%=dto.getPL_START_DT() %></span>
+                    <span>함께한날짜 :<%=dto.getPL_START_DT().substring(0,11) %></span>
                     <span>식물종류 : <%=dto.getPL_CATE() %></span>
+                    <span>식물소개 : <%=dto.getPL_DESC() %></span>
                 </div>   
             </div>
             <div id='calendar-container'>
@@ -220,6 +242,44 @@ if(events.length()==2){
 
 
         <div id="rightPage">
+        
+        <div style="margin: 30px; position: fixed; max-width: 450px;">
+                <div id="profileCard" class="card" style="width:450px;">
+                <img src="http://218.157.19.25:8081/jisik/P_FILE/${sessionScope.user.getU_PROFILE_IMG()}"
+                  style="height: 250px; whidgh:250px; object-fit:contain;" class="card-img-top" alt="프로필 이미지">
+                    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitSl2gYO3F8iG3oqSV_5AoA_rsnRy_j0QeZc_CGG-f0fXDdUbRGxcm-ue01PB8CKeS2w&usqp=CAU"
+                        style="height:300px; width: 400px; object-fit: none;" class="card-img-top" alt="프로필 이미지"> -->
+                    <div class="card-body">
+                        <h5 class="card-title" style="margin-left: 35%;">${sessionScope.user.getU_ID()} 님 환영합니다🍀</h5>
+						<c:if test="${sessionScope.user.getU_ID() != null}">
+							<a href="logout.do" class="btn btn-primary" style="margin-left: 8%">로그아웃</a>
+						</c:if>
+						<c:if test="${sessionScope.user.getU_ID() == null}">
+							<a href="goLogin.do" class="btn btn-primary" style="margin-left: 8%">로그인</a>
+						</c:if>
+                    </div>
+                </div>
+                <br>
+                <div class="accordion" id="friendList">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="btn_friendList">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false"
+                            aria-controls="flush-collapseOne">
+                            친구목록
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body friends"> 
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        
+        
+        <!-- 
             <div style="margin: 30px; position: fixed; max-width: 450px;">
                 <div id="profileCard" class="card">
                     <img
@@ -250,7 +310,10 @@ if(events.length()==2){
 						</div>
                 </div>
             </div>
-            </div>
+            </div> -->
+            
+            
+            
         </div>
     </div>
     <script type="text/javascript">
